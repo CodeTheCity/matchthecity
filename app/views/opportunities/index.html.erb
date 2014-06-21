@@ -1,0 +1,31 @@
+<h1>Listing opportunities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Activity</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @opportunities.each do |opportunity| %>
+      <tr>
+        <td><%= opportunity.name %></td>
+        <td><%= opportunity.category %></td>
+        <td><%= opportunity.activity.title unless opportunity.activity.nil? %></td>
+        <td><%= opportunity.description %></td>
+        <td><%= link_to 'Show', opportunity %></td>
+        <td><%= link_to 'Edit', edit_opportunity_path(opportunity) %></td>
+        <td><%= link_to 'Destroy', opportunity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Opportunity', new_opportunity_path %>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @opportunity.name %>
+</p>
+
+<p>
+  <strong>category:</strong>
+  <%= @opportunity.category %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @opportunity.activity.title unless @opportunity.activity.nil? %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @opportunity.description %>
+</p>
+
+<p><strong>Skills required:</strong>
+  <ul>
+    <% @opportunity.skills.each do |skill| %>
+      <li><%= skill.title %></li>
+    <% end %>
+  </ul>
+  </p>
+
+<%= link_to 'Edit', edit_opportunity_path(@opportunity) %> |
+<%= link_to 'Back', opportunities_path %>

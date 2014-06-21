@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @candidate.name %>
+</p>
+
+<p><strong>Skills:</strong>
+  <ul>
+    <% @candidate.skills.each do |skill| %>
+      <li><%= skill.title %></li>
+    <% end %>
+  </ul>
+  </p>
+
+<%= link_to 'Edit', edit_candidate_path(@candidate) %> |
+<%= link_to 'Back', candidates_path %>

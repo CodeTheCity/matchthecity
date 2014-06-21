@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MatchTheCity</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= link_to "Candidates (#{Candidate.all.count})", candidates_path %>
+<%= link_to "Opportunities (#{Opportunity.all.count})", opportunities_path %>
+<%= link_to "Skills (#{Skill.all.count})", skills_path %>
+<%= link_to "Activities (#{Activity.all.count})", activities_path %>
+
+<%= yield %>
+
+</body>
+</html>
