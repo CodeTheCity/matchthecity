@@ -9,25 +9,29 @@ namespace :import do
     data_path = File.expand_path("../../../data/aquaticscentreactivities.xml", __FILE__)
     doc = Nokogiri::XML(File.open(data_path))
 
-    doc.xpath('//aquaticsCentreActivities').each do |root|
-      puts "# ROOT found"
-      root.xpath('//activity').each do |activity|
-        activity.children.each do |child|
-          puts  "#{child.name} :: #{child.text}"
-        end
+    activities = []
+    root = doc.root
+    items = root.xpath("activity")
+    items.each do |item|
+      activity = Hash.new
+      #activity['dayofWeek'] = item.at('dayofWeek').text
+      #activity['startTime'] = item.at('startTime').text
+      #activity['endTime'] = item.at('endTime').text
+      description = item.at('description').text
+      description = "Swimming" if description == "Public Swimming"
+      subdescription = item.at('subdescription').text
+      if subdescription == ""
+        subdescription = description
+        description = "Swimming"
       end
+      activity['description'] = description
+      activity['subdescription'] = subdescription
+      #activity['poolLength'] = item.at('poolLength').text
+
+      activities << activity
     end
 
-=begin
-    doc.xpath("//activity").each do |activity_xml|
-      puts activity_xml.xpath("//dayofWeek").content
-      puts activity_xml.xpath("//startTime")
-      puts activity_xml.xpath("//endTime")
-      puts activity_xml.xpath("//description")
-      puts activity_xml.xpath("//descrition")
-      puts activity_xml.xpath("//poolLength")
-    end
-=end
+    puts activities
   end
 
 

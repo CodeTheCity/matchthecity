@@ -1,234 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <aquaticsCentreActivities>
 <activity>
 <dayofWeek>Monday</dayofWeek>
 <startTime>06:30</startTime>
 <endTime>22:30</endTime>
 <description>Public Swimming</description>
-<descrition>Lane Swimming</description>
-<poolLength>50<poolLength>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>50</poolLength>
 </activity>
 <activity>
 <dayofWeek>Monday</dayofWeek>
 <startTime>08:30</startTime>
 <endTime>10:00</endTime>
 <description>Public Swimming</description>
-<descrition>Open</description>
-<poolLength>25<poolLength>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Monday</dayofWeek>
 <startTime>11:00</startTime>
 <endTime>13:00</endTime>
 <description>Public Swimming</description>
-<descrition>Open</description>
-<poolLength>25<poolLength>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Monday</dayofWeek>
 <startTime>14:00</startTime>
 <endTime>15:30</endTime>
 <description>Public Swimming</description>
-<descrition>Open</description>
-<poolLength>25<poolLength>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Monday</dayofWeek>
 <startTime>14:00</startTime>
 <endTime>15:30</endTime>
 <description>Public Swimming</description>
-<descrition>Open</description>
-<poolLength>25<poolLength>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Monday</dayofWeek>
 <startTime>12:00</startTime>
 <endTime>13:00</endTime>
 <description>Aqua Aerobics</description>
-<descrition></description>
-<poolLength><poolLength>
+<subdescription></subdescription>
+<poolLength></poolLength>
 </activity>
 <activity>
 <dayofWeek>Monday</dayofWeek>
 <startTime>18:30</startTime>
 <endTime>20:00</endTime>
 <description>Public Diving - Up to 3m</description>
-<descrition></description>
-<poolLength><poolLength>
+<subdescription></subdescription>
+<poolLength></poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>08:30</startTime>
 <endTime>12:00</endTime>
 <description>Public Swimming</description>
-<descrition>Open</description>
-<poolLength>25<poolLength>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>08:30</startTime>
 <endTime>12:00</endTime>
 <description>Public Swimming</description>
-<descrition>Lane Swimming</description>
-<poolLength>25<poolLength>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>12:00</startTime>
 <endTime>14:00</endTime>
 <description>Public Swimming</description>
-<descrition>Open</description>
-<poolLength>25<poolLength>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>12:00</startTime>
 <endTime>14:00</endTime>
 <description>Public Swimming</description>
-<descrition>Lane Swimming</description>
-<poolLength>25<poolLength>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>14:00</startTime>
 <endTime>15:30</endTime>
 <description>Public Swimming</description>
-<descrition>Open</description>
-<poolLength>25<poolLength>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>14:00</startTime>
 <endTime>15:30</endTime>
 <description>Public Swimming</description>
-<descrition>Lane Swimming</description>
-<poolLength>25<poolLength>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>16:00</startTime>
 <endTime>18:30</endTime>
 <description>Public Swimming</description>
-<descrition>Open</description>
-<poolLength>25<poolLength>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>18:30</startTime>
 <endTime>20:30</endTime>
 <description>Public Swimming</description>
-<descrition>Lane Swimming</description>
-<poolLength>25<poolLength>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>20:30</startTime>
 <endTime>22:30</endTime>
 <description>Public Swimming</description>
-<descrition>Open</description>
-<poolLength>25<poolLength>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>20:30</startTime>
 <endTime>22:30</endTime>
 <description>Public Swimming</description>
-<descrition>Lane Swimming</description>
-<poolLength>25<poolLength>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>06:30</startTime>
 <endTime>09:30</endTime>
 <description>Public Swimming</description>
-<descrition>Lane Swimming</description>
-<poolLength>25<poolLength>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>14:30</startTime>
 <endTime>16:00</endTime>
 <description>Public Swimming</description>
-<descrition>Open</description>
-<poolLength>25<poolLength>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>07:30</startTime>
 <endTime>08:30</endTime>
 <description>Aqua Circuits</description>
-<descrition></description>
-<poolLength><poolLength>
+<subdescription></subdescription>
+<poolLength></poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>19:00</startTime>
 <endTime>20:00</endTime>
 <description>Supervised Diving</description>
-<descrition></description>
-<poolLength><poolLength>
+<subdescription></subdescription>
+<poolLength></poolLength>
 </activity>
 <activity>
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>20:00</startTime>
 <endTime>21:00</endTime>
 <description>Public Diving - Up to 3m</description>
-<descrition></description>
-<poolLength><poolLength>
+<subdescription></subdescription>
+<poolLength></poolLength>
 </activity>
 <activity>
 <dayofWeek>Wednesday</dayofWeek>
-<startTime></startTime>
-<endTime></endTime>
-<description></description>
-<descrition></description>
-<poolLength><poolLength>
+<startTime>06:30</startTime>
+<endTime>22:30</endTime>
+<description>Public Swimming</description>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>50</poolLength>
 </activity>
 <activity>
 <dayofWeek>Wednesday</dayofWeek>
-<startTime></startTime>
-<endTime></endTime>
-<description></description>
-<descrition></description>
-<poolLength><poolLength>
+<startTime>06:30</startTime>
+<endTime>07:30</endTime>
+<description>Supervised Diving</description>
+<subdescription></subdescription>
+<poolLength></poolLength>
 </activity>
 <activity>
 <dayofWeek>Wednesday</dayofWeek>
-<startTime></startTime>
-<endTime></endTime>
-<description></description>
-<descrition></description>
-<poolLength><poolLength>
+<startTime>07:30</startTime>
+<endTime>09:30</endTime>
+<description>Public Swimming</description>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Wednesday</dayofWeek>
-<startTime></startTime>
-<endTime></endTime>
-<description></description>
-<descrition></description>
-<poolLength><poolLength>
+<startTime>10:00</startTime>
+<endTime>11:00</endTime>
+<description>Public Swimming</description>
+<subdescription>Open</subdescription>
+<poolLength>25</poolLength>
 </activity>
 <activity>
 <dayofWeek>Wednesday</dayofWeek>
-<startTime></startTime>
-<endTime></endTime>
-<description></description>
-<descrition></description>
-<poolLength><poolLength>
+<startTime>11:00</startTime>
+<endTime>12:00</endTime>
+<description>Evergreen's Swimming</description>
+<subdescription></subdescription>
+<poolLength></poolLength>
 </activity>
 <activity>
 <dayofWeek>Wednesday</dayofWeek>
-<startTime></startTime>
-<endTime></endTime>
-<description></description>
-<descrition></description>
-<poolLength><poolLength>
+<startTime>12:00</startTime>
+<endTime>13:00</endTime>
+<description>Aqua Aerobics</description>
+<subdescription></subdescription>
+<poolLength></poolLength>
 </activity>
 <activity>
 <dayofWeek>Wednesday</dayofWeek>
-<startTime></startTime>
-<endTime></endTime>
-<description></description>
-<descrition></description>
-<poolLength><poolLength>
+<startTime>12:00</startTime>
+<endTime>13:00</endTime>
+<description>Public Swimming</description>
+<subdescription></subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>06:30</startTime>
+<endTime>09:30</endTime>
+<description>Public Swimming</description>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>08:30</startTime>
+<endTime>11:30</endTime>
+<description>Public Swimming</description>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>08:30</startTime>
+<endTime>11:30</endTime>
+<description>Public Swimming</description>
+<subdescription>Open Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>11:30</startTime>
+<endTime>14:00</endTime>
+<description>Public Swimming</description>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>11:30</startTime>
+<endTime>14:00</endTime>
+<description>Public Swimming</description>
+<subdescription>Open Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>14:00</startTime>
+<endTime>15:30</endTime>
+<description>Public Swimming</description>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>14:00</startTime>
+<endTime>15:30</endTime>
+<description>Public Swimming</description>
+<subdescription>Open Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>14:00</startTime>
+<endTime>16:30</endTime>
+<description>Public Swimming</description>
+<subdescription>Open Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>16:00</startTime>
+<endTime>19:30</endTime>
+<description>Public Swimming</description>
+<subdescription>Open Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>18:30</startTime>
+<endTime>22:30</endTime>
+<description>Public Swimming</description>
+<subdescription>Lane Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>12:00</startTime>
+<endTime>13:00</endTime>
+<description>Public Swimming</description>
+<subdescription>Open Swimming</subdescription>
+<poolLength>25</poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>18:30</startTime>
+<endTime>19:30</endTime>
+<description>Supervised Diving</description>
+<subdescription></subdescription>
+<poolLength></poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>13:00</startTime>
+<endTime>14:00</endTime>
+<description>Public Diving - Up to 3m</description>
+<subdescription></subdescription>
+<poolLength></poolLength>
+</activity>
+<activity>
+<dayofWeek>Thursday</dayofWeek>
+<startTime>12:00</startTime>
+<endTime>13:00</endTime>
+<description>Evergreen's Aqua Fun</description>
+<subdescription></subdescription>
+<poolLength></poolLength>
 </activity>
 </aquaticsCentreActivities>
