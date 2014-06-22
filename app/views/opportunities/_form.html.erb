@@ -27,7 +27,10 @@
   <%= f.collection_select :skill_ids, Skill.all, :id, :title, {},
     {:multiple => true} %>
 
-<%= f.collection_select :activity_id, Activity.all, :id, :title, {},
+  <%= f.collection_select :activity_id, Activity.all, :id, :title, {},
+    {:multiple => false} %>
+
+  <%= f.collection_select :sub_activity_id, SubActivity.order(:title).all, :id, :title, {},
     {:multiple => false} %>
 
 

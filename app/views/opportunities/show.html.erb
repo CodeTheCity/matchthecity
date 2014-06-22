@@ -12,9 +12,13 @@
 
 <p>
   <strong>Activity:</strong>
-  <%= @opportunity.activity.title unless @opportunity.activity.nil? %>
+  <%= @opportunity.activity.try :title %>
 </p>
 
+<p>
+  <strong>Sub Activity:</strong>
+  <%= @opportunity.sub_activity.try :title %>
+</p>
 <p>
   <strong>Description:</strong>
   <%= @opportunity.description %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140622082837) do
+ActiveRecord::Schema.define(version: 20140622095057) do
 
   create_table "activities", force: true do |t|
     t.string   "title"
@@ -40,7 +40,10 @@ ActiveRecord::Schema.define(version: 20140622082837) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "activity_id"
+    t.integer  "sub_activity_id"
   end
+
+  add_index "opportunities", ["sub_activity_id"], name: "index_opportunities_on_sub_activity_id", using: :btree
 
   create_table "opportunities_skills", id: false, force: true do |t|
     t.integer "opportunity_id"
