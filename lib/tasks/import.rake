@@ -3,6 +3,33 @@ namespace :import do
 
   require 'csv'
 
+
+  desc "Import Venues"
+  task :venues => :environment do
+    started_at = Time.now
+
+    puts "Importing Venues starting at #{started_at}"
+    data_path = File.expand_path("../../../data/venues.json", __FILE__)
+    json = JSON.parse(IO.read(data_path))
+
+    json.each do |venue_json|
+      venue_json['name']
+      venue = Venue.find_by_name(venue_json['name'])
+      if venue.nil?
+        venue = Venue.new(:name => venue_json['name'])
+      end
+
+      venue.address = venue_json['address']
+      venue.postcode = venue_json['postcode']
+      venue.latitude = venue_json['lat']
+      venue.longitude = venue_json['long']
+      venue.save
+    end
+
+
+
+  end
+
   desc "Import Aberdeen Sports Village Activities"
   task :asv_sport_activities => :environment do
     started_at = Time.now

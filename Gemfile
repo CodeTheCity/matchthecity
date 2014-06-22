@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 
 gem 'nokogiri'
 gem 'pg'
+require 'json'
 
 group :development do
   gem 'guard-bundler'
