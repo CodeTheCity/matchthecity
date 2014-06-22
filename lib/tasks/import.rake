@@ -54,7 +54,10 @@ namespace :import do
         :sub_activity => existing_sub_activity,
         :venue => venue,
         :room => room,
-        :description => "#{description} #{day_of_week} #{start_time} - #{end_time}")
+        :description => "#{description}",
+        :day_of_week => day_of_week,
+        :start_time => start_time,
+        :end_time => end_time)
       opportunity.save
     end
 
@@ -89,7 +92,7 @@ namespace :import do
 
       existing_activity = Activity.find_by_title(description)
       if existing_activity.nil?
-        existing_activity = Activity.new(:title => title, :category => 'sport')
+        existing_activity = Activity.new(:title => description, :category => 'sport')
         existing_activity.save
       end
 
@@ -110,7 +113,10 @@ namespace :import do
         :activity => existing_activity,
         :sub_activity => existing_sub_activity,
         :venue => venue,
-        :description => "#{activity['dayofWeek']} #{activity['startTime']} - #{activity['endTime']}")
+        :description => "",
+        :day_of_week => activity['dayofWeek'],
+        :start_time => activity['startTime'],
+        :end_time => activity['endTime'])
       opportunity.save
 
 
