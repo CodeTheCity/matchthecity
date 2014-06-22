@@ -22,7 +22,7 @@
 
 <p>
   <strong>Venue:</strong>
-  <%= @opportunity.venue.try :name %>
+  <%= link_to @opportunity.venue.name, @opportunity.venue %>
 </p>
 
 <p>

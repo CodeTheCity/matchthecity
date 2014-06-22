@@ -30,6 +30,80 @@ namespace :import do
 
   end
 
+
+  desc "Import Aberdeen Sports Events"
+  task :sport_events => :environment do
+    started_at = Time.now
+
+    data_path = File.expand_path("../../../data/sport_events.json", __FILE__)
+    json = JSON.parse(IO.read(data_path))
+
+
+=begin
+{
+    "name": "Public  Lane Session (2 lanes)",
+    "activity": "Swimming",
+    "venue": "Bucksburn Swimming Pool",
+    "day": "Monday",
+    "start": "07:00",
+    "end": "09:00",
+    "description": "Laned Swimming Session.",
+    "time_of_year": "Term Time Only",
+    "age": "",
+    "age_group": "ALL"
+  }
+=end
+    count = 0
+    failed = 0
+
+    json.each do |event_json|
+      count = count + 1
+
+      activity = event_json['activity']
+      day_of_week = event_json['day']
+      start_time = event_json['start']
+      end_time = event_json['end']
+      title = event_json['name']
+      room = ''
+      description = event_json['description']
+      venue_name = event_json['venue']
+
+      existing_activity = Activity.find_by_title(activity)
+      if existing_activity.nil?
+        existing_activity = Activity.new(:title => activity, :category => 'sport')
+        existing_activity.save
+      end
+
+      existing_sub_activity = SubActivity.find_by_title(title)
+      if existing_sub_activity.nil?
+        existing_sub_activity = SubActivity.new(:title => title, :activity => existing_activity)
+        existing_sub_activity.save
+      end
+
+      venue = Venue.find_by_name(venue_name)
+      if venue.nil?
+        venue = Venue.new(:name => venue_name)
+        venue.save
+      end
+
+      opportunity = Opportunity.new(:name => "#{title}",
+        :category => 'Event',
+        :activity => existing_activity,
+        :sub_activity => existing_sub_activity,
+        :venue => venue,
+        :room => room,
+        :description => "#{description}",
+        :day_of_week => day_of_week,
+        :start_time => start_time,
+        :end_time => end_time)
+      opportunity.save
+    end
+
+    completed_at = Time.now
+    puts "Import started #{started_at} completed at #{completed_at}"
+    puts "#{failed} out of #{total} failed to import"
+  end
+
   desc "Import Aberdeen Sports Village Activities"
   task :asv_sport_activities => :environment do
     started_at = Time.now

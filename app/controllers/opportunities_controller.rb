@@ -4,7 +4,14 @@ class OpportunitiesController < ApplicationController
   # GET /opportunities
   # GET /opportunities.json
   def index
-    @opportunities = Opportunity.all
+    sub_activity = SubActivity.find_by_id(params[:sub_activity])
+
+    if sub_activity
+      @opportunities = Opportunity.where(:sub_activity => sub_activity)
+    else
+      @opportunities = Opportunity.all
+    end
+
   end
 
   # GET /opportunities/1

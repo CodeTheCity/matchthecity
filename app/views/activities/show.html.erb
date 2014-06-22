@@ -14,7 +14,7 @@
   <strong>Sub Activities</strong>
   <ul>
     <% @activity.sub_activities.order(:title).each do |sub_activity| %>
-      <li><%= sub_activity.title %></li>
+      <li><%= sub_activity.title %> (<%= sub_activity.opportunities.count %>) [<%= link_to 'Events', opportunities_path(:sub_activity => sub_activity) %>) </li>
     <% end %>
   </ul>
 

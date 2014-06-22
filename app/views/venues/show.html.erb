@@ -3,21 +3,22 @@
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="https://rawgithub.com/kartena/Proj4Leaflet/master/lib/proj4-compressed.js"></script><!-- proj4js -->
 <script src="https://rawgithub.com/kartena/Proj4Leaflet/master/src/proj4leaflet.js"></script><!-- proj4leaflet -->
-<script src="https://rawgithub.com/rob-murray/os-leaflet/osopenspace.js"></script><!-- OS OpenSpace layer -->
+<script src="https://raw.githubusercontent.com/rob-murray/os-leaflet/master/src/osopenspace.js"></script><!-- OS OpenSpace layer -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script type="text/javascript">
 	// call this after page load
-	var makeMap = function(divID) {
+	var makeMap = function() {
 		"use strict"
 
-		var map = new L.Map(divID, {
+		var map = new L.Map('map_view', {
 	        crs: L.OSOpenSpace.getCRS(),
 	        continuousWorld: true,
 	        worldCopyJump: false,
 	        minZoom: 0,
-	        maxZoom: L.OSOpenSpace.RESOLUTIONS.length - 1
-		
-		var openspaceLayer = L.tileLayer.osopenspace("FB2A490267521980E0430B6CA40A8729", {debug: false}); 
+	        maxZoom: L.OSOpenSpace.RESOLUTIONS.length - 1});
+
+		var openspaceLayer = L.tileLayer.osopenspace("FB2A490267521980E0430B6CA40A8729", {debug: false});
 
 		map.addLayer(openspaceLayer);
 
@@ -28,11 +29,15 @@
 
 		var marker = L.marker(venueLocation).addTo(map);
 
+    var popup = L.popup()
+    .setLatLng(venueLocation)
+    .setContent("<%= @venue.name %>")
+    .openOn(map);
+
 		map.setView( venueLocation, 6 );
 	}
 
-	document.addEventListener('DOMContentLoaded', makeMap('map_view'));
-
+  $(document).ready(makeMap);
 </script>
 
 <p id="notice"><%= notice %></p>
@@ -63,7 +68,7 @@
 </p>
 
 <p>
-  <div id="map_view"></div>
+  <div id="map_view" style="width:400px;height:400px;"></div>
 </p>
 
 <%= link_to 'Edit', edit_venue_path(@venue) %> |

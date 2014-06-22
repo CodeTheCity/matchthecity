@@ -1,5 +1,5 @@
 [
- { 
+ {
   "name": "Aberdeen Sports Village",
   "address": "Linksfield Road, Aberdeen",
   "postcode": "AB24 5RU",
@@ -9,7 +9,7 @@
   "tel": "01224 438900",
   "web": "http://www.aberdeensportsvillage.com/"
   },
- { 
+ {
   "name": "Aberdeen Aquatics Centre",
   "address": "Linksfield Road, Aberdeen",
   "postcode": "AB24 5RU",
@@ -19,8 +19,8 @@
   "tel": "01224 438900",
   "web": "http://www.aberdeensportsvillage.com/aquatics-centre"
   },
- { 
-  "name": "Tullos Pool",
+ {
+  "name": "Tullos Swimming Pool",
   "address": "Girdleness Road, Torry, Aberdeen",
   "postcode": "AB11 8FJ",
   "lat": "57.133519",
@@ -29,7 +29,7 @@
   "tel": "01224 291891",
   "web": "http://www.sportaberdeen.co.uk/tullos"
   },
- { 
+ {
   "name": "Northfield Swimming Pool",
   "address": "Kettlehills Crescent, Aberdeen",
   "postcode": "AB16 5TL",
@@ -39,7 +39,7 @@
   "tel": "01224 680307",
   "web": "http://www.sportaberdeen.co.uk/northfield"
   },
- { 
+ {
   "name": "Kincorth Swimming Pool",
   "address": "Cairngorm Drive, Aberdeen",
   "postcode": "AB12 5PQ",
@@ -49,7 +49,7 @@
   "tel": "01224 859795",
   "web": "http://www.sportaberdeen.co.uk/kincorth-sp"
   },
- { 
+ {
   "name": "Hazlehead Swimming Pool",
   "address": "Groats Road, Aberdeen",
   "postcode": "AB15 8BE",
@@ -59,7 +59,7 @@
   "tel": "01224 310062 ",
   "web": "http://www.sportaberdeen.co.uk/hazlehead-sp"
   },
- { 
+ {
   "name": "Bucksburn Swimming Pool",
   "address": "Kepplehills Road, Bucksburn,Aberdeen",
   "postcode": "AB21 9DG",
@@ -69,7 +69,7 @@
   "tel": "01224 716479",
   "web": "http://www.sportaberdeen.co.uk/bucksburn"
   },
- { 
+ {
   "name": "Bridge Of Don Swimming Pool",
   "address": "Braehead Way,Bridge Of Don,Aberdeen",
   "postcode": "AB22 8RR",
@@ -79,7 +79,7 @@
   "tel": "01224 701136 ",
   "web": "http://www.sportaberdeen.co.uk/bridge-of-don"
   },
- { 
+ {
   "name": "Beach Leisure Centre",
   "address": "Sea Beach, Aberdeen",
   "postcode": "",
@@ -89,7 +89,7 @@
   "tel": "01224 655401",
   "web": "http://www.sportaberdeen.co.uk/beach-leisure-centre-1"
   },
- { 
+ {
   "name": "Kings Links Golf Course",
   "address": "Golf Road, Aberdeen",
   "postcode": "AB24 5QB",
@@ -99,7 +99,7 @@
   "tel": "01224 632269",
   "web": "http://www.sportaberdeen.co.uk/kings-links"
   },
- { 
+ {
   "name": "Balnagask Golf Course",
   "address": "St. Fitticks Road, Aberdeen",
   "postcode": "AB11 8TN",
@@ -109,7 +109,7 @@
   "tel": "01224 876407",
   "web": "http://www.sportaberdeen.co.uk/balnagask"
   },
-  { 
+  {
   "name": "Alex Collie Sports Centre",
   "address": "Cardens Knowe, Bridge of Don, Aberdeen",
   "postcode": "AB22 8PE",
@@ -119,7 +119,7 @@
   "tel": "01224826769",
   "web": "http://www.sportaberdeen.co.uk/alex-collie"
   },
-  { 
+  {
   "name": "Beach Leisure Centre",
   "address": "Sea Beach",
   "postcode": "",
@@ -129,7 +129,7 @@
   "tel": "01224655401",
   "web": "http://www.sportaberdeen.co.uk/beach-leisure-centre"
   },
-  { 
+  {
   "name": "Beacon Centre",
   "address": "Bucksburn Community Campus, Kepplehills Road, Bucksburn, Aberdeen",
   "postcode": "AB21 5DG",
@@ -139,7 +139,7 @@
   "tel": "01224710840",
   "web": "http://www.sportaberdeen.co.uk/beacon-centre"
   },
-  { 
+  {
   "name": "Cults Sports Complex",
   "address": "Cults Academy Community Wing, Quarry Road, Aberdeen",
   "postcode": "AB15 9TP",
@@ -149,7 +149,7 @@
   "tel": "01224866282",
   "web": "http://www.sportaberdeen.co.uk/cults"
   },
-  { 
+  {
   "name": "Linx Ice Arena",
   "address": "Beach Promenade, Aberdeen",
   "postcode": "AB24 5NR",
@@ -159,7 +159,7 @@
   "tel": "01224655406",
   "web": "http://www.sportaberdeen.co.uk/linx-ice-arena"
   },
-  { 
+  {
   "name": "Peterculter Sports Centre",
   "address": "Coronation Road, Peterculter, Aberdeen",
   "postcode": "AB14 0RQ",
@@ -169,7 +169,7 @@
   "tel": "01224732069",
   "web": "http://www.sportaberdeen.co.uk/peterculter"
   },
-  { 
+  {
   "name": "Sheddocksley Sports Centre",
   "address": "Springhill Road, Mastrick, Aberdeen",
   "postcode": "AB16 6QJ",
@@ -179,7 +179,7 @@
   "tel": "01224692534",
   "web": "http://www.sportaberdeen.co.uk/sheddocksley"
   },
-  { 
+  {
   "name": "Torry Youth & Leisure Centre",
   "address": "Oscar Roadm, Torry, Aberdeen",
   "postcode": "AB11 8ER",
@@ -189,7 +189,7 @@
   "tel": "01224871213",
   "web": "http://www.sportaberdeen.co.uk/torry"
   },
-  { 
+  {
   "name": "Westburn Tennis Centre",
   "address": "Westburn Park Road, Aberdeen",
   "postcode": "AB25 3DE",
