@@ -39,6 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'nokogiri'
+gem 'pg'
 
 group :development do
   gem 'guard-bundler'
