@@ -7,6 +7,7 @@
       <th>Category</th>
       <th>Activity</th>
       <th>Sub Activity</th>
+      <th>Venue</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
@@ -19,6 +20,7 @@
         <td><%= opportunity.category %></td>
         <td><%= opportunity.activity.try :title %></td>
         <td><%= opportunity.sub_activity.try :title %></td>
+        <td><%= opportunity.venue.try :name %></td>
         <td><%= opportunity.description %></td>
         <td><%= link_to 'Show', opportunity %></td>
         <td><%= link_to 'Edit', edit_opportunity_path(opportunity) %></td>

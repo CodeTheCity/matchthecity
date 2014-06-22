@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140622095057) do
+ActiveRecord::Schema.define(version: 20140622102942) do
 
   create_table "activities", force: true do |t|
     t.string   "title"
@@ -41,9 +41,11 @@ ActiveRecord::Schema.define(version: 20140622095057) do
     t.datetime "updated_at"
     t.integer  "activity_id"
     t.integer  "sub_activity_id"
+    t.integer  "venue_id"
   end
 
   add_index "opportunities", ["sub_activity_id"], name: "index_opportunities_on_sub_activity_id", using: :btree
+  add_index "opportunities", ["venue_id"], name: "index_opportunities_on_venue_id", using: :btree
 
   create_table "opportunities_skills", id: false, force: true do |t|
     t.integer "opportunity_id"
@@ -66,5 +68,15 @@ ActiveRecord::Schema.define(version: 20140622095057) do
   end
 
   add_index "sub_activities", ["activity_id"], name: "index_sub_activities_on_activity_id", using: :btree
+
+  create_table "venues", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "postcode"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

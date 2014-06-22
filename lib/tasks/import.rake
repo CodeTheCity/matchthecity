@@ -9,14 +9,13 @@ namespace :import do
     data_path = File.expand_path("../../../data/aquaticscentreactivities.xml", __FILE__)
     doc = Nokogiri::XML(File.open(data_path))
 
-    activities = []
     root = doc.root
     items = root.xpath("activity")
     items.each do |item|
       activity = Hash.new
-      #activity['dayofWeek'] = item.at('dayofWeek').text
-      #activity['startTime'] = item.at('startTime').text
-      #activity['endTime'] = item.at('endTime').text
+      activity['dayofWeek'] = item.at('dayofWeek').text
+      activity['startTime'] = item.at('startTime').text
+      activity['endTime'] = item.at('endTime').text
       description = item.at('description').text
       description = "Swimming" if description == "Public Swimming"
       subdescription = item.at('subdescription').text
@@ -39,10 +38,23 @@ namespace :import do
         existing_sub_activity = SubActivity.new(:title => subdescription, :activity => existing_activity)
         existing_sub_activity.save
       end
-      activities << activity
-    end
 
-    puts activities
+      venue = Venue.find_by_name('Aberdeen Aquatics Centre')
+      if venue.nil?
+        venue = Venue.new(:name => 'Aberdeen Aquatics Centre')
+        venue.save
+      end
+
+      opportunity = Opportunity.new(:name => "#{description} - #{subdescription}",
+        :category => 'Event',
+        :activity => existing_activity,
+        :sub_activity => existing_sub_activity,
+        :venue => venue,
+        :description => "#{activity['dayofWeek']} #{activity['startTime']} - #{activity['endTime']}")
+      opportunity.save
+
+
+    end
   end
 
 

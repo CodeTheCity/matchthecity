@@ -19,6 +19,12 @@
   <strong>Sub Activity:</strong>
   <%= @opportunity.sub_activity.try :title %>
 </p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @opportunity.venue.try :name %>
+</p>
+
 <p>
   <strong>Description:</strong>
   <%= @opportunity.description %>
