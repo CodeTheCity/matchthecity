@@ -1,0 +1,27 @@
+<h1>Listing sub_activities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sub_activities.each do |sub_activity| %>
+      <tr>
+        <td><%= sub_activity.activity.try :title %></td>
+        <td><%= sub_activity.title %></td>
+        <td><%= link_to 'Show', sub_activity %></td>
+        <td><%= link_to 'Edit', edit_sub_activity_path(sub_activity) %></td>
+        <td><%= link_to 'Destroy', sub_activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sub activity', new_sub_activity_path %>

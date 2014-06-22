@@ -5,6 +5,7 @@
     <tr>
       <th>Category</th>
       <th>Title</th>
+      <th>Sub activities</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= activity.category %></td>
         <td><%= activity.title %></td>
+        <td><%= activity.sub_activities.count %></td>
         <td><%= link_to 'Show', activity %></td>
         <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
         <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -28,6 +28,17 @@ namespace :import do
       activity['subdescription'] = subdescription
       #activity['poolLength'] = item.at('poolLength').text
 
+      existing_activity = Activity.find_by_title(description)
+      if existing_activity.nil?
+        existing_activity = Activity.new(:title => title, :category => 'sport')
+        existing_activity.save
+      end
+
+      existing_sub_activity = SubActivity.find_by_title(subdescription)
+      if existing_sub_activity.nil?
+        existing_sub_activity = SubActivity.new(:title => subdescription, :activity => existing_activity)
+        existing_sub_activity.save
+      end
       activities << activity
     end
 

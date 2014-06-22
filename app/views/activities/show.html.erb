@@ -10,5 +10,13 @@
   <%= @activity.category %>
 </p>
 
+<p>
+  <strong>Sub Activities</strong>
+  <ul>
+    <% @activity.sub_activities.order(:title).each do |sub_activity| %>
+      <li><%= sub_activity.title %></li>
+    <% end %>
+  </ul>
+
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
 <%= link_to 'Back', activities_path %>

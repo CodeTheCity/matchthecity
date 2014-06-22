@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sub_activities
+
   resources :activities
 
   get 'welcome/index'
