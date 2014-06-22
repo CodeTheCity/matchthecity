@@ -1,6 +1,6 @@
-<h1>Listing venues</h1>
+<h1>Venues</h1>
 
-<table>
+<table class='table-striped table sortable'>
   <thead>
     <tr>
       <th>Name</th>
@@ -22,7 +22,6 @@
         <td><%= venue.longitude %></td>
         <td><%= link_to 'Show', venue %></td>
         <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
-        <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

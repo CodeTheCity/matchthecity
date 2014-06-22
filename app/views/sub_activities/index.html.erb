@@ -1,6 +1,6 @@
-<h1>Listing sub_activities</h1>
+<h1>Sub Activities</h1>
 
-<table>
+<table class='table-striped table sortable'>
   <thead>
     <tr>
       <th>Activity</th>
@@ -16,7 +16,6 @@
         <td><%= sub_activity.title %></td>
         <td><%= link_to 'Show', sub_activity %></td>
         <td><%= link_to 'Edit', edit_sub_activity_path(sub_activity) %></td>
-        <td><%= link_to 'Destroy', sub_activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

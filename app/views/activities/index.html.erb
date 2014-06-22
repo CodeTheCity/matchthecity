@@ -1,6 +1,8 @@
-<h1>Listing activities</h1>
+<h1>Activities</h1>
 
-<table>
+<p>Select the activity to find the various activities within the group.</p>
+
+<table class='table-striped table sortable'>
   <thead>
     <tr>
       <th>Category</th>
@@ -18,7 +20,6 @@
         <td><%= activity.sub_activities.count %></td>
         <td><%= link_to 'Show', activity %></td>
         <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

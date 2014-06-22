@@ -1,6 +1,6 @@
-<h1>Listing candidates</h1>
+<h1>Candidates</h1>
 
-<table>
+<table class='table-striped table sortable'>
   <thead>
     <tr>
       <th>Name</th>
@@ -14,7 +14,6 @@
         <td><%= candidate.name %></td>
         <td><%= link_to 'Show', candidate %></td>
         <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
-        <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -5,17 +5,33 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!--Base Style-->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!--Table formatting with Bootstrap-->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+  <!--Sortable Tables -->
+  <script src="sorttable.js"></script>
 </head>
 <body>
 
-<%= link_to "Candidates (#{Candidate.all.count})", candidates_path %>
-<%= link_to "Opportunities (#{Opportunity.all.count})", opportunities_path %>
-<%= link_to "Skills (#{Skill.all.count})", skills_path %>
-<%= link_to "Activities (#{Activity.all.count})", activities_path %>
-<%= link_to "Sub Activities (#{SubActivity.all.count})", sub_activities_path %>
-<%= link_to "Venues (#{Venue.all.count})", venues_path %>
+<div id="wrapper">
+  <div id="header">
+    <div id="main_nav">
+      <%= link_to "Home", welcome_index_path %>
+      <%= link_to "Opportunities (#{Opportunity.all.count})", opportunities_path %>
+      <%= link_to "Activities (#{Activity.all.count})", activities_path %>
+      <%= link_to "Sub Activities (#{SubActivity.all.count})", sub_activities_path %>
+      <%= link_to "Venues (#{Venue.all.count})", venues_path %>
 
-<%= yield %>
+      <%= link_to "Skills (#{Skill.all.count})", skills_path %>
+      <%= link_to "Candidates (#{Candidate.all.count})", candidates_path %>
+
+    </div>
+  </div>
+  <%= yield %>
+</div>
 
 </body>
 </html>
