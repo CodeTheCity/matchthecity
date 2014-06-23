@@ -1,5 +1,6 @@
 class SubActivitiesController < ApplicationController
   before_action :set_sub_activity, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
 
   # GET /sub_activities
   # GET /sub_activities.json

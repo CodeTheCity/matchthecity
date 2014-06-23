@@ -13,7 +13,7 @@
 <startTime>08:30</startTime>
 <endTime>10:00</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -21,7 +21,7 @@
 <startTime>11:00</startTime>
 <endTime>13:00</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -29,7 +29,7 @@
 <startTime>14:00</startTime>
 <endTime>15:30</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -37,7 +37,7 @@
 <startTime>14:00</startTime>
 <endTime>15:30</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -52,7 +52,7 @@
 <dayofWeek>Monday</dayofWeek>
 <startTime>18:30</startTime>
 <endTime>20:00</endTime>
-<description>Public Diving - Up to 3m</description>
+<description>Public Diving - Up To 3m</description>
 <subdescription></subdescription>
 <poolLength></poolLength>
 </activity>
@@ -61,7 +61,7 @@
 <startTime>08:30</startTime>
 <endTime>12:00</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -77,7 +77,7 @@
 <startTime>12:00</startTime>
 <endTime>14:00</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -93,7 +93,7 @@
 <startTime>14:00</startTime>
 <endTime>15:30</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -109,7 +109,7 @@
 <startTime>16:00</startTime>
 <endTime>18:30</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -125,7 +125,7 @@
 <startTime>20:30</startTime>
 <endTime>22:30</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -149,7 +149,7 @@
 <startTime>14:30</startTime>
 <endTime>16:00</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -172,7 +172,7 @@
 <dayofWeek>Tuesday</dayofWeek>
 <startTime>20:00</startTime>
 <endTime>21:00</endTime>
-<description>Public Diving - Up to 3m</description>
+<description>Public Diving - Up To 3m</description>
 <subdescription></subdescription>
 <poolLength></poolLength>
 </activity>
@@ -197,7 +197,7 @@
 <startTime>07:30</startTime>
 <endTime>09:30</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -205,7 +205,7 @@
 <startTime>10:00</startTime>
 <endTime>11:00</endTime>
 <description>Public Swimming</description>
-<subdescription>Open</subdescription>
+<subdescription>Open Swimming</subdescription>
 <poolLength>25</poolLength>
 </activity>
 <activity>
@@ -332,7 +332,7 @@
 <dayofWeek>Thursday</dayofWeek>
 <startTime>13:00</startTime>
 <endTime>14:00</endTime>
-<description>Public Diving - Up to 3m</description>
+<description>Public Diving - Up To 3m</description>
 <subdescription></subdescription>
 <poolLength></poolLength>
 </activity>
@@ -484,7 +484,7 @@
 <dayofWeek>Saturday</dayofWeek>
 <startTime>17:30</startTime>
 <endTime>18:30</endTime>
-<description>Public Diving - Up to 3m</description>
+<description>Public Diving - Up To 3m</description>
 <subdescription></subdescription>
 <poolLength></poolLength>
 </activity>
@@ -532,7 +532,7 @@
 <dayofWeek>Sunday</dayofWeek>
 <startTime>16:30</startTime>
 <endTime>19:30</endTime>
-<description>Public Diving - Up to 3m</description>
+<description>Public Diving - Up To 3m</description>
 <subdescription></subdescription>
 <poolLength></poolLength>
 </activity>

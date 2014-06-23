@@ -1,5 +1,6 @@
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
 
   # GET /opportunities
   # GET /opportunities.json

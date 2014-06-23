@@ -1,5 +1,6 @@
 class CandidatesController < ApplicationController
   before_action :set_candidate, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
 
   # GET /candidates
   # GET /candidates.json

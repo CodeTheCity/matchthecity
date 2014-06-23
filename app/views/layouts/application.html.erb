@@ -5,11 +5,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <!--Base Style-->
-  <link rel="stylesheet" type="text/css" href="style.css">
-
-  <!--Table formatting with Bootstrap-->
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
   <!--Sortable Tables -->
   <script src="sorttable.js"></script>
@@ -26,10 +21,11 @@
       <%= link_to "Venues (#{Venue.all.count})", venues_path %>
 
       <%= link_to "Skills (#{Skill.all.count})", skills_path %>
-      <%= link_to "Candidates (#{Candidate.all.count})", candidates_path %>
-
     </div>
   </div>
+
+  <%= render 'layouts/messages' %>
+
   <%= yield %>
 </div>
 

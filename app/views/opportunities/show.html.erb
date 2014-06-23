@@ -50,13 +50,18 @@
   <%= @opportunity.description %>
 </p>
 
-<p><strong>Skills required:</strong>
-  <ul>
-    <% @opportunity.skills.each do |skill| %>
-      <li><%= skill.title %></li>
-    <% end %>
-  </ul>
-  </p>
+<% unless @opportunity.skills.count == 0 %>
+  <p><strong>Skills required:</strong>
+    <ul>
+      <% @opportunity.skills.each do |skill| %>
+        <li><%= skill.title %></li>
+      <% end %>
+    </ul>
+    </p>
+  <% end %>
 
-<%= link_to 'Edit', edit_opportunity_path(@opportunity) %> |
+<p>
+  <strong>Last Updated:</strong>
+  <%= I18n.localize(@opportunity.updated_at) %>
+</p>
 <%= link_to 'Back', opportunities_path %>
