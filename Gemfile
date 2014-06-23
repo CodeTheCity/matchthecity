@@ -43,6 +43,8 @@ gem 'pg'
 gem 'json'
 gem 'bootstrap-sass'
 
+gem 'rails_12factor', group: :production
+
 
 group :development do
   gem 'guard-bundler'
