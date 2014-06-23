@@ -3,6 +3,18 @@ namespace :import do
 
   require 'csv'
 
+  desc "Rebuild Data"
+  task :rebuild_all => [:drop_data, :venues, :sport_activities, :asv_sport_activities, :sport_events, :aquatics, :skills]
+
+  desc "Drop data"
+  task :drop_data => :environment do
+    puts "Dropping all existing data"
+    Opportunity.destroy_all
+    Venue.destroy_all
+    SubActivity.destroy_all
+    Activity.destroy_all
+    Skill.destroy_all
+  end
 
   desc "Import Venues"
   task :venues => :environment do
@@ -55,6 +67,7 @@ namespace :import do
 =end
     count = 0
     failed = 0
+    total = json.count
 
     json.each do |event_json|
       count = count + 1
