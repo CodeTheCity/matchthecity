@@ -35,6 +35,9 @@ namespace :import do
       venue.postcode = venue_json['postcode']
       venue.latitude = venue_json['lat']
       venue.longitude = venue_json['long']
+      venue.telephone = venue_json['tel']
+      venue.email = venue_json['email']
+      venue.web = venue_json['web']
       venue.save
     end
 
