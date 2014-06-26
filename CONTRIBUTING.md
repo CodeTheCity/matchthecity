@@ -25,6 +25,6 @@ If you're having a problem, please see [ISSUES](https://github.com/CodeTheCity/m
 
 Head on over to the [ISSUES](https://github.com/CodeTheCity/matchthecity/blob/master/ISSUES.md). Pull requests welcome!
 
-# Discussing Bundler
+# Discussing MatchTheCity
 
 Feel free to contact the MatchTheCity core team via Twitter [@MatchTheCity](https://twitter.com/matchthecity)
