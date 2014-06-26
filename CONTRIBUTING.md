@@ -5,7 +5,7 @@ MatchTheCity welcomes contributions from *everyone*.
 If you'd like to help make MatchTheCity better, we would really appreciated it. Here are some ways you can contribute:
 
   - by [reporting bugs you encounter](https://github.com/CodeTheCity/matchthecity/issues/new)
-  - by [suggesting new features](https://github.com/bundler/CodeTheCity/matchthecity/issues/new)
+  - by [suggesting new features](https://github.com/CodeTheCity/matchthecity/issues/new)
   - by adding to or editing the MatchTheCity documentation
   - by closing issues that are not complete
   - by adding a failing test for reproducible [reported bugs](https://github.com/CodeTheCity/matchthecity/issues)
