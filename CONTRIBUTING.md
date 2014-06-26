@@ -11,7 +11,7 @@ If you'd like to help make MatchTheCity better, we would really appreciated it. 
   - by adding a failing test for reproducible [reported bugs](https://github.com/CodeTheCity/matchthecity/issues)
   - by reviewing [pull requests](https://github.com/CodeTheCity/matchthecity/pulls) and suggesting improvements
   - by improving existing code
-  - by [writing code](https://github.com/bundler/bundler/blob/master/DEVELOPMENT.md) (no patch is too small! fix typos or bad whitespace)
+  - by [writing code](https://github.com/CodeTheCity/matchthecity/blob/master/DEVELOPMENT.md) (no patch is too small! fix typos or bad whitespace)
 
 If you need help getting started, check out the [DEVELOPMENT](https://github.com/CodeTheCity/matchthecity/blob/master/DEVELOPMENT.md) file for steps that will get you up and running.
 
