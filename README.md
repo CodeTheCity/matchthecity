@@ -38,7 +38,7 @@ For help with common problems, see [ISSUES](https://github.com/CodeTheCity/match
 
 To see what has changed in recent versions of MatchTheCity, see the [CHANGELOG](https://github.com/CodeTheCity/matchthecity/blob/master/CHANGELOG.md).
 
-Fell free to contact the MatchTheCity core team via Twitter [@MatchTheCity](https://twitter.com/matchthecity)
+Feel free to contact the MatchTheCity core team via Twitter [@MatchTheCity](https://twitter.com/matchthecity)
 
 ### Contributing
 
