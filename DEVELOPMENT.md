@@ -91,3 +91,5 @@ MatchTheCity has two main sources of documentation: the built-in auto generated 
 Sharing your experiences and discoveries by writing them up is a valuable way to help others who have similar problems or experiences in the future. You can write a blog post, create an example and commit it to Github, take screenshots, or make videos.
 
 If you let someone on the core team know you wrote about MatchTheCity, we will add your post to a list on the Github project wiki.
+
+Feel free to contact the MatchTheCity core team via Twitter [@MatchTheCity](https://twitter.com/matchthecity)
