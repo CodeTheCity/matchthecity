@@ -2,7 +2,7 @@ Great to have you here! Here are a few ways you can help out with [MatchTheCity]
 
 # Where should I start?
 
-You can start learning about MatchTheCity by reading the [README](http://https://github.com/CodeTheCity/matchthecity/blob/master/README.md). If you want, you can also read about [CodeTheCity](http://codethecity.org) that spawned the project.
+You can start learning about MatchTheCity by reading the [README](https://github.com/CodeTheCity/matchthecity/blob/master/README.md). If you want, you can also read about [CodeTheCity](http://codethecity.org) that spawned the project.
 
 ## Your first commits
 
