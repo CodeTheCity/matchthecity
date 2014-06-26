@@ -22,7 +22,7 @@ To work on MatchTheCity, you'll probably want to do a couple of things.
 
         $ rake import:rebuild_all
 
-  2. Run the test suite, to make sure things are working
+  2. Run the test suite (once it has been created!!), to make sure things are working
 
         $ rake spec
 
