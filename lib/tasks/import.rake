@@ -24,9 +24,10 @@ namespace :import do
     data_path = File.expand_path("../../../data/venues.json", __FILE__)
     json = JSON.parse(IO.read(data_path))
 
+
     json.each do |venue_json|
       venue_json['name']
-      venue = Venue.find_by_name(venue_json['name'])
+      venue = Venue.where('lower(name) = ?', venue_json['name'].downcase).first
       if venue.nil?
         venue = Venue.new(:name => venue_json['name'])
       end
@@ -40,11 +41,7 @@ namespace :import do
       venue.web = venue_json['web']
       venue.save
     end
-
-
-
   end
-
 
   desc "Import Aberdeen Sports Events"
   task :sport_events => :environment do

@@ -49,6 +49,29 @@
   "tel": "01224 859795",
   "web": "http://www.sportaberdeen.co.uk/kincorth-sp"
   },
+
+  {
+  "name": "Kincorth Sports Centre",
+  "address": "Corthan Cresent, Aberdeen",
+  "postcode": "AB12 5BB",
+  "lat": "57.123781",
+  "long": "-2.102762",
+  "email": "Kincorthsports@sportaberdeen.co.uk",
+  "tel": "01224 879759",
+  "web": "http://www.sportaberdeen.co.uk/venues/kincorth"
+  },
+
+  {
+  "name": "Jesmond Centre",
+  "address": "Jesmond Drive, Bridge of Don, Aberdeen",
+  "postcode": "AB22 8UR",
+  "lat": "57.192811",
+  "long": "-2.121282",
+  "email": "jesmondcentre@sportaberdeen.co.uk",
+  "tel": "01224 707090",
+  "web": "http://www.sportaberdeen.co.uk/venues/jesmond"
+  },
+
  {
   "name": "Hazlehead Swimming Pool",
   "address": "Groats Road, Aberdeen",
@@ -82,12 +105,12 @@
  {
   "name": "Beach Leisure Centre",
   "address": "Sea Beach, Aberdeen",
-  "postcode": "",
+  "postcode": "AB24 5NR",
   "lat": "57.155602",
   "long": "-2.0799",
   "email": "BeachLeisureCentre@sportaberdeen.co.uk",
   "tel": "01224 655401",
-  "web": "http://www.sportaberdeen.co.uk/beach-leisure-centre-1"
+  "web": "http://www.sportaberdeen.co.uk/beach-leisure-centre"
   },
  {
   "name": "Kings Links Golf Course",
@@ -118,16 +141,6 @@
   "email": "alexcolliesportscentre@sportaberdeen.co.uk",
   "tel": "01224826769",
   "web": "http://www.sportaberdeen.co.uk/alex-collie"
-  },
-  {
-  "name": "Beach Leisure Centre",
-  "address": "Sea Beach",
-  "postcode": "",
-  "lat": "57.155602",
-  "long": "-2.0799",
-  "email": "BeachLeisureCentre@sportaberdeen.co.uk",
-  "tel": "01224655401",
-  "web": "http://www.sportaberdeen.co.uk/beach-leisure-centre"
   },
   {
   "name": "Beacon Centre",
