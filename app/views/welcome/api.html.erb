@@ -1,0 +1,18 @@
+<h1>API Calls</h1>
+
+<p>The following is a very draft list of API calls for accessing the MatchTheCity data.</p>
+<p>Currently it is only JSON that is returned by these calls.</p>
+
+<h2>Get Venues List</h2>
+
+<p>
+  To get a list of the venues use: <%= link_to "http://#{request.host_with_port}/venues.json", venues_path(:format => 'json') %>
+<p>
+
+<p>Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ</p>
+
+<p>
+  To get a list of the venues updated since 6:50 am on 26th June 2014 use: <%= link_to "http://#{request.host_with_port}/venues.json?since=2014-06-26'T'06:50:00.0Z", venues_path(:format => 'json', :since => "2014-06-26'T'06:50:00.0Z") %>
+<p>
+
+

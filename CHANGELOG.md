@@ -1,3 +1,10 @@
+## 0.0.3 (12th July 2014)
+
+Features:
+
+ - Added introductory developer API page.
+ - Venues index now takes an opitional since paramaters to allow only updated venues to be returned.
+
 ## 0.0.2 (8th July 2014)
 
 Features:

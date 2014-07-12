@@ -5,7 +5,14 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
   def index
-    @venues = Venue.order(:name).all
+
+    if params[:since]
+      since_datetime = Time.parse(params[:since])
+      puts since_datetime
+      @venues = Venue.order(:name).where(["updated_at >= ?",  since_datetime])
+    else
+      @venues = Venue.order(:name).all
+    end
   end
 
   # GET /venues/1

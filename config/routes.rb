@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :activities
 
   get 'welcome/index'
+  get 'welcome/api'
 
   get 'home/index'
 
