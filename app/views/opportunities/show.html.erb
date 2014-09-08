@@ -47,8 +47,12 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @opportunity.description %>
+  <%= @opportunity.description.html_safe %>
 </p>
+
+<% unless @opportunity.image_url.blank? %>
+  <%= @opportunity.image_url.html_safe %>
+<% end %>
 
 <% unless @opportunity.skills.count == 0 %>
   <p><strong>Skills required:</strong>

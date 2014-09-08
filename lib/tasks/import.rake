@@ -4,7 +4,7 @@ namespace :import do
   require 'csv'
 
   desc "Rebuild Data"
-  task :rebuild_all => [:drop_data, :venues, :sport_activities, :asv_sport_activities, :sport_events, :aquatics, :skills]
+  task :rebuild_all => [:drop_data, :venues, :sport_activities, :asv_classes_json, :sport_events, :aquatics, :skills]
 
   desc "Drop data"
   task :drop_data => :environment do
@@ -14,6 +14,59 @@ namespace :import do
     SubActivity.destroy_all
     Activity.destroy_all
     Skill.destroy_all
+  end
+
+  desc "Aberdeen Sports Village classes JSON"
+  task :asv_classes_json => :environment do
+    puts "Importing Aberdeen Sports Villages classes from JSON"
+    data_path = File.expand_path("../../../data/asv_classes.json", __FILE__)
+    json = JSON.parse(IO.read(data_path))
+    count = json['count']
+    puts "#{count} classes to import"
+    exercise_classes_json = json['courseItemJSONDTOList']
+    puts exercise_classes_json.count
+    exercise_classes_json.each do |exercise_class_json|
+      activity = 'Exercise Class'
+      day_of_week = exercise_class_json['dow']
+      start_time = exercise_class_json['startTime']
+      end_time = exercise_class_json['endTime']
+      title = exercise_class_json['name']
+      room = exercise_class_json['location']
+      description = exercise_class_json['desc']
+      image_url = exercise_class_json['iconUrl']
+
+      existing_activity = Activity.find_by_title(activity)
+      if existing_activity.nil?
+        existing_activity = Activity.new(:title => activity, :category => 'sport')
+        existing_activity.save
+      end
+
+      existing_sub_activity = SubActivity.find_by_title(title)
+      if existing_sub_activity.nil?
+        existing_sub_activity = SubActivity.new(:title => title, :activity => existing_activity)
+        existing_sub_activity.save
+      end
+
+      venue = Venue.find_by_name('Aberdeen Sports Village')
+      if venue.nil?
+        venue = Venue.new(:name => 'Aberdeen Sports Village')
+        venue.save
+      end
+
+      opportunity = Opportunity.new(:name => "#{title}",
+        :category => 'Event',
+        :activity => existing_activity,
+        :sub_activity => existing_sub_activity,
+        :venue => venue,
+        :room => room,
+        :description => "#{description}",
+        :day_of_week => day_of_week,
+        :start_time => start_time,
+        :end_time => end_time,
+        :image_url => image_url)
+      opportunity.save
+    end
+
   end
 
   desc "Import Venues"
