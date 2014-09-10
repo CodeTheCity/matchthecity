@@ -269,9 +269,9 @@ namespace :import do
         existing_sub_activity.save
       end
 
-      venue = Venue.find_by_name('Aberdeen Aquatics Centre')
+      venue = Venue.find_by_name('Aberdeen Sports Village')
       if venue.nil?
-        venue = Venue.new(:name => 'Aberdeen Aquatics Centre')
+        venue = Venue.new(:name => 'Aberdeen Sports Village')
         venue.save
       end
 
