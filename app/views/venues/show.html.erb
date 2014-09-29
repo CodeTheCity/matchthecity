@@ -76,7 +76,7 @@
 
 <p>
   <strong>Opportunities</strong>
-  <%= link_to 'Opportunities at venue', venue_opportunities_path(@venue) %>
+  <%= link_to "#{@venue.opportunities.count} opportunities at venue", venue_opportunities_path(@venue) %>
 </p>
 
 <p>
