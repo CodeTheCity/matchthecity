@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :regions
 
-  resources :venues
+  resources :venues do
+    resources :opportunities
+  end
 
   resources :sub_activities
 

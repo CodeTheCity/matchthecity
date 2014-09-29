@@ -1,4 +1,8 @@
-<h1>Opportunities</h1>
+<h1>Opportunities
+<% if @venue %>
+  at <%= @venue.name %>
+<% end %>
+</h1>
 
 <table class='table-striped table sortable'>
   <thead>
@@ -7,7 +11,9 @@
       <th>Category</th>
       <th>Activity</th>
       <th>Sub Activity</th>
-      <th>Venue</th>
+      <% unless @venue %>
+        <th>Venue</th>
+      <% end %>
       <th>Day</th>
       <th>Time</th>
       <th>Description</th>
@@ -22,7 +28,9 @@
         <td><%= opportunity.category %></td>
         <td><%= opportunity.activity.try :title %></td>
         <td><%= opportunity.sub_activity.try :title %></td>
-        <td><%= opportunity.venue.try :name %></td>
+        <% unless @venue %>
+          <td><%= opportunity.venue.try :name %></td>
+        <% end %>
         <td><%= opportunity.day_of_week %></td>
         <td nowrap><%= opportunity.start_time %> - <%= opportunity.end_time %></td>
         <td><%= opportunity.description %></td>

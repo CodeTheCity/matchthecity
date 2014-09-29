@@ -1,3 +1,10 @@
+## 0.0.4 (29th September 2015)
+
+Features:
+
+ - Added Region model so that venues can be filter by different parts of the UK.
+ - Opportunities can now be filter by venue.
+
 ## 0.0.3 (12th July 2014)
 
 Features:

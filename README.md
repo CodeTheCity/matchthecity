@@ -29,6 +29,8 @@ The default data sets can be imported using the following:
 
 `rake import:rebuild_all`       # Deletes all existing data and reimports all the data
 
+By default all of the Aberdeen data sets are assigned to a Region called Aberdeen.
+
 
 ### Troubleshooting
 

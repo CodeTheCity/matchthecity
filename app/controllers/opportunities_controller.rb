@@ -1,6 +1,8 @@
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
+  before_filter :find_venue
+
 
   # GET /opportunities
   # GET /opportunities.json
@@ -8,9 +10,9 @@ class OpportunitiesController < ApplicationController
     sub_activity = SubActivity.find_by_id(params[:sub_activity])
 
     if sub_activity
-      @opportunities = Opportunity.where(:sub_activity => sub_activity)
+      @opportunities = Opportunity.for_venue(@venue).where(:sub_activity => sub_activity)
     else
-      @opportunities = Opportunity.all
+      @opportunities = Opportunity.for_venue(@venue).all
     end
 
   end
@@ -78,5 +80,10 @@ class OpportunitiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def opportunity_params
       params.require(:opportunity).permit(:name, :category, :description, :activity_id, :sub_activity_id, :venue_id, :room, :start_time, :end_time, :day_of_week,:skill_ids => [])
+    end
+
+    private
+    def find_venue
+      @venue = Venue.find_by_id(params[:venue_id])
     end
 end
