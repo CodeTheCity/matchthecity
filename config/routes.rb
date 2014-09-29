@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :regions
+
   resources :venues
 
   resources :sub_activities

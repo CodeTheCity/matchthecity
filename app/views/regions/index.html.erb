@@ -1,0 +1,23 @@
+<h1>Regions</h1>
+
+<table class='table-striped table sortable'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Venues</th>
+      <th>Opportunities</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regions.each do |region| %>
+      <tr>
+        <td><%= region.name %></td>
+        <td><%= region.venues.count %></td>
+        <td><%= region.opportunities.count %></td>
+        <td><%= link_to 'Show', region %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

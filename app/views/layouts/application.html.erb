@@ -15,10 +15,11 @@
   <div id="header">
     <div id="main_nav">
       <%= link_to "Home", welcome_index_path %>
-      <%= link_to "Opportunities (#{Opportunity.all.count})", opportunities_path %>
+      <%= link_to "Regions (#{Region.all.count})", regions_path %>
+      <%= link_to "Venues (#{Venue.all.count})", venues_path %>
       <%= link_to "Activities (#{Activity.all.count})", activities_path %>
       <%= link_to "Sub Activities (#{SubActivity.all.count})", sub_activities_path %>
-      <%= link_to "Venues (#{Venue.all.count})", venues_path %>
+      <%= link_to "Opportunities (#{Opportunity.all.count})", opportunities_path %>
 
       <%= link_to "Skills (#{Skill.all.count})", skills_path %>
     </div>

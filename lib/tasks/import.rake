@@ -14,6 +14,7 @@ namespace :import do
     SubActivity.destroy_all
     Activity.destroy_all
     Skill.destroy_all
+    Region.destroy_all
   end
 
   desc "Aberdeen Sports Village classes JSON"
@@ -49,7 +50,11 @@ namespace :import do
 
       venue = Venue.find_by_name('Aberdeen Sports Village')
       if venue.nil?
-        venue = Venue.new(:name => 'Aberdeen Sports Village')
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        venue = Venue.new(:name => 'Aberdeen Sports Village', :region => region)
         venue.save
       end
 
@@ -82,7 +87,11 @@ namespace :import do
       venue_json['name']
       venue = Venue.where('lower(name) = ?', venue_json['name'].downcase).first
       if venue.nil?
-        venue = Venue.new(:name => venue_json['name'])
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        venue = Venue.new(:name => venue_json['name'], :region => region)
       end
 
       venue.address = venue_json['address']
@@ -148,7 +157,11 @@ namespace :import do
 
       venue = Venue.find_by_name(venue_name)
       if venue.nil?
-        venue = Venue.new(:name => venue_name)
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        venue = Venue.new(:name => venue_name, :region => region)
         venue.save
       end
 
@@ -211,7 +224,11 @@ namespace :import do
 
       venue = Venue.find_by_name('Aberdeen Sports Village')
       if venue.nil?
-        venue = Venue.new(:name => 'Aberdeen Sports Village')
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        venue = Venue.new(:name => 'Aberdeen Sports Village', :region => region)
         venue.save
       end
 
@@ -271,7 +288,11 @@ namespace :import do
 
       venue = Venue.find_by_name('Aberdeen Sports Village')
       if venue.nil?
-        venue = Venue.new(:name => 'Aberdeen Sports Village')
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        venue = Venue.new(:name => 'Aberdeen Sports Village', :region => region)
         venue.save
       end
 
