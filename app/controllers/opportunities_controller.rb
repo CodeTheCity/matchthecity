@@ -9,10 +9,16 @@ class OpportunitiesController < ApplicationController
   def index
     sub_activity = SubActivity.find_by_id(params[:sub_activity])
 
-    if sub_activity
-      @opportunities = Opportunity.for_venue(@venue).where(:sub_activity => sub_activity)
+    if params[:since]
+      since_datetime = Time.parse(params[:since])
     else
-      @opportunities = Opportunity.for_venue(@venue).all
+      since_datetime = Time.parse("01-01-1970'T'00:00:00.0Z")
+    end
+
+    if sub_activity
+      @opportunities = Opportunity.for_venue(@venue).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
+    else
+      @opportunities = Opportunity.for_venue(@venue).where(["updated_at >= ?",  since_datetime])
     end
 
   end

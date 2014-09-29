@@ -75,12 +75,12 @@
 </p>
 
 <p>
-  <div id="map" style="width:400px;height:400px;"></div>
+  <strong>Opportunities</strong>
+  <%= link_to 'Opportunities at venue', venue_opportunities_path(@venue) %>
 </p>
 
 <p>
-  <strong>Opportunities</strong>
-  <%= link_to 'Opportunities', venue_opportunities_path(@venue) %>
+  <div id="map" style="width:400px;height:400px;"></div>
 </p>
 
 <%= link_to 'Back', venues_path %>

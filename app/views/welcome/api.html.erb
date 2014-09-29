@@ -3,7 +3,8 @@
 <p>The following is a very draft list of API calls for accessing the MatchTheCity data.</p>
 <p>Currently it is only JSON that is returned by these calls.</p>
 
-<h2>Get Venues List</h2>
+<h2>Venues</h2>
+<h3>GET /venues</h3>
 
 <p>
   To get a list of the venues use: <%= link_to "http://#{request.host_with_port}/venues.json", venues_path(:format => 'json') %>
@@ -15,4 +16,31 @@
   To get a list of the venues updated since 6:50 am on 26th June 2014 use: <%= link_to "http://#{request.host_with_port}/venues.json?since=2014-06-26'T'06:50:00.0Z", venues_path(:format => 'json', :since => "2014-06-26'T'06:50:00.0Z") %>
 <p>
 
+<h3>GET /venues/:id</h3>
 
+<% sample_venue = Venue.first %>
+
+<p>
+  To get a Venue object use: <%= link_to "http://#{request.host_with_port}/venues/#{sample_venue.id}.json", venue_path(sample_venue, :format => 'json') %>
+</p>
+
+<h2>Opportunities</h2>
+<h3>GET /opportunities</h3>
+
+<p>
+  To get a list of the opportunities use: <%= link_to "http://#{request.host_with_port}/opportunities.json", opportunities_path(:format => 'json') %>
+<p>
+
+<p>Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ</p>
+
+<p>
+  To get a list of the opportunities updated since 16:25 am on 29th September 2014 use: <%= link_to "http://#{request.host_with_port}/opportunities.json?since=29-09-2014'T'16:25:00.0Z", opportunities_path(:format => 'json', :since => "29-09-2014'T'16:25:00.0Z") %>
+<p>
+
+<h3>GET /opportunities/:id</h3>
+
+<% sample_opportunity = Opportunity.first %>
+
+<p>
+  To get an Opportunity object use: <%= link_to "http://#{request.host_with_port}/opportunities/#{sample_opportunity.id}.json", opportunity_path(sample_opportunity, :format => 'json') %>
+</p>
