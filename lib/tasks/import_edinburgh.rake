@@ -46,8 +46,8 @@ namespace :import_edinburgh do
         venue.postcode = row[2]
         location = row[11]
         unless location.nil?
-          venue.latitude = row[11].split.first
-          venue.longitude = row[11].split.last
+          venue.latitude = row[11].split(",").first
+          venue.longitude = row[11].split(",").last
         end
         venue.telephone = row[3]
         venue.email = row[4]
