@@ -1,6 +1,8 @@
 class VenuesController < ApplicationController
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
+  before_filter :find_region
+
 
   # GET /venues
   # GET /venues.json
@@ -9,9 +11,9 @@ class VenuesController < ApplicationController
     if params[:since]
       since_datetime = Time.parse(params[:since])
       puts since_datetime
-      @venues = Venue.order(:name).where(["updated_at >= ?",  since_datetime])
+      @venues = Venue.for_region(@region).order(:name).where(["updated_at >= ?",  since_datetime])
     else
-      @venues = Venue.order(:name).all
+      @venues = Venue.for_region(@region).order(:name)
     end
   end
 
@@ -78,5 +80,9 @@ class VenuesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def venue_params
       params.require(:venue).permit(:name, :address, :postcode, :latitude, :longitude, :web, :telephone, :email)
+    end
+
+    def find_region
+      @region = Region.find_by_id(params[:region_id])
     end
 end

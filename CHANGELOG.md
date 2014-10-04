@@ -1,4 +1,11 @@
-## 0.0.4 (29th September 2015)
+## 0.0.5 (4th October 2014)
+
+Features:
+
+ - Venues can now be filtered by Region
+ - Edinburgh Sports and Recreational Facilities can now be imported
+
+## 0.0.4 (29th September 2014)
 
 Features:
 

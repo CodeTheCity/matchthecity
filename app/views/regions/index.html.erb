@@ -14,7 +14,7 @@
     <% @regions.each do |region| %>
       <tr>
         <td><%= region.name %></td>
-        <td><%= region.venues.count %></td>
+        <td><%= link_to region.venues.count, region_venues_path(region) %></td>
         <td><%= region.opportunities.count %></td>
         <td><%= link_to 'Show', region %></td>
       </tr>
