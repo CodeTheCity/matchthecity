@@ -1,3 +1,10 @@
+## 0.0.6 (5th October 2014)
+
+Features:
+
+ - source_reference field added to Opportunties for storing unique ID as used by the orginal source data
+ - source_reference field added to Venues for storing unique ID as used by the orginal source data
+
 ## 0.0.5 (4th October 2014)
 
 Features:
