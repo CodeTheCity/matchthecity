@@ -18,7 +18,7 @@ class OpportunitiesController < ApplicationController
     if sub_activity
       @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
     else
-      @opportunities = Opportunity.includes(:activity).includes(:sub_activity).includes(:venue).for_venue(@venue).for_region(@region).where(["opportunities.updated_at >= ?",  since_datetime])
+      @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(["opportunities.updated_at >= ?",  since_datetime])
     end
 
   end
