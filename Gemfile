@@ -47,6 +47,9 @@ gem 'rails_12factor', group: :production
 
 gem 'faraday'
 
+# Pagination
+gem 'kaminari'
+
 
 group :development do
   gem 'guard-bundler'
