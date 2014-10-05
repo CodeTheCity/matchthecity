@@ -1,17 +1,30 @@
 <h1>Welcome</h1>
 
-<p>Browse the different categories of <%= link_to "Activities", activities_path %> available in Aberdeen.</p>
-<p>Or browse the entire list of <%= link_to "Activities", sub_activities_path %> available in Aberdeen.</p>
-
-<p>Looking for a linked data version of this? You are in luck - <a href="http://muon.shift.re/calendar/">http://muon.shift.re/calendar/</a></p>
+<p>Browse the venues and events in for the following cities:</p>
+<ul>
+  <% Region.order(:name).each do |region| %>
+    <li>
+      <%= link_to region.name, region_venues_path(region) %>
+      -
+      <%= link_to 'Events', region_opportunities_path(region) %>
+    </li>
+  <% end %>
+</ul>
+<p>Browse the different categories of <%= link_to "Activities", activities_path %> available.</p>
+<p>Or browse the entire list of <%= link_to "Activities", sub_activities_path %> available.</p>
 
 <h2>About the project</h2>
-
+<h3>Initial Build : CodeTheCity Aberdeen June 2014</h3>
 <p>The MatchTheCity project was created as part of <a href="http://codethecity.org">CodeTheCity Aberdeen 2014</a>.</p>
 
 <p>The purpose of the project is to provide information about various public reoccurring activities in the Aberdeen area. The current data is based around sport / fitness activities, however the project has been designed so it can also handle various other reoccuring events at various venues.</p>
 
-<p>The ultimate aim is to be able to populate a MatchTheCity server with data for different areas.</p>
+<p>The ultimate aim was to be able to populate a MatchTheCity server with data for different areas. This aim was achieved in October 2014.</p>
+
+<h3>Additional City: EdinburghApps October 2014</h3>
+<p>During the <a href="http://www.edinburghapps.net">EdinburghApps</a> weekend event over 4th/5th October data for Edinburgh was added to MatchTheCity.</p>
+
+<p>
 
 <h2>Developer Stuff</h2>
 <p>The source code for this project can be found on <a href="https://github.com/CodeTheCity/matchthecity">GitHub</a>.</p>

@@ -4,6 +4,7 @@ Features:
 
  - source_reference field added to Opportunties for storing unique ID as used by the orginal source data
  - source_reference field added to Venues for storing unique ID as used by the orginal source data
+ - Opportunities can now be filtered by Region.
 
 ## 0.0.5 (4th October 2014)
 
@@ -17,7 +18,7 @@ Features:
 Features:
 
  - Added Region model so that venues can be filter by different parts of the UK.
- - Opportunities can now be filter by venue.
+ - Opportunities can now be filtered by venue.
  - Opportunities index now takes an optional since paramaters to allow only updated opportunities to be returned.
  - Opportunity JSON object now includes parent Activity, SubActivity and Venue objects.
  - Venue JSON object now included parent Region object.

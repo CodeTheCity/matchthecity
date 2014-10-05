@@ -7,4 +7,9 @@ class Opportunity < ActiveRecord::Base
     scope :for_venue, lambda { |venue|
       where("venue_id = ?", venue.id ) unless venue.blank?
     }
+
+    scope :for_region, lambda { |region|
+      joins(:venue).
+      where("venues.region_id = ?", region.id ) unless region.blank?
+    }
 end

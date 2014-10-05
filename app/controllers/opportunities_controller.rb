@@ -1,7 +1,7 @@
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
-  before_filter :find_venue
+  before_filter :find_venue, :find_region
 
 
   # GET /opportunities
@@ -16,9 +16,9 @@ class OpportunitiesController < ApplicationController
     end
 
     if sub_activity
-      @opportunities = Opportunity.for_venue(@venue).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
+      @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
     else
-      @opportunities = Opportunity.for_venue(@venue).where(["updated_at >= ?",  since_datetime])
+      @opportunities = Opportunity.includes(:activity).includes(:sub_activity).includes(:venue).for_venue(@venue).for_region(@region).where(["opportunities.updated_at >= ?",  since_datetime])
     end
 
   end
@@ -91,5 +91,9 @@ class OpportunitiesController < ApplicationController
     private
     def find_venue
       @venue = Venue.find_by_id(params[:venue_id])
+    end
+
+    def find_region
+      @region = Region.find_by_id(params[:region_id])
     end
 end
