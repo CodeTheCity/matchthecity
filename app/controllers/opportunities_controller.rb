@@ -15,11 +15,22 @@ class OpportunitiesController < ApplicationController
       since_datetime = Time.parse("01-01-1970'T'00:00:00.0Z")
     end
 
-    if sub_activity
-      @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
-    else
-      @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(["opportunities.updated_at >= ?",  since_datetime]).page(params[:page]).per(50)
-    end
+  respond_to do |format|
+    format.html {
+      if sub_activity
+        @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
+      else
+        @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(["opportunities.updated_at >= ?",  since_datetime]).page(params[:page]).per(50)
+      end
+    }
+    format.json {
+      if sub_activity
+        @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
+      else
+        @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(["opportunities.updated_at >= ?",  since_datetime])
+      end
+    }
+  end
 
   end
 
