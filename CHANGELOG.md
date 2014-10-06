@@ -1,3 +1,11 @@
+## 0.0.7 (56th October 2014)
+
+Features:
+
+ - created_at and updated_at now included in Region collection JSON
+ - created_at and updated_at now included in Venue collection JSON
+ - API docs updated with additional information for Region
+
 ## 0.0.6 (5th October 2014)
 
 Features:
