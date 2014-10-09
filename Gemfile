@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
-# Use mysql as the database for Active Record
-gem 'mysql2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,7 +38,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'nokogiri'
-gem 'pg'
 gem 'json'
 gem 'bootstrap-sass'
 
@@ -55,6 +53,15 @@ gem 'capistrano', '~> 2.15.5'
 gem 'rvm-capistrano', '~> 1.3.3'
 gem "net-ssh", '=2.7.0'
 
+group :production do
+  # Use postgre as the database for Active Record
+  gem 'pg'
+end
+
+group :development, :test do
+  # Use mysql as the database for Active Record
+  gem 'mysql2'
+end
 
 group :development do
   gem 'guard-bundler'
