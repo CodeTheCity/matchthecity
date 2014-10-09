@@ -48,6 +48,8 @@ gem 'faraday'
 # Pagination
 gem 'kaminari'
 
+gem "therubyracer"
+
 # Deployment related
 gem 'capistrano', '~> 2.15.5'
 gem 'rvm-capistrano', '~> 1.3.3'
