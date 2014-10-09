@@ -24,6 +24,6 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  database: MatchTheCity_production
-  username: MatchTheCity
+  database: matchthecity_production
+  username: match
   password: <%= ENV['MATCHTHECITY_DATABASE_PASSWORD'] %>

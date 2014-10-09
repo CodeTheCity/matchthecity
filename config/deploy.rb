@@ -39,13 +39,6 @@ default_run_options[:pty] = true
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
 
-
-
-# After an initial (cold) deploy, symlink the app and restart nginx
-after "deploy:cold" do
-  admin.nginx_restart
-end
-
 # As this isn't a rails app, we don't start and stop the app invidually
 namespace :deploy do
   task :start do ; end
