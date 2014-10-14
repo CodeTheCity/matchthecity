@@ -78,6 +78,10 @@ namespace :deploy do
     run_remote_rake "import:rebuild_all"
   end
 
+  task :rebuild_edinburgh, roles: :app do
+    run_remote_rake "import_edinburgh:leisure_classes"
+  end
+
   def run_remote_rake(rake_cmd)
     rake_args = ENV['RAKE_ARGS'].to_s.split(',')
     cmd = "cd #{fetch(:latest_release)} && #{fetch(:rake, "rake")} RACK_ENV=#{fetch(:rack_env, "production")} #{rake_cmd}"
