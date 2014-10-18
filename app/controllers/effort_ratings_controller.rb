@@ -8,7 +8,7 @@ class EffortRatingsController < ApplicationController
   # GET /effort_ratings
   # GET /effort_ratings.json
   def index
-    @effort_ratings = EffortRating.all
+    @effort_ratings = EffortRating.all.page(params[:page]).per(50)
   end
 
   # GET /effort_ratings/1
