@@ -6,6 +6,13 @@
 
 <%= paginate @opportunities %>
 
+<p>
+  <strong>Filter by Effort Rating</strong>
+<% (0..5).each do |rating| %>
+  <%= link_to "#{rating}", params.merge(:effort_rating => rating) %>
+<% end %>
+</p>
+
 <table class='table-striped table sortable'>
   <thead>
     <tr>

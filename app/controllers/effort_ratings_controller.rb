@@ -32,6 +32,8 @@ class EffortRatingsController < ApplicationController
 
     respond_to do |format|
       if @effort_rating.save
+        @opportunity.effort_rating = @opportunity.effort_ratings.average(:rating)
+        @opportunity.save
         format.html { redirect_to @opportunity, notice: 'Effort rating was successfully created.' }
         format.json { render :show, status: :created, location: @effort_rating }
       else

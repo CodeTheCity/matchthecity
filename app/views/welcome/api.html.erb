@@ -132,12 +132,32 @@
   To get a list of the opportunities use: <%= link_to "http://#{request.host_with_port}/opportunities.json", opportunities_path(:format => 'json') %>
 <p>
 
-<p>Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ</p>
+
+<h4>Request Parameters</h4>
+<table class='table-striped table'>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>since</td><td>optional - since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ</td>
+    </tr>
+    <tr>
+      <td>effort_rating</td><td>optional - effort rating 1 to 5 or 0 for unrated entries</td>
+    </tr>
+  </tbody>
+ </table>
 
 <p>
   To get a list of the opportunities updated since 16:25 am on 29th September 2014 use: <%= link_to "http://#{request.host_with_port}/opportunities.json?since=29-09-2014'T'16:25:00.0Z", opportunities_path(:format => 'json', :since => "29-09-2014'T'16:25:00.0Z") %>
 <p>
 
+<p>
+  To get a list of the opportunities with an effort rating of 2 use: <%= link_to "http://#{request.host_with_port}/opportunities.json?effort_rating=2", opportunities_path(:format => 'json', :effort_rating => "2") %>
+<p>
 <h3>GET /opportunities/:id</h3>
 
 <h3>Properties</h3>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018093707) do
+ActiveRecord::Schema.define(version: 20141018143816) do
 
   create_table "activities", force: true do |t|
     t.string   "title"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20141018093707) do
     t.string   "day_of_week"
     t.string   "image_url"
     t.string   "source_reference"
+    t.integer  "effort_rating",    default: 0
   end
 
   add_index "opportunities", ["sub_activity_id"], name: "index_opportunities_on_sub_activity_id", using: :btree

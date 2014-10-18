@@ -8,6 +8,9 @@ class OpportunitiesController < ApplicationController
   # GET /opportunities.json
   def index
     sub_activity = SubActivity.find_by_id(params[:sub_activity])
+    if params[:effort_rating]
+      effort_rating = params[:effort_rating]
+    end
 
     if params[:since]
       since_datetime = Time.parse(params[:since])
@@ -18,16 +21,16 @@ class OpportunitiesController < ApplicationController
   respond_to do |format|
     format.html {
       if sub_activity
-        @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
+        @opportunities = Opportunity.for_venue(@venue).for_region(@region).with_effort_rating(effort_rating).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
       else
-        @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(["opportunities.updated_at >= ?",  since_datetime]).page(params[:page]).per(50)
+        @opportunities = Opportunity.for_venue(@venue).for_region(@region).with_effort_rating(effort_rating).where(["opportunities.updated_at >= ?",  since_datetime]).page(params[:page]).per(50)
       end
     }
     format.json {
       if sub_activity
-        @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
+        @opportunities = Opportunity.for_venue(@venue).for_region(@region).with_effort_rating(effort_rating).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
       else
-        @opportunities = Opportunity.for_venue(@venue).for_region(@region).where(["opportunities.updated_at >= ?",  since_datetime])
+        @opportunities = Opportunity.for_venue(@venue).for_region(@region).with_effort_rating(effort_rating).where(["opportunities.updated_at >= ?",  since_datetime])
       end
     }
   end

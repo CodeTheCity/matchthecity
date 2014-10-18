@@ -15,9 +15,7 @@ class Opportunity < ActiveRecord::Base
       where("venues.region_id = ?", region.id ) unless region.blank?
     }
 
-    def effort_rating
-      average = self.effort_ratings.average(:rating)
-      average = 0 if average.nil?
-      average
-    end
+    scope :with_effort_rating, lambda { |rating|
+      where("effort_rating = ?", rating)
+    }
 end
