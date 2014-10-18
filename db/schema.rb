@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018143816) do
+ActiveRecord::Schema.define(version: 20141018173323) do
 
   create_table "activities", force: true do |t|
     t.string   "title"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20141018143816) do
     t.string   "web"
     t.integer  "region_id"
     t.string   "source_reference"
+    t.string   "logo_url"
   end
 
   add_index "venues", ["region_id"], name: "index_venues_on_region_id", using: :btree
