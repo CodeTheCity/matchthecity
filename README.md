@@ -10,7 +10,7 @@ The ultimate aim is to be able to populate a MatchTheCity server with data for d
 ### Sample Server
 
 
-There is a sample server running at [http://matchthecity.herokuapp.com](http://matchthecity.herokuapp.com)
+There is a sample server running at [http://matchthecity.org](http://matchthecity.org)
 
 ### Importing Data
 
