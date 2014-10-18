@@ -1,4 +1,10 @@
-## 0.0.7 (56th October 2014)
+## 0.0.8 (18th October 2014)
+
+Features:
+
+- Added Effort Rating model so that Opportunities can have their sweat level rated.
+
+## 0.0.7 (6th October 2014)
 
 Features:
 
