@@ -16,6 +16,6 @@ class Opportunity < ActiveRecord::Base
     }
 
     scope :with_effort_rating, lambda { |rating|
-      where("effort_rating = ?", rating)
+      where("effort_rating = ?", rating) unless rating.nil?
     }
 end
