@@ -7,8 +7,12 @@
 
 <p>
   <strong>Opportunity:</strong>
-  <%= @effort_rating.opportunity %>
+  <%= link_to @effort_rating.opportunity.name, @effort_rating.opportunity %>
 </p>
 
-<%= link_to 'Edit', edit_effort_rating_path(@effort_rating) %> |
+<p>
+  <strong>Created:</strong>
+  <%= @effort_rating.created_at %>
+</p>
+
 <%= link_to 'Back', effort_ratings_path %>

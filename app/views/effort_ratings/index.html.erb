@@ -20,8 +20,7 @@
         <td><%= effort_rating.opportunity.name %></td>
         <td><%= effort_rating.created_at %></td>
         <td><%= link_to 'Show', effort_rating %></td>
-        <td><%= link_to 'Edit', edit_effort_rating_path(effort_rating) %></td>
-        <td><%= link_to 'Destroy', effort_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', effort_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
