@@ -1,4 +1,6 @@
 class EffortRatingsController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :only => :create
+
   before_action :set_effort_rating, only: [:show, :edit, :update, :destroy]
 
   before_filter :find_opportunity,
