@@ -1,32 +1,54 @@
-<h1>Welcome</h1>
 
-<p>Browse the venues and events in for the following cities:</p>
-<ul>
-  <% Region.order(:name).each do |region| %>
-    <li>
-      <%= link_to region.name, region_venues_path(region) %>
-      -
-      <%= link_to 'Events', region_opportunities_path(region) %>
-    </li>
-  <% end %>
-</ul>
-<p>Browse the different categories of <%= link_to "Activities", activities_path %> available.</p>
-<p>Or browse the entire list of <%= link_to "Activities", sub_activities_path %> available.</p>
 
-<h2>About the project</h2>
-<h3>Initial Build : CodeTheCity Aberdeen June 2014</h3>
-<p>The MatchTheCity project was created as part of <a href="http://codethecity.org">CodeTheCity Aberdeen 2014</a>.</p>
+<div class="container">
 
-<p>The purpose of the project is to provide information about various public reoccurring activities in the Aberdeen area. The current data is based around sport / fitness activities, however the project has been designed so it can also handle various other reoccuring events at various venues.</p>
+  <div class="row">
+    <div class="col-xs-3">
+      <%= image_tag "match-the-city-256.png" %>
+    </div>
+    <div class="col-xs-9">
+      <h2>Welcome</h2>
+      <p>Browse the venues and events in for the following cities:</p>
+      <ul>
+        <% Region.order(:name).each do |region| %>
+          <li>
+            <%= link_to region.name, region_venues_path(region) %>
+            -
+            <%= link_to 'Events', region_opportunities_path(region) %>
+          </li>
+        <% end %>
+      </ul>
+      <p>Browse the different categories of <%= link_to "Activities", activities_path %> available.</p>
+      <p>Or browse the entire list of <%= link_to "Activities", sub_activities_path %> available.</p>
+    </div>
+  </div>
+  <div clas="row">
 
-<p>The ultimate aim was to be able to populate a MatchTheCity server with data for different areas. This aim was achieved in October 2014.</p>
+    <div class="col-xs-6">
+      <h2>About the project</h2>
 
-<h3>Additional City: EdinburghApps October 2014</h3>
-<p>During the <a href="http://www.edinburghapps.net">EdinburghApps</a> weekend event over 4th/5th October data for Edinburgh was added to MatchTheCity.</p>
+      <h3>Added Effort: CodeTheCity 2 Aberdeen October 2014</h3>
+      <p>The second <a href="http://codethecity.org/aberdeen/2014/08/26/sports-fitness-activity/">CodeTheCity</a> event saw things take a leap forward.</p>
 
-<p>
+      <p>Using the basic building blocks put in place at the debut CodeTheCity event, various teams began building their own apps making use of the MatchTheCity APIs and datasets. With the euphoria of now having a developer community built around MatchTheCity came the burden of having to provide correct and complete API documentation.</p>
 
-<h2>Developer Stuff</h2>
-<p>The source code for this project can be found on <a href="https://github.com/CodeTheCity/matchthecity">GitHub</a>.</p>
 
-<p>A draft set of <%= link_to 'API calls', welcome_api_path %> for accessing the MatchTheCity data have been put together.</p>
+      <h3>Additional City: EdinburghApps October 2014</h3>
+      <p>During the <a href="http://www.edinburghapps.net">EdinburghApps</a> weekend event over 4th/5th October data for Edinburgh was added to MatchTheCity.</p>
+
+
+      <h3>Initial Build : CodeTheCity Aberdeen June 2014</h3>
+      <p>The MatchTheCity project was created as part of <a href="http://codethecity.org/aberdeen/2014/06/24/aberdeen-quicklinks/">CodeTheCity Aberdeen 2014</a>.</p>
+
+      <p>The purpose of the project is to provide information about various public reoccurring activities in the Aberdeen area. The current data is based around sport / fitness activities, however the project has been designed so it can also handle various other reoccuring events at various venues.</p>
+
+      <p>The ultimate aim was to be able to populate a MatchTheCity server with data for different areas. This aim was achieved in October 2014.</p>
+    </div>
+
+    <div class="col-xs-6">
+      <h2>Developer Stuff</h2>
+      <p>The source code for this project can be found on <a href="https://github.com/CodeTheCity/matchthecity">GitHub</a>.</p>
+
+      <p>A draft set of <%= link_to 'API calls', welcome_api_path %> for accessing the MatchTheCity data have been put together.</p>
+    </div>
+</div>

@@ -14,6 +14,7 @@
 <div id="wrapper">
   <div id="header">
     <div id="main_nav">
+      <%= image_tag "match-the-city-64.png" %>
       <%= link_to "Home", welcome_index_path %>
       <%= link_to "Regions", regions_path %>
       <%= link_to "Venues", venues_path %>
@@ -22,8 +23,12 @@
       <%= link_to "Opportunities", opportunities_path %>
 
       <%= link_to "Skills", skills_path %>
+
+      <%= link_to 'Developer Stuff', welcome_api_path %>
     </div>
   </div>
+
+
 
   <%= render 'layouts/messages' %>
 
