@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005114630) do
+ActiveRecord::Schema.define(version: 20141018093707) do
 
   create_table "activities", force: true do |t|
     t.string   "title"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20141005114630) do
   end
 
   add_index "candidates_skills", ["candidate_id", "skill_id"], name: "index_candidates_skills_on_candidate_id_and_skill_id", using: :btree
+
+  create_table "effort_ratings", force: true do |t|
+    t.integer  "rating"
+    t.integer  "opportunity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "effort_ratings", ["opportunity_id"], name: "index_effort_ratings_on_opportunity_id", using: :btree
 
   create_table "opportunities", force: true do |t|
     t.string   "name"

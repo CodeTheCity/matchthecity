@@ -45,6 +45,9 @@ gem 'rails_12factor', group: :production
 
 gem 'faraday'
 
+gem 'simple_form'
+
+
 # Pagination
 gem 'kaminari'
 

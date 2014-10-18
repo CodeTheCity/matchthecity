@@ -1,0 +1,27 @@
+<h1>Listing effort_ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rating</th>
+      <th>Opportunity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @effort_ratings.each do |effort_rating| %>
+      <tr>
+        <td><%= effort_rating.rating %></td>
+        <td><%= effort_rating.opportunity %></td>
+        <td><%= link_to 'Show', effort_rating %></td>
+        <td><%= link_to 'Edit', edit_effort_rating_path(effort_rating) %></td>
+        <td><%= link_to 'Destroy', effort_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Effort rating', new_effort_rating_path %>

@@ -95,3 +95,15 @@
 <p>
   To get an Opportunity object use: <%= link_to "http://#{request.host_with_port}/opportunities/#{sample_opportunity.id}.json", opportunity_path(sample_opportunity, :format => 'json') %>
 </p>
+
+<h3>GET /regions/:id/opportunities/</h3>
+<p>
+  To get a list of the Opportunities for a given Region use <%= link_to "http://#{request.host_with_port}/regions/#{sample_region.id}/opportunities.json", region_opportunities_path(sample_region, :format => 'json') %>
+</p>
+
+
+<h3>POST /opportunities/:id/effort_rating:rating</h3>
+<p>
+  To create an Effort Rating entry for an opportunity post a rating value between 1 and 5.
+  The overall Effort Rating for the Opportunity is an average of all the effort rating raised.
+</p>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @effort_rating.rating %>
+</p>
+
+<p>
+  <strong>Opportunity:</strong>
+  <%= @effort_rating.opportunity %>
+</p>
+
+<%= link_to 'Edit', edit_effort_rating_path(@effort_rating) %> |
+<%= link_to 'Back', effort_ratings_path %>

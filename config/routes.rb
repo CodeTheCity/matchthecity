@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :effort_ratings
+
   resources :regions do
     resources :venues
     resources :opportunities
@@ -21,7 +23,10 @@ Rails.application.routes.draw do
 
   resources :candidates
 
-  resources :opportunities
+  resources :opportunities do
+    resources :effort_ratings
+    post :rate_effort
+  end
 
 
   root :to => "welcome#index"
