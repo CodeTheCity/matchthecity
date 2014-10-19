@@ -1,5 +1,9 @@
-<h1>Effort Ratings
-</h1>
+<h1>Effort Ratings</h1>
+
+<%= form_tag(effort_ratings_path, :method => "delete", id: "delete-form") do %>
+  <%= text_field_tag :code, params[:code], placeholder: "Delete code" %>
+  <%= submit_tag "Delete all", :name => nil %>
+<% end %>
 
 <%= paginate @effort_ratings %>
 
@@ -25,7 +29,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Effort rating', new_effort_rating_path %>

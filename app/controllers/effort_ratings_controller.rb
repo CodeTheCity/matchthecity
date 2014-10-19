@@ -57,6 +57,19 @@ class EffortRatingsController < ApplicationController
     end
   end
 
+  # DELETE /effort_ratings
+  def delete_all
+    code = params[:code]
+    if code == 'turnip'
+      EffortRating.delete_all
+    end
+
+    respond_to do |format|
+      format.html { redirect_to effort_ratings_url, notice: 'Effort ratings where destroyed.' }
+    end
+  end
+
+
   # DELETE /effort_ratings/1
   # DELETE /effort_ratings/1.json
   def destroy

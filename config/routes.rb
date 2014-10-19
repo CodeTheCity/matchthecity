@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :effort_ratings
+  resources :effort_ratings do
+    delete :index, on: :collection, action: :delete_all
+  end
 
   resources :regions do
     resources :venues
