@@ -1,1 +1,1 @@
-json.extract! @effort_rating, :id, :rating, :opportunity_id, :created_at, :updated_at
+json.extract! @effort_rating, :id, :rating, :opportunity, :created_at, :updated_at
