@@ -3,7 +3,7 @@ class Opportunity < ActiveRecord::Base
     belongs_to :activity
     belongs_to :sub_activity
     belongs_to :venue
-    has_many :effort_ratings
+    has_many :effort_ratings, :dependent => :destroy
     accepts_nested_attributes_for :effort_ratings
 
     scope :for_venue, lambda { |venue|

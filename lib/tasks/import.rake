@@ -4,7 +4,7 @@ namespace :import do
   require 'csv'
 
   desc "Rebuild Data"
-  task :rebuild_all => [:drop_data, :venues, :sport_activities, :asv_classes_json, :sport_events, :aquatics, :skills]
+  task :rebuild_all => [:drop_data, :asv_classes_json, :asv_swimming_classes_json, :sport_events, :aquatics, :skills, :venues]
 
   desc "Drop data"
   task :drop_data => :environment do
@@ -31,10 +31,11 @@ namespace :import do
       day_of_week = exercise_class_json['dow']
       start_time = exercise_class_json['startTime']
       end_time = exercise_class_json['endTime']
-      title = exercise_class_json['name']
+      title = exercise_class_json['name'].capitalize
       room = exercise_class_json['location']
       description = exercise_class_json['desc']
       image_url = exercise_class_json['iconUrl']
+      source_reference = exercise_class_json['id']
 
       existing_activity = Activity.find_by_title(activity)
       if existing_activity.nil?
@@ -58,20 +59,84 @@ namespace :import do
         venue.save
       end
 
-      opportunity = Opportunity.new(:name => "#{title}",
-        :category => 'Event',
-        :activity => existing_activity,
-        :sub_activity => existing_sub_activity,
-        :venue => venue,
-        :room => room,
-        :description => "#{description}",
-        :day_of_week => day_of_week,
-        :start_time => start_time,
-        :end_time => end_time,
-        :image_url => image_url)
+      opportunity = Opportunity.find_by_source_reference(source_reference)
+      if opportunity.nil?
+        opportunity = Opportunity.new(:source_reference => source_reference)
+      end
+      opportunity.name = title
+      opportunity.category = 'Event'
+      opportunity.activity = existing_activity
+      opportunity.sub_activity = existing_sub_activity
+      opportunity.venue = venue
+      opportunity.room = room
+      opportunity.description = "#{description}"
+      opportunity.day_of_week = day_of_week
+      opportunity.start_time = start_time
+      opportunity.end_time = end_time
+      opportunity.image_url = image_url
       opportunity.save
     end
+  end
 
+  desc "Aberdeen Sports Village swimmimg classes JSON"
+  task :asv_swimming_classes_json => :environment do
+    puts "Importing Aberdeen Sports Villages swimming classes from JSON"
+    data_path = File.expand_path("../../../data/asv_swim_classes.json", __FILE__)
+    json = JSON.parse(IO.read(data_path))
+    count = json['count']
+    puts "#{count} classes to import"
+    exercise_classes_json = json['courseItemJSONDTOList']
+    puts exercise_classes_json.count
+    exercise_classes_json.each do |exercise_class_json|
+      activity = 'Exercise Class'
+      day_of_week = exercise_class_json['dow']
+      start_time = exercise_class_json['startTime']
+      end_time = exercise_class_json['endTime']
+      title = exercise_class_json['name'].capitalize
+      room = exercise_class_json['location']
+      description = exercise_class_json['desc']
+      image_url = exercise_class_json['iconUrl']
+      source_reference = exercise_class_json['id']
+
+      existing_activity = Activity.find_by_title(activity)
+      if existing_activity.nil?
+        existing_activity = Activity.new(:title => activity, :category => 'sport')
+        existing_activity.save
+      end
+
+      existing_sub_activity = SubActivity.find_by_title(title)
+      if existing_sub_activity.nil?
+        existing_sub_activity = SubActivity.new(:title => title, :activity => existing_activity)
+        existing_sub_activity.save
+      end
+
+      venue = Venue.find_by_name('Aberdeen Sports Village')
+      if venue.nil?
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        venue = Venue.new(:name => 'Aberdeen Sports Village', :region => region)
+        venue.save
+      end
+
+      opportunity = Opportunity.find_by_source_reference(source_reference)
+      if opportunity.nil?
+        opportunity = Opportunity.new(:source_reference => source_reference)
+      end
+      opportunity.name = title
+      opportunity.category = 'Event'
+      opportunity.activity = existing_activity
+      opportunity.sub_activity = existing_sub_activity
+      opportunity.venue = venue
+      opportunity.room = room
+      opportunity.description = "#{description}"
+      opportunity.day_of_week = day_of_week
+      opportunity.start_time = start_time
+      opportunity.end_time = end_time
+      opportunity.image_url = image_url
+      opportunity.save
+    end
   end
 
   desc "Import Venues"
@@ -134,11 +199,11 @@ namespace :import do
     json.each do |event_json|
       count = count + 1
 
-      activity = event_json['activity']
+      activity = event_json['activity'].capitalize
       day_of_week = event_json['day']
       start_time = event_json['start']
       end_time = event_json['end']
-      title = event_json['name']
+      title = event_json['name'].capitalize
       room = ''
       description = event_json['description']
       venue_name = event_json['venue']

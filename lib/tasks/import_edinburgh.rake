@@ -147,7 +147,7 @@ namespace :import_edinburgh do
         opportunity.name = row[0]
 
         activity = 'Leisure Class'
-        activity_group = activities[row[2]]
+        activity_group = activities[row[2]].capitalize
         existing_activity = Activity.find_by_title(activity)
         if existing_activity.nil?
           existing_activity = Activity.new(:title => activity, :category => 'sport')
