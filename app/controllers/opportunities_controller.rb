@@ -21,7 +21,7 @@ class OpportunitiesController < ApplicationController
   respond_to do |format|
     format.html {
       if sub_activity
-        @opportunities = Opportunity.for_venue(@venue).for_region(@region).with_effort_rating(effort_rating).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime])
+        @opportunities = Opportunity.for_venue(@venue).for_region(@region).with_effort_rating(effort_rating).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime]).page(params[:page]).per(50)
       else
         @opportunities = Opportunity.for_venue(@venue).for_region(@region).with_effort_rating(effort_rating).where(["opportunities.updated_at >= ?",  since_datetime]).page(params[:page]).per(50)
       end
