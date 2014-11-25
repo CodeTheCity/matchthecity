@@ -59,9 +59,9 @@ namespace :import do
         venue.save
       end
 
-      opportunity = Opportunity.find_by_source_reference(source_reference)
+      opportunity = Opportunity.find_by_source_reference("#{source_reference}")
       if opportunity.nil?
-        opportunity = Opportunity.new(:source_reference => source_reference)
+        opportunity = Opportunity.new(:source_reference => "#{source_reference}")
       end
       opportunity.name = title
       opportunity.category = 'Event'
@@ -120,9 +120,9 @@ namespace :import do
         venue.save
       end
 
-      opportunity = Opportunity.find_by_source_reference(source_reference)
+      opportunity = Opportunity.find_by_source_reference("#{source_reference}")
       if opportunity.nil?
-        opportunity = Opportunity.new(:source_reference => source_reference)
+        opportunity = Opportunity.new(:source_reference => "#{source_reference}")
       end
       opportunity.name = title
       opportunity.category = 'Event'
