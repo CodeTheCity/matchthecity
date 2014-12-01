@@ -78,7 +78,7 @@ namespace :deploy do
     run_remote_rake "import:rebuild_all"
   end
 
-  task :rebuild_asv, roles: app do
+  task :rebuild_asv, roles: :app do
     run_remote_rake "import:asv_classes_json"
     run_remote_rake "import:asv_swimming_classes_json"
   end
