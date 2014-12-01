@@ -42,7 +42,7 @@
         <% end %>
         <td><%= opportunity.day_of_week %></td>
         <td nowrap><%= opportunity.start_time %> - <%= opportunity.end_time %></td>
-        <td><%= opportunity.description %></td>
+        <td><%= opportunity.description.html_safe %></td>
         <td><%= link_to 'Show', opportunity %></td>
       </tr>
     <% end %>

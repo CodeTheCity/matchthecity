@@ -3,6 +3,7 @@
 Features:
 
 - Added acts-as-taggable-on gem
+- Opportunities index display now handles HTML based descriptions.
 
 ## 0.0.8 (18th October 2014)
 
