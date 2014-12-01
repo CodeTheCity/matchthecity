@@ -3,6 +3,10 @@ class OpportunitiesController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
   before_filter :find_venue, :find_region
 
+  def tag_cloud
+    @tags = Opportunity.tag_counts_on(:tags)
+  end
+
 
   # GET /opportunities
   # GET /opportunities.json
@@ -40,6 +44,7 @@ class OpportunitiesController < ApplicationController
   # GET /opportunities/1
   # GET /opportunities/1.json
   def show
+    @tags = Opportunity.tag_counts_on(:tags)
   end
 
   # GET /opportunities/new

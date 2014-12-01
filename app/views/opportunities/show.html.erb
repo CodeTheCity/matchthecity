@@ -4,7 +4,7 @@
 </p>
 
 <p>
-  <strong>category:</strong>
+  <strong>Category:</strong>
   <%= @opportunity.category %>
 </p>
 
@@ -62,10 +62,10 @@
     </p>
   <% end %>
 
-<p>
-  <strong>Last Updated:</strong>
-  <%= I18n.localize(@opportunity.updated_at) %>
-</p>
+<h3>Tags</h3>
+<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+<% end %>
 
 <p>
   <strong>Sweat Rating</strong>
@@ -76,6 +76,11 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Last Updated:</strong>
+  <%= I18n.localize(@opportunity.updated_at) %>
+</p>
+
 <%= simple_form_for [@opportunity, @opportunity.effort_ratings.build], :html => { :class => 'form-horizontal' } do |f| %>
     <fieldset>
         <%= f.select :rating, ((1..5).map {|i| [i,i] }) %>
@@ -83,5 +88,7 @@
         <%= f.submit 'Rate sweat level', :class => 'btn btn-primary' %>
     </fieldset>
   <% end %>
+
+
 
 <%= link_to 'Back', opportunities_path %>
