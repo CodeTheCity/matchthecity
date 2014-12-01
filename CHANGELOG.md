@@ -4,6 +4,8 @@ Features:
 
 - Added acts-as-taggable-on gem
 - Opportunities index display now handles HTML based descriptions.
+- Tags added to Opportunities
+- ASV importer now adds a default set of tags to opportunities
 
 ## 0.0.8 (18th October 2014)
 

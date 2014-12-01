@@ -20,6 +20,13 @@ namespace :import do
   desc "Aberdeen Sports Village classes JSON"
   task :asv_classes_json => :environment do
     puts "Importing Aberdeen Sports Villages classes from JSON"
+
+    tag_lookup = {}
+    tag_lookup["strength"] = ["trxpress", "body attack", "body balance", "hit", "blt", "trx: core", "blt blast", "synrgy360 circuits", "learn-to-trx", "trx fitness", "circuits", "ultimate abs","kettlebells", "otago (strength & balance)"]
+    tag_lookup["cardio"] = ["studio cycling blast", "body pump", "body combat", "total fitness", "bootcamp", "studio cycling", "body attack", "evergreens table tennis", "cardiac rehab", "well-being exercise", "zumba gold", "evergreens exercise", "hit", "evergreens swimming", "bokwa fitness", "aqua aerobics", "totally terrified", "evergreens aquafun", "aqua zumba", "studio cycling plus", "step", "blt", "blt blast", "zumba", "synrgy360 circuits", "circuits", "studio cycling blast", "sports conditioning", "boxfit", "jog scotland", "adult badminton", "sh'bam"]
+    tag_lookup["weight loss"] = ["aqua circuits" ]
+    tag_lookup["flexibility"] = ["fitness yoga", "yoga", "body balance", "evergreens fitness pilates", "stretching workshop"]
+
     data_path = File.expand_path("../../../data/asv_classes.json", __FILE__)
     json = JSON.parse(IO.read(data_path))
     count = json['count']
@@ -31,7 +38,7 @@ namespace :import do
       day_of_week = exercise_class_json['dow']
       start_time = exercise_class_json['startTime']
       end_time = exercise_class_json['endTime']
-      title = exercise_class_json['name'].capitalize
+      title = exercise_class_json['name']
       room = exercise_class_json['location']
       description = exercise_class_json['desc']
       image_url = exercise_class_json['iconUrl']
@@ -75,6 +82,16 @@ namespace :import do
       opportunity.end_time = end_time
       opportunity.image_url = image_url
       opportunity.save
+
+      # Tag it if we can
+      tag_lookup.keys.each do |key|
+        titles = tag_lookup[key]
+        if titles.include? opportunity.sub_activity.title.downcase
+          puts "#{opportunity.sub_activity.title} is #{key}"
+          opportunity.tag_list.add(key)
+          opportunity.save
+        end
+      end
     end
   end
 

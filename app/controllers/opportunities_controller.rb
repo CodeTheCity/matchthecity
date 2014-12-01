@@ -27,7 +27,7 @@ class OpportunitiesController < ApplicationController
       if sub_activity
         @opportunities = Opportunity.for_venue(@venue).for_region(@region).with_effort_rating(effort_rating).where(:sub_activity => sub_activity).where(["updated_at >= ?",  since_datetime]).page(params[:page]).per(50)
       else
-        @opportunities = Opportunity.for_venue(@venue).for_region(@region).with_effort_rating(effort_rating).where(["opportunities.updated_at >= ?",  since_datetime]).page(params[:page]).per(50)
+        @opportunities = Opportunity.for_venue(@venue).for_region(@region).with_effort_rating(effort_rating).order(:name).where(["opportunities.updated_at >= ?",  since_datetime]).page(params[:page]).per(50)
       end
     }
     format.json {
@@ -44,7 +44,6 @@ class OpportunitiesController < ApplicationController
   # GET /opportunities/1
   # GET /opportunities/1.json
   def show
-    @tags = Opportunity.tag_counts_on(:tags)
   end
 
   # GET /opportunities/new

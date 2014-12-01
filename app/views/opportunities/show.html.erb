@@ -62,10 +62,7 @@
     </p>
   <% end %>
 
-<h3>Tags</h3>
-<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-  <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
-<% end %>
+<p><strong>Tags:</strong> <%= @opportunity.tag_list %>
 
 <p>
   <strong>Sweat Rating</strong>
