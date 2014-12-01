@@ -1,3 +1,9 @@
+## 0.0.9 (1st December 2014)
+
+Features:
+
+- Added acts-as-taggable-on gem
+
 ## 0.0.8 (18th October 2014)
 
 Features:
