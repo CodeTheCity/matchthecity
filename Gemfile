@@ -47,6 +47,7 @@ gem 'faraday'
 
 gem 'simple_form'
 
+gem 'annotate', '~> 2.6.5'
 
 # Pagination
 gem 'kaminari'
