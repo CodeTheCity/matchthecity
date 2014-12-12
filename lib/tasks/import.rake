@@ -184,6 +184,20 @@ namespace :import do
       venue.email = venue_json['email']
       venue.web = venue_json['web']
       venue.save
+
+      venue_notices_json = venue_json['venue_notices']
+      unless venue_notices_json.nil?
+        venue_notices_json.each do |venue_notice_json|
+          notice_start = venue_notice_json['start']
+          notice_message = venue_notice_json['message']
+          venue_notice = venue.venue_notices.where('starts = ?', notice_start.to_datetime).first
+          if venue_notice.nil?
+            venue_notice = VenueNotice.new(:venue => venue, :starts => notice_start.to_datetime)
+          end
+          venue_notice.message = notice_message
+          venue_notice.save
+        end
+      end
     end
   end
 

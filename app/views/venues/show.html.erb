@@ -79,6 +79,14 @@
   <%= link_to "#{@venue.opportunities.count} opportunities at venue", venue_opportunities_path(@venue) %>
 </p>
 
+<% if @venue.venue_notices.count > 0 %>
+  <h2>Notices</h2>
+  <% @venue.venue_notices.sort_by(&:starts).reverse.each do |venue_notice| %>
+    <p><strong><%= l(venue_notice.starts) %></strong></p>
+    <p><%= venue_notice.message.html_safe %></p>
+  <% end %>
+<% end %>
+
 <p>
   <div id="map" style="width:400px;height:400px;"></div>
 </p>

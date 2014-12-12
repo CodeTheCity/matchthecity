@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201120910) do
+ActiveRecord::Schema.define(version: 20141211232950) do
 
   create_table "activities", force: true do |t|
     t.string   "title"
@@ -110,6 +110,17 @@ ActiveRecord::Schema.define(version: 20141201120910) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "venue_notices", force: true do |t|
+    t.integer  "venue_id"
+    t.datetime "starts"
+    t.datetime "expires"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "venue_notices", ["venue_id"], name: "index_venue_notices_on_venue_id", using: :btree
 
   create_table "venues", force: true do |t|
     t.string   "name"

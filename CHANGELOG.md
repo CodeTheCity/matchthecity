@@ -1,3 +1,9 @@
+## 0.0.10 (12th December 2014)
+
+Features:
+
+- Added VenueNotices model so that information such as closures can be added to a Venue.
+
 ## 0.0.9 (1st December 2014)
 
 Features:

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :venue_notices
+
   resources :effort_ratings do
     delete :index, on: :collection, action: :delete_all
   end

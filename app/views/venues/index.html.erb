@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Notices</th>
       <th>Address</th>
       <th>Postcode</th>
       <% unless @region %>
@@ -23,6 +24,11 @@
     <% @venues.each do |venue| %>
       <tr>
         <td><%= venue.name %></td>
+        <td>
+          <% if venue.venue_notices.count > 0 %>
+            <%= venue.venue_notices.count %>
+          <% end %>
+        </td>
         <td><%= venue.address %></td>
         <td><%= venue.postcode %></td>
         <% unless @region %>

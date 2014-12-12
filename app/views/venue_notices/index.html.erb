@@ -1,0 +1,31 @@
+<h1>Listing venue_notices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Venue</th>
+      <th>Starts</th>
+      <th>Expires</th>
+      <th>Message</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @venue_notices.each do |venue_notice| %>
+      <tr>
+        <td><%= venue_notice.venue %></td>
+        <td><%= venue_notice.starts %></td>
+        <td><%= venue_notice.expires %></td>
+        <td><%= venue_notice.message %></td>
+        <td><%= link_to 'Show', venue_notice %></td>
+        <td><%= link_to 'Edit', edit_venue_notice_path(venue_notice) %></td>
+        <td><%= link_to 'Destroy', venue_notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Venue notice', new_venue_notice_path %>

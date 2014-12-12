@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: venue_notices
+#
+#  id         :integer          not null, primary key
+#  venue_id   :integer
+#  starts     :datetime
+#  expires    :datetime
+#  message    :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  venue_id: 
+  starts: 2014-12-11 23:29:50
+  expires: 2014-12-11 23:29:50
+  message: MyText
+
+two:
+  venue_id: 
+  starts: 2014-12-11 23:29:50
+  expires: 2014-12-11 23:29:50
+  message: MyText
