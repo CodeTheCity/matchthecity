@@ -1,3 +1,10 @@
+## 0.0.11 (18th Janurary 2015)
+
+Features:
+
+- Added Orginsation model that owns an Opportunity
+- Added Venue Owner model that owns a Venue
+
 ## 0.0.10 (12th December 2014)
 
 Features:
