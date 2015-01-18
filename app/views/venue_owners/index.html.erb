@@ -1,6 +1,10 @@
-<h1>Listing venue_owners</h1>
+<h1>Venue Owners
+<% if @region %>
+  in <%= @region.name %>
+<% end %>
+</h1>
 
-<table>
+<table class='table-striped table sortable'>
   <thead>
     <tr>
       <th>Name</th>
@@ -11,9 +15,11 @@
       <th>Email</th>
       <th>Telephone</th>
       <th>Web</th>
-      <th>Region</th>
+      <% unless @region %>
+        <th>Region</th>
+      <% end %>
       <th>Logo url</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -28,16 +34,11 @@
         <td><%= venue_owner.email %></td>
         <td><%= venue_owner.telephone %></td>
         <td><%= venue_owner.web %></td>
-        <td><%= venue_owner.region %></td>
-        <td><%= venue_owner.logo_url %></td>
+        <% unless @region %>
+          <td><%= venue_owner.region.try(:name) %></td>
+        <% end %>        <td><%= venue_owner.logo_url %></td>
         <td><%= link_to 'Show', venue_owner %></td>
-        <td><%= link_to 'Edit', edit_venue_owner_path(venue_owner) %></td>
-        <td><%= link_to 'Destroy', venue_owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Venue owner', new_venue_owner_path %>

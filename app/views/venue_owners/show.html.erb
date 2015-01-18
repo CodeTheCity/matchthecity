@@ -42,7 +42,7 @@
 
 <p>
   <strong>Region:</strong>
-  <%= @venue_owner.region %>
+  <%= @venue_owner.region.name %>
 </p>
 
 <p>
@@ -50,5 +50,4 @@
   <%= @venue_owner.logo_url %>
 </p>
 
-<%= link_to 'Edit', edit_venue_owner_path(@venue_owner) %> |
 <%= link_to 'Back', venue_owners_path %>

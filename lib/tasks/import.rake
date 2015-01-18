@@ -176,6 +176,18 @@ namespace :import do
         venue = Venue.new(:name => venue_json['name'], :region => region)
       end
 
+      owner_name = venue_json['owner']
+      owner = VenueOwner.where('lower(name) = ?', owner_name.downcase).first
+      if owner.nil?
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        owner = VenueOwner.new(:name => owner_name, :region => region)
+      end
+
+      venue.venue_owner = owner
+
       venue.address = venue_json['address']
       venue.postcode = venue_json['postcode']
       venue.latitude = venue_json['lat']

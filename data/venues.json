@@ -1,6 +1,7 @@
 [
  {
   "name": "Aberdeen Sports Village",
+  "owner": "Aberdeen Sports Village",
   "address": "Linksfield Road, Aberdeen",
   "postcode": "AB24 5RU",
   "lat": "57.161768",
@@ -11,6 +12,7 @@
   },
  {
   "name": "Tullos Swimming Pool",
+  "owner": "Sport Aberdeen",
   "address": "Girdleness Road, Torry, Aberdeen",
   "postcode": "AB11 8FJ",
   "lat": "57.133519",
@@ -23,6 +25,7 @@
   },
  {
   "name": "Northfield Swimming Pool",
+  "owner": "Sport Aberdeen",
   "address": "Kettlehills Crescent, Aberdeen",
   "postcode": "AB16 5TL",
   "lat": "57.163754",
@@ -33,6 +36,7 @@
   },
  {
   "name": "Kincorth Swimming Pool",
+  "owner": "Sport Aberdeen",
   "address": "Cairngorm Drive, Aberdeen",
   "postcode": "AB12 5PQ",
   "lat": "57.118845",
@@ -44,6 +48,7 @@
 
   {
   "name": "Kincorth Sports Centre",
+  "owner": "Sport Aberdeen",
   "address": "Corthan Cresent, Aberdeen",
   "postcode": "AB12 5BB",
   "lat": "57.123781",
@@ -55,6 +60,7 @@
 
   {
   "name": "Jesmond Centre",
+  "owner": "Sport Aberdeen",
   "address": "Jesmond Drive, Bridge of Don, Aberdeen",
   "postcode": "AB22 8UR",
   "lat": "57.192811",
@@ -66,6 +72,7 @@
 
  {
   "name": "Hazlehead Swimming Pool",
+  "owner": "Sport Aberdeen",
   "address": "Groats Road, Aberdeen",
   "postcode": "AB15 8BE",
   "lat": "57.144255",
@@ -76,6 +83,7 @@
   },
  {
   "name": "Bucksburn Swimming Pool",
+  "owner": "Sport Aberdeen",
   "address": "Kepplehills Road, Bucksburn,Aberdeen",
   "postcode": "AB21 9DG",
   "lat": "57.176541",
@@ -86,6 +94,7 @@
   },
  {
   "name": "Bridge of Don Swimming Pool",
+  "owner": "Sport Aberdeen",
   "address": "Braehead Way,Bridge ff Don,Aberdeen",
   "postcode": "AB22 8RR",
   "lat": "57.185707",
@@ -96,6 +105,7 @@
   },
  {
   "name": "Beach Leisure Centre",
+  "owner": "Sport Aberdeen",
   "address": "Sea Beach, Aberdeen",
   "postcode": "AB24 5NR",
   "lat": "57.155602",
@@ -106,6 +116,7 @@
   },
  {
   "name": "Kings Links Golf Course",
+  "owner": "Sport Aberdeen",
   "address": "Golf Road, Aberdeen",
   "postcode": "AB24 5QB",
   "lat": "57.158694",
@@ -116,6 +127,7 @@
   },
  {
   "name": "Balnagask Golf Course",
+  "owner": "Sport Aberdeen",
   "address": "St. Fitticks Road, Aberdeen",
   "postcode": "AB11 8TN",
   "lat": "57.14095",
@@ -126,6 +138,7 @@
   },
   {
   "name": "Alex Collie Sports Centre",
+  "owner": "Sport Aberdeen",
   "address": "Cardens Knowe, Bridge of Don, Aberdeen",
   "postcode": "AB22 8PE",
   "lat": "57.184014",
@@ -136,6 +149,7 @@
   },
   {
   "name": "Beacon Centre",
+  "owner": "Sport Aberdeen",
   "address": "Bucksburn Community Campus, Kepplehills Road, Bucksburn, Aberdeen",
   "postcode": "AB21 5DG",
   "lat": "57.183483",
@@ -146,6 +160,7 @@
   },
   {
   "name": "Cults Sports Complex",
+  "owner": "Sport Aberdeen",
   "address": "Cults Academy Community Wing, Quarry Road, Aberdeen",
   "postcode": "AB15 9TP",
   "lat": "57.117801",
@@ -156,6 +171,7 @@
   },
   {
   "name": "Linx Ice Arena",
+  "owner": "Sport Aberdeen",
   "address": "Beach Promenade, Aberdeen",
   "postcode": "AB24 5NR",
   "lat": "57.156168",
@@ -166,6 +182,7 @@
   },
   {
   "name": "Peterculter Sports Centre",
+  "owner": "Sport Aberdeen",
   "address": "Coronation Road, Peterculter, Aberdeen",
   "postcode": "AB14 0RQ",
   "lat": "57.099887",
@@ -176,6 +193,7 @@
   },
   {
   "name": "Sheddocksley Sports Centre",
+  "owner": "Sport Aberdeen",
   "address": "Springhill Road, Mastrick, Aberdeen",
   "postcode": "AB16 6QJ",
   "lat": "57.157485",
@@ -186,6 +204,7 @@
   },
   {
   "name": "Torry Youth & Leisure Centre",
+  "owner": "Sport Aberdeen",
   "address": "Oscar Roadm, Torry, Aberdeen",
   "postcode": "AB11 8ER",
   "lat": "57.135117",
@@ -196,6 +215,7 @@
   },
   {
   "name": "Westburn Tennis Centre",
+  "owner": "Sport Aberdeen",
   "address": "Westburn Park Road, Aberdeen",
   "postcode": "AB25 3DE",
   "lat": "57.155386",

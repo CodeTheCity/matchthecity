@@ -9,6 +9,7 @@
     <tr>
       <th>Name</th>
       <th>Notices</th>
+      <th>Owner</th>
       <th>Address</th>
       <th>Postcode</th>
       <% unless @region %>
@@ -29,6 +30,7 @@
             <%= venue.venue_notices.count %>
           <% end %>
         </td>
+        <td><%= venue.venue_owner.try(:name) %></td>
         <td><%= venue.address %></td>
         <td><%= venue.postcode %></td>
         <% unless @region %>
