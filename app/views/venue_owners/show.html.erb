@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @venue_owner.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @venue_owner.address %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @venue_owner.postcode %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @venue_owner.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @venue_owner.longitude %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @venue_owner.email %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @venue_owner.telephone %>
+</p>
+
+<p>
+  <strong>Web:</strong>
+  <%= @venue_owner.web %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @venue_owner.region %>
+</p>
+
+<p>
+  <strong>Logo url:</strong>
+  <%= @venue_owner.logo_url %>
+</p>
+
+<%= link_to 'Edit', edit_venue_owner_path(@venue_owner) %> |
+<%= link_to 'Back', venue_owners_path %>

@@ -1,0 +1,43 @@
+<h1>Listing venue_owners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Postcode</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Email</th>
+      <th>Telephone</th>
+      <th>Web</th>
+      <th>Region</th>
+      <th>Logo url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @venue_owners.each do |venue_owner| %>
+      <tr>
+        <td><%= venue_owner.name %></td>
+        <td><%= venue_owner.address %></td>
+        <td><%= venue_owner.postcode %></td>
+        <td><%= venue_owner.latitude %></td>
+        <td><%= venue_owner.longitude %></td>
+        <td><%= venue_owner.email %></td>
+        <td><%= venue_owner.telephone %></td>
+        <td><%= venue_owner.web %></td>
+        <td><%= venue_owner.region %></td>
+        <td><%= venue_owner.logo_url %></td>
+        <td><%= link_to 'Show', venue_owner %></td>
+        <td><%= link_to 'Edit', edit_venue_owner_path(venue_owner) %></td>
+        <td><%= link_to 'Destroy', venue_owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Venue owner', new_venue_owner_path %>

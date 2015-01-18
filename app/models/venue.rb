@@ -21,6 +21,7 @@
 class Venue < ActiveRecord::Base
   has_many :opportunities
   belongs_to :region
+  belongs_to :venue_owner
   has_many :venue_notices
 
   scope :for_region, lambda { |region|

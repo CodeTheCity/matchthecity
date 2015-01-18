@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :venue_owners
+
   resources :organisations
 
   resources :venue_notices

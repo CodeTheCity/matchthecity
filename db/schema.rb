@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150118124833) do
+ActiveRecord::Schema.define(version: 20150118130919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,23 @@ ActiveRecord::Schema.define(version: 20150118124833) do
 
   add_index "venue_notices", ["venue_id"], name: "index_venue_notices_on_venue_id", using: :btree
 
+  create_table "venue_owners", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "postcode"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "email"
+    t.string   "telephone"
+    t.string   "web"
+    t.integer  "region_id"
+    t.string   "logo_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "venue_owners", ["region_id"], name: "index_venue_owners_on_region_id", using: :btree
+
   create_table "venues", force: true do |t|
     t.string   "name"
     t.string   "address"
@@ -158,8 +175,10 @@ ActiveRecord::Schema.define(version: 20150118124833) do
     t.integer  "region_id"
     t.string   "source_reference"
     t.string   "logo_url"
+    t.integer  "venue_owner_id"
   end
 
   add_index "venues", ["region_id"], name: "index_venues_on_region_id", using: :btree
+  add_index "venues", ["venue_owner_id"], name: "index_venues_on_venue_owner_id", using: :btree
 
 end
