@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :organisations
+
   resources :venue_notices
 
   resources :effort_ratings do

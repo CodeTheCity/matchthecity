@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211232950) do
+ActiveRecord::Schema.define(version: 20150118124833) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activities", force: true do |t|
     t.string   "title"
@@ -58,8 +61,10 @@ ActiveRecord::Schema.define(version: 20141211232950) do
     t.string   "image_url"
     t.string   "source_reference"
     t.integer  "effort_rating",    default: 0
+    t.integer  "orginsation_id"
   end
 
+  add_index "opportunities", ["orginsation_id"], name: "index_opportunities_on_orginsation_id", using: :btree
   add_index "opportunities", ["sub_activity_id"], name: "index_opportunities_on_sub_activity_id", using: :btree
   add_index "opportunities", ["venue_id"], name: "index_opportunities_on_venue_id", using: :btree
 
@@ -69,6 +74,23 @@ ActiveRecord::Schema.define(version: 20141211232950) do
   end
 
   add_index "opportunities_skills", ["opportunity_id", "skill_id"], name: "index_opportunities_skills_on_opportunity_id_and_skill_id", using: :btree
+
+  create_table "organisations", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "postcode"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "email"
+    t.string   "telephone"
+    t.string   "web"
+    t.integer  "region_id"
+    t.string   "logo_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "organisations", ["region_id"], name: "index_organisations_on_region_id", using: :btree
 
   create_table "regions", force: true do |t|
     t.string   "name"
