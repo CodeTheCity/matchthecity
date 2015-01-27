@@ -16,6 +16,7 @@
 #  region_id        :integer
 #  source_reference :string(255)
 #  logo_url         :string(255)
+#  venue_owner_id   :integer
 #
 
 class Venue < ActiveRecord::Base

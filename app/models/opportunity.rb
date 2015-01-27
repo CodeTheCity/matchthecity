@@ -18,6 +18,7 @@
 #  image_url        :string(255)
 #  source_reference :string(255)
 #  effort_rating    :integer          default(0)
+#  orginsation_id   :integer
 #
 
 class Opportunity < ActiveRecord::Base
