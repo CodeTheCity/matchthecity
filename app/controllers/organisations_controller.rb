@@ -1,6 +1,7 @@
 class OrganisationsController < ApplicationController
   before_action :set_organisation, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_filter :has_permission, only: [:edit, :update, :destroy]
 
   # GET /organisations
   # GET /organisations.json
@@ -73,4 +74,11 @@ class OrganisationsController < ApplicationController
     def organisation_params
       params.require(:organisation).permit(:name, :address, :postcode, :latitude, :longitude, :email, :telephone, :web, :region_id, :logo_url)
     end
+
+    def has_permission
+      unless @organisation.users.include?(current_user) 
+        redirect_to(@organisation, :alert => t(:restricted_page))
+      end
+    end
+
 end

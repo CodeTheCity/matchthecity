@@ -22,6 +22,8 @@
 en:
   hello: "Hello world"
 
+  restricted_page: "You do not have permission to view the page requested."
+
   time:
       formats:
             default: "%d-%m-%Y %H:%M"

@@ -57,5 +57,6 @@
   <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
+
+<%= link_to 'Edit', edit_organisation_path(@organisation) if @organisation.users.include?(current_user) %> |
 <%= link_to 'Back', organisations_path %>
