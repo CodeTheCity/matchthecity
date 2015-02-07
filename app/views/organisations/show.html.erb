@@ -50,5 +50,12 @@
   <%= @organisation.logo_url %>
 </p>
 
+<h2>Owners</h2>
+<ul>
+  <% @organisation.users.each do |user| %>
+    <li><%= user.name %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_organisation_path(@organisation) %> |
 <%= link_to 'Back', organisations_path %>
