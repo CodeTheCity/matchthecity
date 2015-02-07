@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -65,6 +67,7 @@ gem "net-ssh", '=2.7.0'
 group :production do
   # Use postgre as the database for Active Record
   gem 'pg'
+  gem 'letter_opener',              '~> 1.2.0'
 end
 
 group :development, :test do
@@ -76,4 +79,5 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
+  gem 'letter_opener',              '~> 1.2.0'
 end
