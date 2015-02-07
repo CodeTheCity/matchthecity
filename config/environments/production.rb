@@ -87,8 +87,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :user_name            => <%= ENV['MATCHTHECITY_EMAIL'],
-    :password             => <%= ENV['MATCHTHECITY_EMAIL_PASSWORD'],
+    :user_name            => <%= Rails.application.secrets[:email][:address] %>,
+    :password             => <%= Rails.application.secrets[:email][:password] %>,
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
   config.action_mailer.default_url_options = {:host => "matchthecity.org" }
