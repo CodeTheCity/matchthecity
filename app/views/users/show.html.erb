@@ -1,8 +1,15 @@
-<h1>Organisations
-<% if @region %>
-  in <%= @region.name %>
-<% end %>
-</h1>
+<h1>My Account</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<%= link_to 'Edit Account Details', edit_user_registration_path(@user) %>
+
+
+<h2>My Organisations</h2>
+<%= link_to "Add organisation", new_organisation_path %>
 
 <table class='table-striped table sortable'>
 
@@ -24,7 +31,7 @@
   </thead>
 
   <tbody>
-    <% @organisations.each do |organisation| %>
+    <% @user.organisations.each do |organisation| %>
       <tr>
         <td><%= organisation.name %></td>
         <td><%= organisation.address %></td>
