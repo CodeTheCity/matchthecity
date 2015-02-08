@@ -51,6 +51,8 @@ gem 'simple_form'
 
 gem 'annotate', '~> 2.6.5'
 
+gem "airbrake"
+
 # Pagination
 gem 'kaminari'
 

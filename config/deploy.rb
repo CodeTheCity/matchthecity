@@ -99,3 +99,5 @@ namespace :deploy do
     set :rakefile, nil if exists?(:rakefile)
 end
 end
+        require './config/boot'
+        require 'airbrake/capistrano'
