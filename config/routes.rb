@@ -3,9 +3,15 @@ Rails.application.routes.draw do
   resources :users
 
 
+
   resources :venue_owners
 
-  resources :organisations
+  resources :organisations do
+    resources :users do
+      get :invite
+      get :uninvite
+    end
+  end
 
   resources :venue_notices
 

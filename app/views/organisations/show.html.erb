@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h1>Organisation</h1>
 
 <p>
   <strong>Name:</strong>
@@ -53,10 +53,31 @@
 <h2>Owners</h2>
 <ul>
   <% @organisation.users.each do |user| %>
-    <li><%= user.name %></li>
+    <li><%= user.name %> <%= link_to '(Remove)', organisation_user_uninvite_path(@organisation, user) unless user == current_user %></li>
   <% end %>
 </ul>
 
+<% if @organisation.users.include?(current_user) %>
+ <p>Invite a new member to <%= @organisation.name %></p>
+ <p>
+      <%= form_tag users_path, :method => 'get', :id => "users_search", :remote => true  do |f| %>
+      <%= hidden_field_tag 'organisation_id', @organisation.id %>
+      <%= text_field_tag :search, params[:search], :placeholder => "Search by name", :size => 50 %>
+      <%= submit_tag "Search", :name => nil %>
+      <%= link_to 'Clear Search', url_for %>
+      <% end %>
+    </p>
+
+
+    <table>
+      <tr>
+        <th>Name</th>
+      </tr>
+    <tbody id="users">
+      <%= render @users %>
+    </tbody>
+  </table>
+<% end %>
 
 <%= link_to 'Edit', edit_organisation_path(@organisation) if @organisation.users.include?(current_user) %> |
 <%= link_to 'Back', organisations_path %>
