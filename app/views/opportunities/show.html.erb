@@ -45,7 +45,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @opportunity.description.html_safe %>
+  <%= @opportunity.description.html_safe unless @opportunity.description.nil? %>
 </p>
 
 <% unless @opportunity.image_url.blank? %>
