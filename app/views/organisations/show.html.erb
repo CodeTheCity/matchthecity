@@ -45,10 +45,10 @@
   <%= @organisation.region %>
 </p>
 
-<p>
-  <strong>Logo url:</strong>
-  <%= @organisation.logo_url %>
-</p>
+<% unless @organisation.logo_url.blank? %>
+  <%= image_tag @organisation.logo_url %>
+<% end %>
+
 
 <h2>Owners</h2>
 <ul>
