@@ -1,16 +1,25 @@
 [
  {
-  "name": "Aberdeen Sports Village",
-  "owner": "Aberdeen Sports Village",
-  "address": "Linksfield Road, Aberdeen",
-  "postcode": "AB24 5RU",
-  "lat": "57.161768",
-  "long": "-2.092734",
-  "email": "",
-  "tel": "01224 438900",
-  "web": "http://www.aberdeensportsvillage.com/"
+  "type": "Feature",
+  "properties": {
+   "name": "Aberdeen Sports Village",
+   "owner": "Aberdeen Sports Village",
+   "address": "Linksfield Road, Aberdeen",
+   "postcode": "AB24 5RU",
+   "lat": "57.161768",
+   "long": "-2.092734",
+   "email": "",
+   "tel": "01224 438900",
+   "web": "http://www.aberdeensportsvillage.com/"
   },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.092734, 57.161768]
+  }
+},
  {
+  "type": "Feature",
+  "properties": {
   "name": "Tullos Swimming Pool",
   "owner": "Sport Aberdeen",
   "address": "Girdleness Road, Torry, Aberdeen",
@@ -22,8 +31,11 @@
   "web": "http://www.sportaberdeen.co.uk/tullos",
   "venue_notices" : [{ "start": "2014-09-01", "message" : "<p>Aberdeen City Council spokesperson said: The council commissioned a comprehensive assessment of the pool and is awaiting the findings so that the specifications of the remedial works required can be determined.</p><p>We fully appreciate the interest in the matter and the desire to have the pool open. We are in daily contact with the company and are seeking to have the necessary works completed and the pool reopened as soon as practicable possible.</p><p>Tullos Swimming Pool is still closed whilst maintenance works raised after the redevelopment are addressed.</p><p>The pool has been closed since Monday 19 May to enable the list of repair work to be carried out, and during this time additional work has been identified.</p><p>Full updates, as we receive them, will be posted here, as news on our website and through our social media channels.</p><p>We thank you for your patience.</p><p>During this period of closure, Kincorth Pool will operate extended opening hours and local residents to Tullos living in postal districts AB11 8 and AB11 9 will be offered half price swimming at Sport Aberdeen venues whilst the pool remains closed – full details at <a href=\"http://www.sportaberdeen.co.uk\">www.sportaberdeen.co.uk</a>.</p>"},
   { "start" : "2014-12-01", "message" : "<p>There is still no confirmed date for re-opening; but plans are now underway for the consultation and review process for programming at Tullos when it does re-open - at somepoint - in 2015.</p>"}]
+  }
   },
  {
+  "type": "Feature",
+  "properties": {
   "name": "Northfield Swimming Pool",
   "owner": "Sport Aberdeen",
   "address": "Kettlehills Crescent, Aberdeen",
@@ -33,8 +45,11 @@
   "email": "Northfieldswimmingpool@sportaberdeen.co.uk",
   "tel": "01224 680307",
   "web": "http://www.sportaberdeen.co.uk/northfield"
+  }
   },
  {
+  "type": "Feature",
+  "properties": {
   "name": "Kincorth Swimming Pool",
   "owner": "Sport Aberdeen",
   "address": "Cairngorm Drive, Aberdeen",
@@ -44,9 +59,12 @@
   "email": "kincorthpool@sportaberdeen.co.uk",
   "tel": "01224 859795",
   "web": "http://www.sportaberdeen.co.uk/kincorth-sp"
+  }
   },
 
   {
+   "type": "Feature",
+  "properties": {
   "name": "Kincorth Sports Centre",
   "owner": "Sport Aberdeen",
   "address": "Corthan Cresent, Aberdeen",
@@ -56,9 +74,12 @@
   "email": "Kincorthsports@sportaberdeen.co.uk",
   "tel": "01224 879759",
   "web": "http://www.sportaberdeen.co.uk/venues/kincorth"
+  }
   },
 
   {
+   "type": "Feature",
+  "properties": {
   "name": "Jesmond Centre",
   "owner": "Sport Aberdeen",
   "address": "Jesmond Drive, Bridge of Don, Aberdeen",
@@ -68,9 +89,12 @@
   "email": "jesmondcentre@sportaberdeen.co.uk",
   "tel": "01224 707090",
   "web": "http://www.sportaberdeen.co.uk/venues/jesmond"
+  }
   },
 
  {
+  "type": "Feature",
+  "properties": {
   "name": "Hazlehead Swimming Pool",
   "owner": "Sport Aberdeen",
   "address": "Groats Road, Aberdeen",
@@ -80,8 +104,11 @@
   "email": "hazleheadpool@sportaberdeen.co.uk",
   "tel": "01224 310062 ",
   "web": "http://www.sportaberdeen.co.uk/hazlehead-sp"
+  }
   },
  {
+  "type": "Feature",
+  "properties": {
   "name": "Bucksburn Swimming Pool",
   "owner": "Sport Aberdeen",
   "address": "Kepplehills Road, Bucksburn,Aberdeen",
@@ -91,8 +118,11 @@
   "email": "BucksburnSwimmingPool@sportaberdeen.co.uk",
   "tel": "01224 716479",
   "web": "http://www.sportaberdeen.co.uk/bucksburn"
+  }
   },
  {
+  "type": "Feature",
+  "properties": {
   "name": "Bridge of Don Swimming Pool",
   "owner": "Sport Aberdeen",
   "address": "Braehead Way,Bridge ff Don,Aberdeen",
@@ -102,8 +132,11 @@
   "email": "Bridgeofdonswimmingpool@sportaberdeen.co.uk",
   "tel": "01224 701136 ",
   "web": "http://www.sportaberdeen.co.uk/bridge-of-don"
+  }
   },
  {
+  "type": "Feature",
+  "properties": {
   "name": "Beach Leisure Centre",
   "owner": "Sport Aberdeen",
   "address": "Sea Beach, Aberdeen",
@@ -113,8 +146,11 @@
   "email": "BeachLeisureCentre@sportaberdeen.co.uk",
   "tel": "01224 655401",
   "web": "http://www.sportaberdeen.co.uk/beach-leisure-centre"
+  }
   },
  {
+  "type": "Feature",
+  "properties": {
   "name": "Kings Links Golf Course",
   "owner": "Sport Aberdeen",
   "address": "Golf Road, Aberdeen",
@@ -124,8 +160,11 @@
   "email": "information@sportaberdeen.co.uk",
   "tel": "01224 632269",
   "web": "http://www.sportaberdeen.co.uk/kings-links"
+  }
   },
  {
+  "type": "Feature",
+  "properties": {
   "name": "Balnagask Golf Course",
   "owner": "Sport Aberdeen",
   "address": "St. Fitticks Road, Aberdeen",
@@ -135,8 +174,11 @@
   "email": "information@sportaberdeen.co.uk",
   "tel": "01224 876407",
   "web": "http://www.sportaberdeen.co.uk/balnagask"
+  }
   },
   {
+   "type": "Feature",
+  "properties": {
   "name": "Alex Collie Sports Centre",
   "owner": "Sport Aberdeen",
   "address": "Cardens Knowe, Bridge of Don, Aberdeen",
@@ -146,8 +188,11 @@
   "email": "alexcolliesportscentre@sportaberdeen.co.uk",
   "tel": "01224826769",
   "web": "http://www.sportaberdeen.co.uk/alex-collie"
+  }
   },
   {
+   "type": "Feature",
+  "properties": {
   "name": "Beacon Centre",
   "owner": "Sport Aberdeen",
   "address": "Bucksburn Community Campus, Kepplehills Road, Bucksburn, Aberdeen",
@@ -157,8 +202,11 @@
   "email": "BeaconCentre@SportAberdeen.co.uk ",
   "tel": "01224710840",
   "web": "http://www.sportaberdeen.co.uk/beacon-centre"
+  }
   },
   {
+   "type": "Feature",
+  "properties": {
   "name": "Cults Sports Complex",
   "owner": "Sport Aberdeen",
   "address": "Cults Academy Community Wing, Quarry Road, Aberdeen",
@@ -168,8 +216,11 @@
   "email": "CultsSports@sportaberdeen.co.uk",
   "tel": "01224866282",
   "web": "http://www.sportaberdeen.co.uk/cults"
+  }
   },
   {
+   "type": "Feature",
+  "properties": {
   "name": "Linx Ice Arena",
   "owner": "Sport Aberdeen",
   "address": "Beach Promenade, Aberdeen",
@@ -179,8 +230,11 @@
   "email": "LinxIceArena@sportaberdeen.co.uk",
   "tel": "01224655406",
   "web": "http://www.sportaberdeen.co.uk/linx-ice-arena"
+  }
   },
   {
+   "type": "Feature",
+  "properties": {
   "name": "Peterculter Sports Centre",
   "owner": "Sport Aberdeen",
   "address": "Coronation Road, Peterculter, Aberdeen",
@@ -190,8 +244,11 @@
   "email": "cultersports@sportaberdeen.co.uk",
   "tel": "01224732069",
   "web": "http://www.sportaberdeen.co.uk/peterculter"
+  }
   },
   {
+   "type": "Feature",
+  "properties": {
   "name": "Sheddocksley Sports Centre",
   "owner": "Sport Aberdeen",
   "address": "Springhill Road, Mastrick, Aberdeen",
@@ -201,8 +258,11 @@
   "email": "sheddocksleysportscentre@sportaberdeen.co.uk",
   "tel": "01224692534",
   "web": "http://www.sportaberdeen.co.uk/sheddocksley"
+  }
   },
   {
+   "type": "Feature",
+  "properties": {
   "name": "Torry Youth & Leisure Centre",
   "owner": "Sport Aberdeen",
   "address": "Oscar Roadm, Torry, Aberdeen",
@@ -212,8 +272,11 @@
   "email": "Torrysports@sportaberdeen.co.uk",
   "tel": "01224871213",
   "web": "http://www.sportaberdeen.co.uk/torry"
+  }
   },
   {
+   "type": "Feature",
+  "properties": {
   "name": "Westburn Tennis Centre",
   "owner": "Sport Aberdeen",
   "address": "Westburn Park Road, Aberdeen",
@@ -223,6 +286,7 @@
   "email": "westburntenniscentre@sportaberdeen.co.uk",
   "tel": "01224625342",
   "web": "http://www.sportaberdeen.co.uk/westburn-tennis-centre"
+  }
   }
 ]
 
