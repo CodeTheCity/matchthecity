@@ -1,4 +1,6 @@
-[
+{
+  "type": "FeatureCollection", 
+  "features": [
  {
   "type": "Feature",
   "properties": {
@@ -31,6 +33,10 @@
   "web": "http://www.sportaberdeen.co.uk/tullos",
   "venue_notices" : [{ "start": "2014-09-01", "message" : "<p>Aberdeen City Council spokesperson said: The council commissioned a comprehensive assessment of the pool and is awaiting the findings so that the specifications of the remedial works required can be determined.</p><p>We fully appreciate the interest in the matter and the desire to have the pool open. We are in daily contact with the company and are seeking to have the necessary works completed and the pool reopened as soon as practicable possible.</p><p>Tullos Swimming Pool is still closed whilst maintenance works raised after the redevelopment are addressed.</p><p>The pool has been closed since Monday 19 May to enable the list of repair work to be carried out, and during this time additional work has been identified.</p><p>Full updates, as we receive them, will be posted here, as news on our website and through our social media channels.</p><p>We thank you for your patience.</p><p>During this period of closure, Kincorth Pool will operate extended opening hours and local residents to Tullos living in postal districts AB11 8 and AB11 9 will be offered half price swimming at Sport Aberdeen venues whilst the pool remains closed – full details at <a href=\"http://www.sportaberdeen.co.uk\">www.sportaberdeen.co.uk</a>.</p>"},
   { "start" : "2014-12-01", "message" : "<p>There is still no confirmed date for re-opening; but plans are now underway for the consultation and review process for programming at Tullos when it does re-open - at somepoint - in 2015.</p>"}]
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.074271, 57.133519]
   }
   },
  {
@@ -45,6 +51,10 @@
   "email": "Northfieldswimmingpool@sportaberdeen.co.uk",
   "tel": "01224 680307",
   "web": "http://www.sportaberdeen.co.uk/northfield"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.15295, 57.163754]
   }
   },
  {
@@ -59,6 +69,10 @@
   "email": "kincorthpool@sportaberdeen.co.uk",
   "tel": "01224 859795",
   "web": "http://www.sportaberdeen.co.uk/kincorth-sp"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.109554, 57.118845]
   }
   },
 
@@ -74,6 +88,10 @@
   "email": "Kincorthsports@sportaberdeen.co.uk",
   "tel": "01224 879759",
   "web": "http://www.sportaberdeen.co.uk/venues/kincorth"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.102762, 57.123781]
   }
   },
 
@@ -89,6 +107,10 @@
   "email": "jesmondcentre@sportaberdeen.co.uk",
   "tel": "01224 707090",
   "web": "http://www.sportaberdeen.co.uk/venues/jesmond"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.121282, 57.192811]
   }
   },
 
@@ -104,6 +126,10 @@
   "email": "hazleheadpool@sportaberdeen.co.uk",
   "tel": "01224 310062 ",
   "web": "http://www.sportaberdeen.co.uk/hazlehead-sp"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.178608, 57.144255]
   }
   },
  {
@@ -118,6 +144,10 @@
   "email": "BucksburnSwimmingPool@sportaberdeen.co.uk",
   "tel": "01224 716479",
   "web": "http://www.sportaberdeen.co.uk/bucksburn"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.184353, 57.176541]
   }
   },
  {
@@ -132,6 +162,10 @@
   "email": "Bridgeofdonswimmingpool@sportaberdeen.co.uk",
   "tel": "01224 701136 ",
   "web": "http://www.sportaberdeen.co.uk/bridge-of-don"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.110977, 57.185707]
   }
   },
  {
@@ -146,6 +180,10 @@
   "email": "BeachLeisureCentre@sportaberdeen.co.uk",
   "tel": "01224 655401",
   "web": "http://www.sportaberdeen.co.uk/beach-leisure-centre"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.0799, 57.155602]
   }
   },
  {
@@ -160,6 +198,10 @@
   "email": "information@sportaberdeen.co.uk",
   "tel": "01224 632269",
   "web": "http://www.sportaberdeen.co.uk/kings-links"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.08545, 57.158694]
   }
   },
  {
@@ -174,6 +216,10 @@
   "email": "information@sportaberdeen.co.uk",
   "tel": "01224 876407",
   "web": "http://www.sportaberdeen.co.uk/balnagask"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.069123, 57.14095]
   }
   },
   {
@@ -188,6 +234,10 @@
   "email": "alexcolliesportscentre@sportaberdeen.co.uk",
   "tel": "01224826769",
   "web": "http://www.sportaberdeen.co.uk/alex-collie"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.103524, 57.184014]
   }
   },
   {
@@ -202,6 +252,10 @@
   "email": "BeaconCentre@SportAberdeen.co.uk ",
   "tel": "01224710840",
   "web": "http://www.sportaberdeen.co.uk/beacon-centre"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.181902, 57.183483]
   }
   },
   {
@@ -216,6 +270,10 @@
   "email": "CultsSports@sportaberdeen.co.uk",
   "tel": "01224866282",
   "web": "http://www.sportaberdeen.co.uk/cults"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.191254, 57.117801]
   }
   },
   {
@@ -230,6 +288,10 @@
   "email": "LinxIceArena@sportaberdeen.co.uk",
   "tel": "01224655406",
   "web": "http://www.sportaberdeen.co.uk/linx-ice-arena"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.081094, 57.156168]
   }
   },
   {
@@ -244,6 +306,10 @@
   "email": "cultersports@sportaberdeen.co.uk",
   "tel": "01224732069",
   "web": "http://www.sportaberdeen.co.uk/peterculter"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.265494, 57.099887]
   }
   },
   {
@@ -258,6 +324,10 @@
   "email": "sheddocksleysportscentre@sportaberdeen.co.uk",
   "tel": "01224692534",
   "web": "http://www.sportaberdeen.co.uk/sheddocksley"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.162211, 57.157485]
   }
   },
   {
@@ -272,6 +342,10 @@
   "email": "Torrysports@sportaberdeen.co.uk",
   "tel": "01224871213",
   "web": "http://www.sportaberdeen.co.uk/torry"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.087549, 57.135117]
   }
   },
   {
@@ -286,7 +360,12 @@
   "email": "westburntenniscentre@sportaberdeen.co.uk",
   "tel": "01224625342",
   "web": "http://www.sportaberdeen.co.uk/westburn-tennis-centre"
+  },
+  "geometry": {
+   "type": "Point",
+   "coordinates": [-2.123598, 57.155386]
   }
   }
 ]
+}
 
