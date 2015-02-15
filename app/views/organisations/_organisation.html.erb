@@ -1,0 +1,13 @@
+<tr>
+    <td><%= link_to organisation.name, organisation %></td>
+    <td><%= organisation.address %></td>
+    <td><%= organisation.postcode %></td>
+    <td><%= organisation.latitude %></td>
+    <td><%= organisation.longitude %></td>
+    <td><%= organisation.email %></td>
+    <td><%= organisation.telephone %></td>
+    <td><%= organisation.web %></td>
+    <td><%= organisation.region.try :name %></td>
+    <td><%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_organisation_path(organisation) if organisation.users.include?(current_user) %></td>
+    <td><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, organisation, method: :delete, data: { confirm: 'Are you sure?' }  if organisation.users.include?(current_user) %></td>
+</tr>

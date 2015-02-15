@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :venue_owners
 
   resources :organisations do
+    resources :opportunities
     resources :users do
       get :invite
       get :uninvite

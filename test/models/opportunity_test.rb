@@ -18,6 +18,7 @@
 #  image_url        :string(255)
 #  source_reference :string(255)
 #  effort_rating    :integer          default(0)
+#  organisation_id  :integer
 #
 
 require 'test_helper'

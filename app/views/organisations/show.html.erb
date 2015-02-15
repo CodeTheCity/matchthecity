@@ -42,12 +42,39 @@
 
 <p>
   <strong>Region:</strong>
-  <%= @organisation.region %>
+  <%= @organisation.region.try :name %>
 </p>
 
 <% unless @organisation.logo_url.blank? %>
   <%= image_tag @organisation.logo_url %>
 <% end %>
+
+
+<div>
+  <%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_organisation_opportunity_path(@organisation) %>
+</div>
+
+
+<table class='table-striped table' style="border-collapse:collapse;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Activity</th>
+      <th>Sub Activity</th>
+      <% unless @venue %>
+        <th>Venue</th>
+      <% end %>
+      <th>Day</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+
+
+  <tbody id="opportunities">
+    <%= render partial: "opportunities/opportunity_short", collection: @opportunities, as: :opportunity %>
+  </tbody>
+</table>
 
 
 <h2>Owners</h2>

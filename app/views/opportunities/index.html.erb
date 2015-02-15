@@ -1,8 +1,4 @@
-<h1>Opportunities
-<% if @venue %>
-  at <%= @venue.name %>
-<% end %>
-</h1>
+<h1>Opportunities <% if @venue %> at <%= @venue.name %> <% end %></h1>
 
 <%= paginate @opportunities %>
 
@@ -25,26 +21,10 @@
       <% end %>
       <th>Day</th>
       <th>Time</th>
-      <th>Description</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
-    <% @opportunities.each do |opportunity| %>
-      <tr>
-        <td><%= opportunity.name %></td>
-        <td><%= opportunity.category %></td>
-        <td><%= opportunity.activity.try :title %></td>
-        <td><%= opportunity.sub_activity.try :title %></td>
-        <% unless @venue %>
-          <td><%= opportunity.venue.try :name %></td>
-        <% end %>
-        <td><%= opportunity.day_of_week %></td>
-        <td nowrap><%= opportunity.start_time %> - <%= opportunity.end_time %></td>
-        <td><%= opportunity.description.html_safe unless opportunity.description.nil? %></td>
-        <td><%= link_to 'Show', opportunity %></td>
-      </tr>
-    <% end %>
+  <tbody id="opportunities">
+    <%= render @opportunities %>
   </tbody>
 </table>

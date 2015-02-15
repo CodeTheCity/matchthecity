@@ -56,6 +56,16 @@ namespace :import do
         existing_sub_activity.save
       end
 
+      organisation = Organisation.find_by_name('Aberdeen Sports Village')
+      if organisation.nil?
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        organisation = Organisation.new(:name => 'Aberdeen Sports Village', :region => region)
+        organisation.save
+      end
+
       venue = Venue.find_by_name('Aberdeen Sports Village')
       if venue.nil?
         region = Region.find_by_name('Aberdeen')
@@ -81,6 +91,7 @@ namespace :import do
       opportunity.start_time = start_time
       opportunity.end_time = end_time
       opportunity.image_url = image_url
+      opportunity.organisation = organisation
       opportunity.save
 
       # Tag it if we can

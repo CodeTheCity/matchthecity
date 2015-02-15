@@ -13,6 +13,7 @@ class OrganisationsController < ApplicationController
   # GET /organisations/1.json
   def show
     @users = []
+    @opportunities = @organisation.opportunities.all.page(params[:page]).per(50)
   end
 
   # GET /organisations/new

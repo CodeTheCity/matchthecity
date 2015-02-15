@@ -1,7 +1,10 @@
 class OpportunitiesController < ApplicationController
   before_action :set_opportunity, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
+  before_action :set_organisation, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :udpdate, :destroy]
   before_filter :find_venue, :find_region
+  before_filter :has_permission, only: [:edit, :update, :destroy]
+
 
   def tag_cloud
     @tags = Opportunity.tag_counts_on(:tags)
@@ -59,6 +62,7 @@ class OpportunitiesController < ApplicationController
   # POST /opportunities.json
   def create
     @opportunity = Opportunity.new(opportunity_params)
+    @opportunity.organisation = @organisation
 
     respond_to do |format|
       if @opportunity.save
@@ -101,6 +105,10 @@ class OpportunitiesController < ApplicationController
       @opportunity = Opportunity.find(params[:id])
     end
 
+    def set_organisation
+      @organisation = Organisation.find(params[:organisation_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def opportunity_params
       params.require(:opportunity).permit(:name, :category, :description, :activity_id, :sub_activity_id, :venue_id, :room, :start_time, :end_time, :day_of_week,:skill_ids => [])
@@ -113,5 +121,16 @@ class OpportunitiesController < ApplicationController
 
     def find_region
       @region = Region.find_by_id(params[:region_id])
+    end
+
+    def has_permission
+      organisation = @opportunity.organisation
+      if organisation
+        unless @opportunity.organisation.users.include?(current_user) 
+          redirect_to(@opportunity, :alert => t(:restricted_page))
+        end
+      else
+        redirect_to(@opportunity, :alert => t(:restricted_page))
+      end
     end
 end

@@ -1,0 +1,19 @@
+<tr>
+    <td><%= link_to '<i class="glyphicon glyphicon-eye-open"></i> '.html_safe, opportunity %><%= link_to opportunity.name, opportunity %></td>
+    <td><%= opportunity.category %></td>
+    <td><%= opportunity.activity.try :title %></td>
+    <td><%= opportunity.sub_activity.try :title %></td>
+    <% unless @venue %>
+      <td><%= opportunity.venue.try :name %></td>
+    <% end %>
+    <td><%= opportunity.day_of_week %></td>
+    <td nowrap><%= opportunity.start_time %> - <%= opportunity.end_time %></td>
+    <td>
+    <button type="button" class="btn-sm" data-toggle="collapse" data-target="#<%= opportunity.id %>collapsed">
+        Description
+    </button>
+    </td>
+</tr>
+<tr class="collapse out" id="<%= opportunity.id %>collapsed">
+    <td colspan="8"><%= opportunity.description.html_safe unless opportunity.description.nil? %></td>
+</tr>

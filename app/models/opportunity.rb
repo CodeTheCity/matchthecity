@@ -18,6 +18,7 @@
 #  image_url        :string(255)
 #  source_reference :string(255)
 #  effort_rating    :integer          default(0)
+#  organisation_id  :integer
 #
 
 class Opportunity < ActiveRecord::Base
@@ -29,6 +30,8 @@ class Opportunity < ActiveRecord::Base
     belongs_to :organisation
     has_many :effort_ratings, :dependent => :destroy
     accepts_nested_attributes_for :effort_ratings
+
+    before_save :set_activity
 
     scope :for_venue, lambda { |venue|
       where("venue_id = ?", venue.id ) unless venue.blank?
@@ -42,4 +45,9 @@ class Opportunity < ActiveRecord::Base
     scope :with_effort_rating, lambda { |rating|
       where("effort_rating = ?", rating) unless rating.nil?
     }
+
+    private
+    def set_activity
+      self.activity = self.sub_activity.activity
+    end
 end

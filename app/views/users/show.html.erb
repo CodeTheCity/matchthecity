@@ -11,9 +11,8 @@
 <h2>My Organisations</h2>
 <%= link_to "Add organisation", new_organisation_path %>
 
-<table class='table-striped table sortable'>
 
-<table>
+<table class='table-striped table'>
   <thead>
     <tr>
       <th>Name</th>
@@ -25,28 +24,11 @@
       <th>Telephone</th>
       <th>Web</th>
       <th>Region</th>
-      <th>Logo url</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @user.organisations.each do |organisation| %>
-      <tr>
-        <td><%= organisation.name %></td>
-        <td><%= organisation.address %></td>
-        <td><%= organisation.postcode %></td>
-        <td><%= organisation.latitude %></td>
-        <td><%= organisation.longitude %></td>
-        <td><%= organisation.email %></td>
-        <td><%= organisation.telephone %></td>
-        <td><%= organisation.web %></td>
-        <td><%= organisation.region %></td>
-        <td><%= organisation.logo_url %></td>
-        <td><%= link_to 'Show', organisation %></td>
-        <td><%= link_to 'Edit', edit_organisation_path(organisation) if organisation.users.include?(current_user) %></td>
-        <td><%= link_to 'Destroy', organisation, method: :delete, data: { confirm: 'Are you sure?' }  if organisation.users.include?(current_user) %></td>
-      </tr>
-    <% end %>
+    <%= render @user.organisations %>
   </tbody>
 </table>

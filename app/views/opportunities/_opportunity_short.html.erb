@@ -1,0 +1,12 @@
+<tr>
+    <td><%= link_to opportunity.name, opportunity %></td>
+    <td><%= opportunity.category %></td>
+    <td><%= opportunity.activity.try :title %></td>
+    <td><%= opportunity.sub_activity.try :title %></td>
+    <% unless @venue %>
+      <td><%= opportunity.venue.try :name %></td>
+    <% end %>
+    <td><%= opportunity.day_of_week %></td>
+    <td nowrap><%= opportunity.start_time %> - <%= opportunity.end_time %></td>
+    <td><%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_opportunity_path(opportunity) %></td>
+</tr>
