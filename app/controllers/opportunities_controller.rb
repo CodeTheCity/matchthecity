@@ -3,7 +3,7 @@ class OpportunitiesController < ApplicationController
   before_action :set_organisation, only: [:new, :create]
   before_action :authenticate_user!, only: [:new, :create, :edit, :udpdate, :destroy]
   before_filter :find_venue, :find_region
-  before_filter :has_permission, only: [:edit, :update, :destroy]
+  before_filter :has_permission, only: [:new, :create, :edit, :update, :destroy]
 
 
   def tag_cloud
@@ -124,13 +124,13 @@ class OpportunitiesController < ApplicationController
     end
 
     def has_permission
-      organisation = @opportunity.organisation
-      if organisation
-        unless @opportunity.organisation.users.include?(current_user) 
-          redirect_to(@opportunity, :alert => t(:restricted_page))
+      @organisation = @opportunity.organisation if @organisation.nil?
+      if @organisation
+        unless @organisation.users.include?(current_user) 
+          redirect_to(welcome_index_path, :alert => t(:restricted_page))
         end
       else
-        redirect_to(@opportunity, :alert => t(:restricted_page))
+        redirect_to(welcome_index_path, :alert => t(:restricted_page))
       end
     end
 end
