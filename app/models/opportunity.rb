@@ -33,6 +33,9 @@ class Opportunity < ActiveRecord::Base
 
     before_save :set_activity
 
+    validates_presence_of :activity
+    validates_presence_of :sub_activity
+
     scope :for_venue, lambda { |venue|
       where("venue_id = ?", venue.id ) unless venue.blank?
     }

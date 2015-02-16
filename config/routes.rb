@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :users
 
 
+  controller :opportunities do
+    get :update_sub_activities
+  end
+
 
   resources :venue_owners
 

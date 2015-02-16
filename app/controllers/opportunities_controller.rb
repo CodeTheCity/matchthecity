@@ -52,10 +52,15 @@ class OpportunitiesController < ApplicationController
   # GET /opportunities/new
   def new
     @opportunity = Opportunity.new
+    @activities = Activity.all
+    @sub_activities = []
+
   end
 
   # GET /opportunities/1/edit
   def edit
+    @activities = Activity.all
+    @sub_activities = @opportunity.activity.sub_activities.order(:title)
   end
 
   # POST /opportunities
@@ -69,6 +74,8 @@ class OpportunitiesController < ApplicationController
         format.html { redirect_to @opportunity, notice: 'Opportunity was successfully created.' }
         format.json { render :show, status: :created, location: @opportunity }
       else
+        @activities = Activity.all
+        @sub_activities = []
         format.html { render :new }
         format.json { render json: @opportunity.errors, status: :unprocessable_entity }
       end
@@ -83,6 +90,8 @@ class OpportunitiesController < ApplicationController
         format.html { redirect_to @opportunity, notice: 'Opportunity was successfully updated.' }
         format.json { render :show, status: :ok, location: @opportunity }
       else
+        @activities = Activity.all
+        @sub_activities = @opportunity.activity.sub_activities.order(:title)
         format.html { render :edit }
         format.json { render json: @opportunity.errors, status: :unprocessable_entity }
       end
@@ -96,6 +105,16 @@ class OpportunitiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to opportunities_url, notice: 'Opportunity was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def update_sub_activities
+    @opportunity = Opportunity.new
+    @activity = Activity.find(params[:activity_id])
+    @sub_activities = @activity.sub_activities.order(:title).all
+
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -126,7 +145,7 @@ class OpportunitiesController < ApplicationController
     def has_permission
       @organisation = @opportunity.organisation if @organisation.nil?
       if @organisation
-        unless @organisation.users.include?(current_user) 
+        unless @organisation.users.include?(current_user)
           redirect_to(welcome_index_path, :alert => t(:restricted_page))
         end
       else
