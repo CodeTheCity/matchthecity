@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_admin!, only: [:edit, :udpdate, :destroy]
 
   # GET /activities
   # GET /activities.json
@@ -16,6 +17,11 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   def new
     @activity = Activity.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /activities/1/edit
@@ -31,6 +37,7 @@ class ActivitiesController < ApplicationController
       if @activity.save
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
         format.json { render :show, status: :created, location: @activity }
+        format.js { }
       else
         format.html { render :new }
         format.json { render json: @activity.errors, status: :unprocessable_entity }

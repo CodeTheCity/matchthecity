@@ -25,8 +25,18 @@
     <%= render :partial => 'activities', :locals => {:activities => @activities, :f => f} %>
   </div>
 
+  <div class="field">
+    <%= f.label :new_activity %><br>
+    <%= f.text_field :new_activity %>
+  </div>
+
   <div id="subactivities">
     <%= render :partial => 'sub_activities', :locals => {:sub_activities => @sub_activities, :f => f} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :new_sub_activity %><br>
+    <%= f.text_field :new_sub_activity %>
   </div>
 
   <div class="field">

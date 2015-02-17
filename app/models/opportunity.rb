@@ -31,10 +31,13 @@ class Opportunity < ActiveRecord::Base
     has_many :effort_ratings, :dependent => :destroy
     accepts_nested_attributes_for :effort_ratings
 
-    before_save :set_activity
+    after_validation :create_activity unless @new_activity.blank?
 
-    validates_presence_of :activity
-    validates_presence_of :sub_activity
+    validates_presence_of :activity, :if => :should_validate_activity?
+    validates_presence_of :sub_activity, :if => :should_validate_sub_activity?
+
+    attr_accessor :new_activity
+    attr_accessor :new_sub_activity
 
     scope :for_venue, lambda { |venue|
       where("venue_id = ?", venue.id ) unless venue.blank?
@@ -49,8 +52,24 @@ class Opportunity < ActiveRecord::Base
       where("effort_rating = ?", rating) unless rating.nil?
     }
 
+    def should_validate_activity?
+      new_activity.blank?
+    end
+
+    def should_validate_sub_activity?
+      new_sub_activity.blank?
+    end
+
     private
-    def set_activity
-      self.activity = self.sub_activity.activity
+    def create_activity
+      puts 'create_activity'
+      created_activity = Activity.find_by_title(@new_activity)
+      if created_activity.nil?
+        created_activity = Activity.new(:title => @new_activity)
+        created_activity.save
+      end
+      self.activity = created_activity
+
+
     end
 end

@@ -66,8 +66,27 @@ class OpportunitiesController < ApplicationController
   # POST /opportunities
   # POST /opportunities.json
   def create
+
     @opportunity = Opportunity.new(opportunity_params)
     @opportunity.organisation = @organisation
+
+    unless opportunity_params[:new_activity].blank?
+      activity = Activity.find_by_title(opportunity_params[:new_activity])
+      if activity.nil?
+        activity = Activity.new(:title => opportunity_params[:new_activity])
+        activity.save
+      end
+      @opportunity.activity = activity
+    end
+
+    unless opportunity_params[:new_sub_activity].blank?
+      sub_activity = @opportunity.activity.sub_activities.find_by_title(opportunity_params[:new_sub_activity])
+      if sub_activity.nil?
+        sub_activity = @opportunity.activity.sub_activities.new(:title => opportunity_params[:new_sub_activity])
+        sub_activity.save
+      end
+      @opportunity.sub_activity = sub_activity
+    end
 
     respond_to do |format|
       if @opportunity.save
@@ -85,8 +104,28 @@ class OpportunitiesController < ApplicationController
   # PATCH/PUT /opportunities/1
   # PATCH/PUT /opportunities/1.json
   def update
+
+    params = opportunity_params
+
+    unless params[:new_activity].blank?
+      activity = Activity.find_by_title(params[:new_activity])
+      if activity.nil?
+        activity = Activity.new(:title => params[:new_activity])
+        activity.save
+      end
+      params[:activity_id] = activity.id
+    end
+
+    unless params[:new_sub_activity].blank?
+      sub_activity = @opportunity.activity.sub_activities.find_by_title(params[:new_sub_activity])
+      if sub_activity.nil?
+        sub_activity = @opportunity.activity.sub_activities.new(:title => params[:new_sub_activity])
+        sub_activity.save
+      end
+      params[:sub_activity_id] = sub_activity.id
+    end
     respond_to do |format|
-      if @opportunity.update(opportunity_params)
+      if @opportunity.update(params)
         format.html { redirect_to @opportunity, notice: 'Opportunity was successfully updated.' }
         format.json { render :show, status: :ok, location: @opportunity }
       else
@@ -130,7 +169,7 @@ class OpportunitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opportunity_params
-      params.require(:opportunity).permit(:name, :category, :description, :activity_id, :sub_activity_id, :venue_id, :room, :start_time, :end_time, :day_of_week,:skill_ids => [])
+      params.require(:opportunity).permit(:name, :category, :description, :activity_id, :sub_activity_id, :venue_id, :room, :start_time, :end_time, :day_of_week, :new_activity, :new_sub_activity,:skill_ids => [])
     end
 
     private
