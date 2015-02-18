@@ -1,0 +1,395 @@
+{
+  "classes": [
+    {
+      "name" : "5-7 Fun Club",
+      "category" : "Event",
+      "description" : "These fun sessions are run at a low 1:4 ratio for 5 to 7 year olds aimed at maximum enjoyment.",
+      "activity" : "Climbing",
+      "sub_activity" : "5-7 Fun Club",
+      "venue" : "Transition Extreme",
+      "start_time" : "10:00",
+      "end_time" : "11:00",
+      "day_of_week" : "Saturday",
+      "source_ref" : "TE1",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "5-7 Fun Club",
+      "category" : "Event",
+      "description" : "These fun sessions are run at a low 1:4 ratio for 5 to 7 year olds aimed at maximum enjoyment.",
+      "activity" : "Climbing",
+      "sub_activity" : "5-7 Fun Club",
+      "venue" : "Transition Extreme",
+      "start_time" : "11:30",
+      "end_time" : "12:30",
+      "day_of_week" : "Saturday",
+      "source_ref" : "TE2",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "5-7 Fun Club",
+      "category" : "Event",
+      "description" : "These fun sessions are run at a low 1:4 ratio for 5 to 7 year olds aimed at maximum enjoyment.",
+      "activity" : "Climbing",
+      "sub_activity" : "5-7 Fun Club",
+      "venue" : "Transition Extreme",
+      "start_time" : "10:00",
+      "end_time" : "11:00",
+      "day_of_week" : "Sunday",
+      "source_ref" : "TE3",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "5-7 Fun Club",
+      "category" : "Event",
+      "description" : "These fun sessions are run at a low 1:4 ratio for 5 to 7 year olds aimed at maximum enjoyment.",
+      "activity" : "Climbing",
+      "sub_activity" : "5-7 Fun Club",
+      "venue" : "Transition Extreme",
+      "start_time" : "11:30",
+      "end_time" : "12:30",
+      "day_of_week" : "Sunday",
+      "source_ref" : "TE4",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "5-7 Fun Club - Improvers",
+      "category" : "Event",
+      "description" : "These fun sessions are run at a low 1:4 ratio for 5 to 7 year olds who have attended some fun clubs and want to improve.",
+      "activity" : "Climbing",
+      "sub_activity" : "5-7 Fun Club - Improvers",
+      "venue" : "Transition Extreme",
+      "start_time" : "10:30",
+      "end_time" : "11:30",
+      "day_of_week" : "Sunday",
+      "source_ref" : "TE5",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Family Taster",
+      "category" : "Event",
+      "description" : "A great way to get started for kids and adults alike.",
+      "activity" : "Climbing",
+      "sub_activity" : "Family Taster",
+      "venue" : "Transition Extreme",
+      "start_time" : "13:00",
+      "end_time" : "14:00",
+      "day_of_week" : "Saturday",
+      "source_ref" : "TE6",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Family Taster",
+      "category" : "Event",
+      "description" : "A great way to get started for kids and adults alike.",
+      "activity" : "Climbing",
+      "sub_activity" : "Family Taster",
+      "venue" : "Transition Extreme",
+      "start_time" : "14:30",
+      "end_time" : "15:30",
+      "day_of_week" : "Saturday",
+      "source_ref" : "TE7",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Family Taster",
+      "category" : "Event",
+      "description" : "A great way to get started for kids and adults alike.",
+      "activity" : "Climbing",
+      "sub_activity" : "Family Taster",
+      "venue" : "Transition Extreme",
+      "start_time" : "13:00",
+      "end_time" : "14:00",
+      "day_of_week" : "Sunday",
+      "source_ref" : "TE8",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Family Taster",
+      "category" : "Event",
+      "description" : "A great way to get started for kids and adults alike.",
+      "activity" : "Climbing",
+      "sub_activity" : "Family Taster",
+      "venue" : "Transition Extreme",
+      "start_time" : "14:30",
+      "end_time" : "15:30",
+      "day_of_week" : "Sunday",
+      "source_ref" : "TE9",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Adult Taster",
+      "category" : "Event",
+      "description" : "A great way to get started for adults.",
+      "activity" : "Climbing",
+      "sub_activity" : "Adult Taster",
+      "venue" : "Transition Extreme",
+      "start_time" : "20:00",
+      "end_time" : "21:00",
+      "day_of_week" : "Tuesday",
+      "source_ref" : "TE10",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Adult Taster",
+      "category" : "Event",
+      "description" : "A great way to get started for adults.",
+      "activity" : "Climbing",
+      "sub_activity" : "Adult Taster",
+      "venue" : "Transition Extreme",
+      "start_time" : "20:00",
+      "end_time" : "21:00",
+      "day_of_week" : "Wednesday",
+      "source_ref" : "TE11",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Adult Taster",
+      "category" : "Event",
+      "description" : "A great way to get started for adults.",
+      "activity" : "Climbing",
+      "sub_activity" : "Adult Taster",
+      "venue" : "Transition Extreme",
+      "start_time" : "20:00",
+      "end_time" : "21:00",
+      "day_of_week" : "Thursday",
+      "source_ref" : "TE12",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "8-13 Foundation + NICAS 1&2",
+      "category" : "Event",
+      "description" : "NICAS Levels 1 & 2 Clubs. The National Indoor Climbing Achievement Scheme (NICAS) is a UK wide scheme designed to promote climbing development and accredit individual achievement on artificial climbing structures. It can be used as a starting point for people wishing to take up climbing and mountaineering. It is open to all candidates aged 7 and upwards.",
+      "activity" : "Climbing",
+      "sub_activity" : "8-13 Foundation + NICAS 1&2",
+      "venue" : "Transition Extreme",
+      "start_time" : "17:30",
+      "end_time" : "19:00",
+      "day_of_week" : "Monday",
+      "source_ref" : "TE13",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "8-13 Improvers + NICAS 2&3",
+      "category" : "Event",
+      "description" : "NICAS Levels 2 & 3 Clubs. All prospective participants on the NICAS levels 2 and 3 clubs should have completed at least level 1 of the NICAS scheme. The National Indoor Climbing Achievement Scheme (NICAS) is a UK wide scheme designed to promote climbing development and accredit individual achievement on artificial climbing structures. It can be used as a starting point for people wishing to take up climbing and mountaineering. It is open to all candidates aged 7 and upwards.",
+      "activity" : "Climbing",
+      "sub_activity" : "8-13 Improvers + NICAS 2&3",
+      "venue" : "Transition Extreme",
+      "start_time" : "17:30",
+      "end_time" : "19:00",
+      "day_of_week" : "Monday",
+      "source_ref" : "TE14",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "8-13 Improvers + NICAS 2&3",
+      "category" : "Event",
+      "description" : "NICAS Levels 2 & 3 Clubs. All prospective participants on the NICAS levels 2 and 3 clubs should have completed at least level 1 of the NICAS scheme. The National Indoor Climbing Achievement Scheme (NICAS) is a UK wide scheme designed to promote climbing development and accredit individual achievement on artificial climbing structures. It can be used as a starting point for people wishing to take up climbing and mountaineering. It is open to all candidates aged 7 and upwards.",
+      "activity" : "Climbing",
+      "sub_activity" : "8-13 Improvers + NICAS 2&3",
+      "venue" : "Transition Extreme",
+      "start_time" : "17:30",
+      "end_time" : "19:00",
+      "day_of_week" : "Wednesday",
+      "source_ref" : "TE15",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "14-17 Foundation + NICAS 1&2",
+      "category" : "Event",
+      "description" : "NICAS Levels 1 & 2 Clubs. The National Indoor Climbing Achievement Scheme (NICAS) is a UK wide scheme designed to promote climbing development and accredit individual achievement on artificial climbing structures. It can be used as a starting point for people wishing to take up climbing and mountaineering. It is open to all candidates aged 7 and upwards.",
+      "activity" : "Climbing",
+      "sub_activity" : "14-17 Foundation + NICAS 1&2",
+      "venue" : "Transition Extreme",
+      "start_time" : "17:30",
+      "end_time" : "19:00",
+      "day_of_week" : "Tuesday",
+      "source_ref" : "TE16",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "14-17 Intermediate + NICAS 2&3",
+      "category" : "Event",
+      "description" : "NICAS Levels 2 & 3 Clubs. All prospective participants on the NICAS levels 2 and 3 clubs should have completed at least level 1 of the NICAS scheme. The National Indoor Climbing Achievement Scheme (NICAS) is a UK wide scheme designed to promote climbing development and accredit individual achievement on artificial climbing structures. It can be used as a starting point for people wishing to take up climbing and mountaineering. It is open to all candidates aged 7 and upwards.",
+      "activity" : "Climbing",
+      "sub_activity" : "4-17 Intermediate + NICAS 2&3",
+      "venue" : "Transition Extreme",
+      "start_time" : "17:30",
+      "end_time" : "19:00",
+      "day_of_week" : "Thursday",
+      "source_ref" : "TE17",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "14-17 NICAS Learn to Lead",
+      "category" : "Event",
+      "description" : "If you are aged between 14 and 17 with previous climbing experience then the leading club will provide you with that next step in developing your climbing. The National Indoor Climbing Achievement Scheme (NICAS) is a UK wide scheme designed to promote climbing development and accredit individual achievement on artificial climbing structures. It can be used as a starting point for people wishing to take up climbing and mountaineering. It is open to all candidates aged 7 and upwards.",
+      "activity" : "Climbing",
+      "sub_activity" : "14-17 NICAS Learn to Lead",
+      "venue" : "Transition Extreme",
+      "start_time" : "17:30",
+      "end_time" : "19:00",
+      "day_of_week" : "Friday",
+      "source_ref" : "TE18",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "8-7 NICAS Levels 1, 2 & 3",
+      "category" : "Event",
+      "description" : "The National Indoor Climbing Achievement Scheme (NICAS) is a UK wide scheme designed to promote climbing development and accredit individual achievement on artificial climbing structures. It can be used as a starting point for people wishing to take up climbing and mountaineering. It is open to all candidates aged 7 and upwards.",
+      "activity" : "Climbing",
+      "sub_activity" : "8-7 NICAS Levels 1, 2 & 3",
+      "venue" : "Transition Extreme",
+      "start_time" : "10:30",
+      "end_time" : "12:00",
+      "day_of_week" : "Saturday",
+      "source_ref" : "TE19",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "8-7 NICAS Levels 1, 2 & 3",
+      "category" : "Event",
+      "description" : "The National Indoor Climbing Achievement Scheme (NICAS) is a UK wide scheme designed to promote climbing development and accredit individual achievement on artificial climbing structures. It can be used as a starting point for people wishing to take up climbing and mountaineering. It is open to all candidates aged 7 and upwards.",
+      "activity" : "Climbing",
+      "sub_activity" : "8-7 NICAS Levels 1, 2 & 3",
+      "venue" : "Transition Extreme",
+      "start_time" : "10:30",
+      "end_time" : "12:00",
+      "day_of_week" : "Saturday",
+      "source_ref" : "TE19",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Learn to Climb",
+      "category" : "Event",
+      "description" : "The next step for 18 year olds and over who want to take up climbing or just the skills required to climb unsupervised.",
+      "activity" : "Climbing",
+      "sub_activity" : "Learn to Climb",
+      "venue" : "Transition Extreme",
+      "start_time" : "19:30",
+      "end_time" : "21:30",
+      "day_of_week" : "Monday",
+      "source_ref" : "TE20",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Learn to Climb",
+      "category" : "Event",
+      "description" : "The next step for 18 year olds and over who want to take up climbing or just the skills required to climb unsupervised.",
+      "activity" : "Climbing",
+      "sub_activity" : "Learn to Climb",
+      "venue" : "Transition Extreme",
+      "start_time" : "19:30",
+      "end_time" : "21:30",
+      "day_of_week" : "Tuesday",
+      "source_ref" : "TE21",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Learn to Climb",
+      "category" : "Event",
+      "description" : "The next step for 18 year olds and over who want to take up climbing or just the skills required to climb unsupervised.",
+      "activity" : "Climbing",
+      "sub_activity" : "Learn to Climb",
+      "venue" : "Transition Extreme",
+      "start_time" : "19:30",
+      "end_time" : "21:30",
+      "day_of_week" : "Thursday",
+      "source_ref" : "TE22",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Learn to Climb",
+      "category" : "Event",
+      "description" : "The next step for 18 year olds and over who want to take up climbing or just the skills required to climb unsupervised.",
+      "activity" : "Climbing",
+      "sub_activity" : "Learn to Climb",
+      "venue" : "Transition Extreme",
+      "start_time" : "19:30",
+      "end_time" : "21:30",
+      "day_of_week" : "Friday",
+      "source_ref" : "TE23",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Learn to Climb",
+      "category" : "Event",
+      "description" : "The next step for 18 year olds and over who want to take up climbing or just the skills required to climb unsupervised.",
+      "activity" : "Climbing",
+      "sub_activity" : "Learn to Climb",
+      "venue" : "Transition Extreme",
+      "start_time" : "17:30",
+      "end_time" : "19:30",
+      "day_of_week" : "Saturday",
+      "source_ref" : "TE24",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    },
+    {
+      "name" : "Learn to Climb",
+      "category" : "Event",
+      "description" : "The next step for 18 year olds and over who want to take up climbing or just the skills required to climb unsupervised.",
+      "activity" : "Climbing",
+      "sub_activity" : "Learn to Climb",
+      "venue" : "Transition Extreme",
+      "start_time" : "17:30",
+      "end_time" : "19:30",
+      "day_of_week" : "Sunday",
+      "source_ref" : "TE25",
+      "tag_list" : [
+        "cardio", "strength"
+      ]
+    }
+
+  ]
+}
