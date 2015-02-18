@@ -53,6 +53,8 @@ Rails.application.routes.draw do
   end
 
 
+  resources :venues, path: "", except: [:index, :new, :create]
+
   root :to => "welcome#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
