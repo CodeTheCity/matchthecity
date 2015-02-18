@@ -54,6 +54,7 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new
     @activities = Activity.all
     @sub_activities = []
+    @opportunity.category = "Event"
 
   end
 

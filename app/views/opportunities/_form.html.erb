@@ -21,12 +21,17 @@
         });
   </script>
 
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
   <div id="activities">
     <%= render :partial => 'activities', :locals => {:activities => @activities, :f => f} %>
   </div>
 
   <div class="field">
-    <%= f.label :new_activity %><br>
+    <%= f.label :new_activity, "or enter a new activity that is not in the list" %><br>
     <%= f.text_field :new_activity %>
   </div>
 
@@ -35,14 +40,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :new_sub_activity %><br>
+    <%= f.label :new_sub_activity, "or enter a new sub activity that is not in the list" %><br>
     <%= f.text_field :new_sub_activity %>
   </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
   <div class="field">
     <%= f.label :category %><br>
     <%= f.text_field :category %>
