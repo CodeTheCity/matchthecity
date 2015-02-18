@@ -85,8 +85,15 @@ namespace :import do
       opportunity.image_url = image_url
       opportunity.organisation = organisation
       opportunity.save
+
+      tags_json = exercise_class_json['tag_list']
+      tags_json.each do |tag|
+        opportunity.tag_list.add(tag)
+        opportunity.save
+      end
     end
   end
+
   desc "Aberdeen Sports Village classes JSON"
   task :asv_classes_json => :environment do
     puts "Importing Aberdeen Sports Villages classes from JSON"
