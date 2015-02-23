@@ -42,7 +42,7 @@ namespace :import do
         existing_activity.save
       end
 
-      existing_sub_activity = SubActivity.find_by_title(title)
+      existing_sub_activity = existing_activity.sub_activities.find_by_title(title)
       if existing_sub_activity.nil?
         existing_sub_activity = SubActivity.new(:title => title, :activity => existing_activity)
         existing_sub_activity.save
