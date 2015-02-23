@@ -13,18 +13,13 @@
     <div id="main_nav">
       <%= image_tag "match-the-city-64.png" %>
       <%= link_to "Home", welcome_index_path %>
-      <%= link_to "Regions", regions_path %>  
+      <%= link_to "Regions", regions_path %>
       <%= link_to "Organisations", organisations_path %>
       <%= link_to "Venue Owners", venue_owners_path %>
       <%= link_to "Venues", venues_path %>
       <%= link_to "Activities", activities_path %>
       <%= link_to "Sub Activities", sub_activities_path %>
       <%= link_to "Opportunities", opportunities_path %>
-
-      <%= link_to "Skills", skills_path %>
-
-      <%= link_to 'Developer Stuff', welcome_api_path %>
-
       <% if user_signed_in? %>
         <%= link_to "My Account", user_path(current_user) %>
         <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
