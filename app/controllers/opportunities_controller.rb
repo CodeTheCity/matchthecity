@@ -175,7 +175,8 @@ class OpportunitiesController < ApplicationController
 
     private
     def find_venue
-      @venue = Venue.find_by_id(params[:venue_id])
+      @venue = Venue.find_by_slug(params[:venue_id])
+      @venue = Venue.find_by_id(params[:venue_id]) if @venue.nil?
     end
 
     def find_region
