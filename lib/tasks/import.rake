@@ -289,11 +289,13 @@ namespace :import do
       unless venue_notices_json.nil?
         venue_notices_json.each do |venue_notice_json|
           notice_start = venue_notice_json['start']
+          notice_expires = venue_notice_json['expires']
           notice_message = venue_notice_json['message']
           venue_notice = venue.venue_notices.where('starts = ?', notice_start.to_datetime).first
           if venue_notice.nil?
             venue_notice = VenueNotice.new(:venue => venue, :starts => notice_start.to_datetime)
           end
+          venue_notice.expires = notice_expires.to_datetime unless notice_expires.nil?
           venue_notice.message = notice_message
           venue_notice.save
         end
