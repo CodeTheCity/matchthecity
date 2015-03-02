@@ -75,6 +75,7 @@ class VenuesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_venue
       @venue = Venue.find_by_slug!(params[:id])
+      @venue = Venue.find_by_id(params[:id]) if @venue.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -20,7 +20,7 @@
 
 <p>
   <strong>Venue:</strong>
-  <%= link_to @opportunity.venue.name, @opportunity.venue %>
+  <%= link_to @opportunity.venue.name, @opportunity.venue  unless @opportunity.venue.nil? %>
 </p>
 
 <p>

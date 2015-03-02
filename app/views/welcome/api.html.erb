@@ -136,7 +136,7 @@
 <% sample_venue = Venue.first %>
 
 <p>
-  To get a Venue object use: <%= link_to "http://#{request.host_with_port}/venues/#{sample_venue.id}.json", venue_path(sample_venue, :format => 'json') %>
+  To get a Venue object use: <%= link_to "http://#{request.host_with_port}/venues/#{sample_venue.slug}.json", venue_path(sample_venue, :format => 'json') %>
 </p>
 
 

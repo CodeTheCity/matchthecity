@@ -5,12 +5,20 @@ class ApidocsController < ApplicationController
     key :swaggerVersion, '1.2'
     key :apiVersion, '1.0.0'
     info do
-      key :title, 'MatchTheCity App'
+      key :title, 'MatchTheCity'
+      key :description, "This is the MatchTheCity server."
+      key :contact, 'andrew@xoverto.com'
     end
     api do
       key :path, '/regions'
       key :description, 'Operations about regions'
     end
+=begin
+    api do
+      key :path, '/organisations'
+      key :description, 'Operations about organisations'
+    end
+=end
   end
 
   # A list of all classes that have swagger_* declarations.

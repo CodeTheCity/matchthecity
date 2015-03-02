@@ -23,6 +23,17 @@ class Region < ActiveRecord::Base
     end
     property :name do
       key :type, :string
+      key :description, 'name of the region'
+    end
+    property :created_at do
+    	key :type, :datetime
+    end
+    property :updated_at do
+    	key :type, :datetime
+    end
+    property :url do
+      key :type, :string
+      key :description, 'URL of the region item'
     end
   end
 

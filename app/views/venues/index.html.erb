@@ -38,7 +38,7 @@
         <% end %>
         <td><%= venue.latitude %></td>
         <td><%= venue.longitude %></td>
-        <td><%= link_to 'Show', venue %></td>
+        <td><%= link_to 'Show', venue_path(:id => venue.generate_slug) %></td>
       </tr>
     <% end %>
   </tbody>

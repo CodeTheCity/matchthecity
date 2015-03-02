@@ -1,9 +1,25 @@
 class RegionsController < ApplicationController
   include Swagger::Blocks
+
+  
+
   swagger_api_root :regions do
     key :swaggerVersion, '1.2'
     key :apiVersion, '1.0.0'
     key :basePath, Rails.application.routes.url_helpers.regions_path
+    api do
+      key :path, '/'
+      operation do
+        key :method, 'GET'
+        key :summary, 'Returns all regions'
+        key :notes, 'Returns all regions'
+        key :type, :array
+        key :nickname, :findRegions
+        items do
+          key :'$ref', :Region
+        end
+      end
+    end
     api do
       key :path, '/{regionId}'
       operation do
