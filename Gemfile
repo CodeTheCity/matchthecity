@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem 'swagger-blocks'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -66,10 +68,12 @@ gem 'capistrano', '~> 2.15.5'
 gem 'rvm-capistrano', '~> 1.3.3'
 gem "net-ssh", '=2.7.0'
 
+gem 'letter_opener',              '~> 1.2.0'
+
+
 group :production do
   # Use postgre as the database for Active Record
   gem 'pg'
-  gem 'letter_opener',              '~> 1.2.0'
 end
 
 group :development, :test do
@@ -81,5 +85,4 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
-  gem 'letter_opener',              '~> 1.2.0'
 end

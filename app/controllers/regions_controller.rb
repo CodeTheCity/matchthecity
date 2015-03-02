@@ -1,4 +1,37 @@
 class RegionsController < ApplicationController
+  include Swagger::Blocks
+  swagger_api_root :regions do
+    key :swaggerVersion, '1.2'
+    key :apiVersion, '1.0.0'
+    key :basePath, 'http://matchthecity.org/api'
+    key :resourcePath, '/regions'
+    api do
+      key :path, '/regions/{regionId}'
+      operation do
+        key :method, 'GET'
+        key :summary, 'Find region by ID'
+        key :notes, 'Returns a region based on ID'
+        key :type, :Region
+        key :nickname, :getRegionById
+        parameter do
+          key :paramType, :path
+          key :name, :regionId
+          key :description, 'ID of region that needs to be fetched'
+          key :required, true
+          key :type, :integer
+        end
+        response_message do
+          key :code, 400
+          key :message, 'Invalid ID supplied'
+        end
+        response_message do
+          key :code, 404
+          key :message, 'Region not found'
+        end
+      end
+    end
+  end
+
   before_action :set_region, only: [:show, :edit, :update, :destroy]
 
   # GET /regions
