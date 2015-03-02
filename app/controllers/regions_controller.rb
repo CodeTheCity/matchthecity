@@ -3,10 +3,9 @@ class RegionsController < ApplicationController
   swagger_api_root :regions do
     key :swaggerVersion, '1.2'
     key :apiVersion, '1.0.0'
-    key :basePath, 'http://matchthecity.org/api'
-    key :resourcePath, '/regions'
+    key :basePath, Rails.application.routes.url_helpers.regions_path
     api do
-      key :path, '/regions/{regionId}'
+      key :path, '/{regionId}'
       operation do
         key :method, 'GET'
         key :summary, 'Find region by ID'

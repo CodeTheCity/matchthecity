@@ -21,7 +21,12 @@ class ApidocsController < ApplicationController
   ].freeze
 
   def index
-    render json: Swagger::Blocks.build_root_json(SWAGGERED_CLASSES)
+  	respond_to do |format|
+        format.html { render :index }
+        format.json { render json: Swagger::Blocks.build_root_json(SWAGGERED_CLASSES) }
+    end
+    
+
   end
 
   def show
