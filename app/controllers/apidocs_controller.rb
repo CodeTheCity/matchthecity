@@ -13,6 +13,10 @@ class ApidocsController < ApplicationController
       key :path, '/regions'
       key :description, 'Operations about regions'
     end
+    api do
+      key :path, '/venues'
+      key :description, 'Operations about venues'
+    end
 =begin
     api do
       key :path, '/organisations'
@@ -25,6 +29,8 @@ class ApidocsController < ApplicationController
   SWAGGERED_CLASSES = [
     RegionsController,
     Region,
+    VenuesController,
+    Venue,
     self,
   ].freeze
 
