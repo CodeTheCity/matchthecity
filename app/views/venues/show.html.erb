@@ -65,6 +65,11 @@
 </p>
 
 <p>
+  <strong>MatchTheCity URL:</strong>
+  <%= link_to "#{root_url}#{@venue.slug}" %>
+</p>
+
+<p>
   <strong>Latitude:</strong>
   <%= @venue.latitude %>
 </p>
@@ -87,7 +92,12 @@
 <% if @venue.venue_notices.count > 0 %>
   <h2>Notices</h2>
   <% @venue.venue_notices.sort_by(&:starts).reverse.each do |venue_notice| %>
-    <p><strong><%= l(venue_notice.starts) %></strong></p>
+    <p>
+      <strong><%= l(venue_notice.starts) %>
+      <%= " - #{l(venue_notice.expires)}" unless venue_notice.expires.nil? %>
+      </strong>
+    </p>
+
     <p><%= venue_notice.message.html_safe %></p>
   <% end %>
 <% end %>

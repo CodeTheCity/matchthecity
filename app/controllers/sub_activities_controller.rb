@@ -5,7 +5,16 @@ class SubActivitiesController < ApplicationController
   # GET /sub_activities
   # GET /sub_activities.json
   def index
-    @sub_activities = SubActivity.order(:title).all
+    if @activity
+      @sub_activities = @activity.sub_activities.order(:title).all
+    else
+      @sub_activities = SubActivity.order(:title).all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js
+    end
   end
 
   # GET /sub_activities/1

@@ -33,6 +33,7 @@ class RegionsController < ApplicationController
   end
 
   before_action :set_region, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:new, :edit, :update, :destroy]
 
   # GET /regions
   # GET /regions.json

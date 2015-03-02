@@ -24,8 +24,19 @@ class Venue < ActiveRecord::Base
   belongs_to :region
   belongs_to :venue_owner
   has_many :venue_notices
+  before_validation :generate_slug
+
+  validates :slug, uniqueness: true, presence: true
 
   scope :for_region, lambda { |region|
       where("region_id = ?", region.id ) unless region.blank?
     }
+
+  def to_param
+    slug
+  end
+
+  def generate_slug
+    self.slug = name.parameterize unless name.nil?
+  end
 end

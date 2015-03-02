@@ -1,4 +1,16 @@
 [
+{
+  "name": "Transition Extreme",
+  "owner": "Transition Extreme Sports",
+  "address": "Links Road, Aberdeen",
+  "postcode": "AB24 5NN",
+  "lat": "57.154168",
+  "long": "-2.081731",
+  "email": "info@transition-extreme.com",
+  "tel": "01224 626279",
+  "web": "http://www.transition-extreme.com",
+  "venue_notices" : [{ "start": "2015-01-26", "expires": "2015-03-07", "message" : "<p>Transition Extreme Skatepark or TX, as it’s known by the locals, is Aberdeen’s very own plywood paradise, providing the North East with an unbeatable space for skateboarding, BMXing and inline skating.</p><p>Built in 2007 the park's design was the brainchild of local skateboarder and skatepark builder Andy Dobson who, alongside Dave Partridge from Carve Skatepark Design and with the input of local skaters and BMXers has created a world class, challenging layout based on the flow of outdoor concrete parks.</p><p>But now!! With careful consideration of the needs and wants of the valued skaters, BMXers and inliners and a generous sum of £120,000 funding from Aberdeen Forward we are thrilled to announce a brand new design coming to you! The park will be closed for six weeks from Monday 26th of January, 2015 and is scheduled to re-open on Saturday 7th of March, 2015  giving us the opportunity to bring the North East of Scotland an ambitious state of the art revamped Skatepark.</p><p>All other venue facilities are still open during this period.</p>"}]
+  },
  {
   "name": "Aberdeen Sports Village",
   "owner": "Aberdeen Sports Village",

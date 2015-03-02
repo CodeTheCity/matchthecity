@@ -1,0 +1,5 @@
+ <%= fields_for @opportunity do |f| %>
+  <%= f.label :activity %><br />
+  <%= f.collection_select :activity_id, activities, :id, :title,
+    { :prompt => "Select an activity" } %>
+<% end %>

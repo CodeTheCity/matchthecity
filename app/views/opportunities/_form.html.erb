@@ -11,10 +11,39 @@
     </div>
   <% end %>
 
+
+ <script>
+        $(document).ready(function() {
+            $('#opportunity_activity_id').change(function() {
+                $.ajax({url: '<%= update_sub_activities_url %>',
+                    data: '<%= "#{add_opportunity_id(@opportunity.id)}activity_id=" %>' + this.value })
+            });
+        });
+  </script>
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+  <div id="activities">
+    <%= render :partial => 'activities', :locals => {:activities => @activities, :f => f} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :new_activity, "or enter a new activity that is not in the list" %><br>
+    <%= f.text_field :new_activity %>
+  </div>
+
+  <div id="subactivities">
+    <%= render :partial => 'sub_activities', :locals => {:sub_activities => @sub_activities, :f => f} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :new_sub_activity, "or enter a new sub activity that is not in the list" %><br>
+    <%= f.text_field :new_sub_activity %>
+  </div>
+
   <div class="field">
     <%= f.label :category %><br>
     <%= f.text_field :category %>
@@ -37,12 +66,6 @@
   <div class="field">
     <%= f.label :day_of_week %><br>
     <%= f.select :day_of_week, options_for_select(%w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :sub_activity %><br>
-    <%= f.collection_select :sub_activity_id, SubActivity.order(:title).all, :id, :title, {},
-      {:multiple => false} %>
   </div>
 
   <div class="field">

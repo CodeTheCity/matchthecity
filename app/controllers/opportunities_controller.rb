@@ -52,23 +52,50 @@ class OpportunitiesController < ApplicationController
   # GET /opportunities/new
   def new
     @opportunity = Opportunity.new
+    @activities = Activity.all
+    @sub_activities = []
+    @opportunity.category = "Event"
+
   end
 
   # GET /opportunities/1/edit
   def edit
+    @activities = Activity.all
+    @sub_activities = @opportunity.activity.sub_activities.order(:title)
   end
 
   # POST /opportunities
   # POST /opportunities.json
   def create
+
     @opportunity = Opportunity.new(opportunity_params)
     @opportunity.organisation = @organisation
+
+    unless opportunity_params[:new_activity].blank?
+      activity = Activity.find_by_title(opportunity_params[:new_activity])
+      if activity.nil?
+        activity = Activity.new(:title => opportunity_params[:new_activity])
+        activity.save
+      end
+      @opportunity.activity = activity
+    end
+
+    unless opportunity_params[:new_sub_activity].blank?
+      sub_activity = @opportunity.activity.sub_activities.find_by_title(opportunity_params[:new_sub_activity])
+      if sub_activity.nil?
+        sub_activity = @opportunity.activity.sub_activities.new(:title => opportunity_params[:new_sub_activity])
+        sub_activity.save
+      end
+      @opportunity.sub_activity = sub_activity
+    end
 
     respond_to do |format|
       if @opportunity.save
         format.html { redirect_to @opportunity, notice: 'Opportunity was successfully created.' }
         format.json { render :show, status: :created, location: @opportunity }
       else
+        @activities = Activity.all
+        @sub_activities = []
         format.html { render :new }
         format.json { render json: @opportunity.errors, status: :unprocessable_entity }
       end
@@ -78,11 +105,33 @@ class OpportunitiesController < ApplicationController
   # PATCH/PUT /opportunities/1
   # PATCH/PUT /opportunities/1.json
   def update
+
+    params = opportunity_params
+
+    unless params[:new_activity].blank?
+      activity = Activity.find_by_title(params[:new_activity])
+      if activity.nil?
+        activity = Activity.new(:title => params[:new_activity])
+        activity.save
+      end
+      params[:activity_id] = activity.id
+    end
+
+    unless params[:new_sub_activity].blank?
+      sub_activity = @opportunity.activity.sub_activities.find_by_title(params[:new_sub_activity])
+      if sub_activity.nil?
+        sub_activity = @opportunity.activity.sub_activities.new(:title => params[:new_sub_activity])
+        sub_activity.save
+      end
+      params[:sub_activity_id] = sub_activity.id
+    end
     respond_to do |format|
-      if @opportunity.update(opportunity_params)
+      if @opportunity.update(params)
         format.html { redirect_to @opportunity, notice: 'Opportunity was successfully updated.' }
         format.json { render :show, status: :ok, location: @opportunity }
       else
+        @activities = Activity.all
+        @sub_activities = @opportunity.activity.sub_activities.order(:title)
         format.html { render :edit }
         format.json { render json: @opportunity.errors, status: :unprocessable_entity }
       end
@@ -99,6 +148,16 @@ class OpportunitiesController < ApplicationController
     end
   end
 
+  def update_sub_activities
+    @opportunity = Opportunity.new
+    @activity = Activity.find(params[:activity_id])
+    @sub_activities = @activity.sub_activities.order(:title).all
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_opportunity
@@ -111,12 +170,13 @@ class OpportunitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opportunity_params
-      params.require(:opportunity).permit(:name, :category, :description, :activity_id, :sub_activity_id, :venue_id, :room, :start_time, :end_time, :day_of_week,:skill_ids => [])
+      params.require(:opportunity).permit(:name, :category, :description, :activity_id, :sub_activity_id, :venue_id, :room, :start_time, :end_time, :day_of_week, :new_activity, :new_sub_activity,:skill_ids => [])
     end
 
     private
     def find_venue
-      @venue = Venue.find_by_id(params[:venue_id])
+      @venue = Venue.find_by_slug(params[:venue_id])
+      @venue = Venue.find_by_id(params[:venue_id]) if @venue.nil?
     end
 
     def find_region
@@ -126,7 +186,7 @@ class OpportunitiesController < ApplicationController
     def has_permission
       @organisation = @opportunity.organisation if @organisation.nil?
       if @organisation
-        unless @organisation.users.include?(current_user) 
+        unless @organisation.users.include?(current_user)
           redirect_to(welcome_index_path, :alert => t(:restricted_page))
         end
       else
