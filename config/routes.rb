@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   devise_for :users, :path_prefix => 'my'
   resources :users
 
-
   controller :opportunities do
     get :update_sub_activities
   end
 
-
-  resources :venue_owners
+  resources :venue_owners do
+    resources :venues
+  end
 
   resources :organisations do
     resources :opportunities

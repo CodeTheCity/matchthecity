@@ -73,8 +73,7 @@ class VenuesController < ApplicationController
   end
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
-  before_filter :find_region
-
+  before_filter :find_region, :find_venue_owner
 
   # GET /venues
   # GET /venues.json
@@ -82,9 +81,9 @@ class VenuesController < ApplicationController
     if params[:since]
       since_datetime = Time.parse(params[:since])
       puts since_datetime
-      @venues = Venue.for_region(params[:region_id]).order(:name).where(["updated_at >= ?",  since_datetime])
+      @venues = Venue.for_venue_owner(@venue_owner).for_region(params[:region_id]).order(:name).where(["updated_at >= ?",  since_datetime])
     else
-      @venues = Venue.for_region(params[:region_id]).order(:name)
+      @venues = Venue.for_venue_owner(@venue_owner).for_region(params[:region_id]).order(:name)
     end
   end
 
@@ -145,7 +144,7 @@ class VenuesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_venue
-      @venue = Venue.find_by_slug!(params[:id])
+      @venue = Venue.find_by_slug(params[:id])
       @venue = Venue.find_by_id(params[:id]) if @venue.nil?
     end
 
@@ -156,5 +155,10 @@ class VenuesController < ApplicationController
 
     def find_region
       @region = Region.find_by_id(params[:region_id])
+    end
+
+    def find_venue_owner
+      @venue_owner = VenueOwner.find_by_slug(params[:venue_owner_id])
+      @venue_owner = VenueOwner.find_by_id(params[:venue_owner_id]) if @venue_owner.nil?
     end
 end

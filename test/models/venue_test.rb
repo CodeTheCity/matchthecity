@@ -17,6 +17,7 @@
 #  source_reference :string(255)
 #  logo_url         :string(255)
 #  venue_owner_id   :integer
+#  slug             :string(255)
 #
 
 require 'test_helper'

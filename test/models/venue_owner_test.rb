@@ -15,6 +15,7 @@
 #  logo_url   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  slug       :string(255)
 #
 
 require 'test_helper'

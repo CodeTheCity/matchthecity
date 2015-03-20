@@ -1,1 +1,1 @@
-json.extract! @venue, :id, :name, :slug, :address, :postcode, :latitude, :longitude, :created_at, :updated_at, :web, :telephone, :email, :region, :latitude, :longitude, :venue_notices
+json.extract! @venue, :id, :name, :slug, :address, :postcode, :latitude, :longitude, :created_at, :updated_at, :web, :telephone, :email, :region, :venue_owner, :latitude, :longitude, :venue_notices

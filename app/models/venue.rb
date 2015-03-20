@@ -17,6 +17,7 @@
 #  source_reference :string(255)
 #  logo_url         :string(255)
 #  venue_owner_id   :integer
+#  slug             :string(255)
 #
 
 class Venue < ActiveRecord::Base
@@ -73,6 +74,10 @@ class Venue < ActiveRecord::Base
       key :type, :Region
       key :description, 'Region the venue belongs to'
     end
+    property :venue_owner do
+      key :type, :VenueOwner
+      key :description, 'Owner of the venue'
+    end
     property :venue_notices do
       key :type, :array
       key :description, 'array of notices, such as closures, for the venue'
@@ -104,6 +109,10 @@ class Venue < ActiveRecord::Base
   scope :for_region, lambda { |regionId|
       where("region_id = ?", regionId ) unless regionId.blank?
     }
+
+  scope :for_venue_owner, lambda { |venue_owner |
+    where("venue_owner_id = ?", venue_owner.id) unless venue_owner.blank?
+  }
 
   def to_param
     slug

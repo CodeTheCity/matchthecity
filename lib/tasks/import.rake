@@ -273,6 +273,7 @@ namespace :import do
         end
         owner = VenueOwner.new(:name => owner_name, :region => region)
       end
+      owner.save
 
       venue.venue_owner = owner
 

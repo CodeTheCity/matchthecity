@@ -50,4 +50,14 @@
   <%= @venue_owner.logo_url %>
 </p>
 
+<p>
+  <strong>MatchTheCity URL:</strong>
+  <%= link_to "#{root_url}venue_owners/#{@venue_owner.slug}" %>
+</p>
+
+<p>
+  <strong>Venues</strong>
+  <%= link_to "#{@venue_owner.venues.count} venues owned", venue_owner_venues_path(@venue_owner) %>
+</p>
+
 <%= link_to 'Back', venue_owners_path %>

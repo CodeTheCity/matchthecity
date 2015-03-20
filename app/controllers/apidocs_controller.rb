@@ -17,6 +17,10 @@ class ApidocsController < ApplicationController
       key :path, '/venues'
       key :description, 'Operations about venues'
     end
+    api do
+      key :path, '/venue_owners'
+      key :description, 'Operations abouve venue owners'
+    end
 =begin
     api do
       key :path, '/organisations'
@@ -31,6 +35,8 @@ class ApidocsController < ApplicationController
     Region,
     VenuesController,
     Venue,
+    VenueOwnersController,
+    VenueOwner,
     self,
   ].freeze
 
@@ -39,7 +45,7 @@ class ApidocsController < ApplicationController
         format.html { render :index }
         format.json { render json: Swagger::Blocks.build_root_json(SWAGGERED_CLASSES) }
     end
-    
+
 
   end
 

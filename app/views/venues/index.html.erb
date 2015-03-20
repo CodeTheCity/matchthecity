@@ -2,6 +2,9 @@
 <% if @region %>
   in <%= @region.name %>
 <% end %>
+<% if @venue_owner %>
+  owned by <%= @venue_owner.name %>
+<% end %>
 </h1>
 
 <table class='table-striped table sortable'>
@@ -9,7 +12,9 @@
     <tr>
       <th>Name</th>
       <th>Notices</th>
-      <th>Owner</th>
+      <% unless @venue_owner %>
+        <th>Owner</th>
+      <% end %>
       <th>Address</th>
       <th>Postcode</th>
       <% unless @region %>
@@ -30,7 +35,9 @@
             <%= venue.venue_notices.count %>
           <% end %>
         </td>
-        <td><%= venue.venue_owner.try(:name) %></td>
+        <% unless @venue_owner %>
+          <td><%= venue.venue_owner.try(:name) %></td>
+        <% end %>
         <td><%= venue.address %></td>
         <td><%= venue.postcode %></td>
         <% unless @region %>

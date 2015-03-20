@@ -19,6 +19,7 @@
         <th>Region</th>
       <% end %>
       <th>Logo url</th>
+      <th>Venues</th>
       <th></th>
     </tr>
   </thead>
@@ -36,8 +37,10 @@
         <td><%= venue_owner.web %></td>
         <% unless @region %>
           <td><%= venue_owner.region.try(:name) %></td>
-        <% end %>        <td><%= venue_owner.logo_url %></td>
-        <td><%= link_to 'Show', venue_owner %></td>
+        <% end %>
+        <td><%= venue_owner.logo_url %></td>
+        <td><%= link_to venue_owner.venues.count, venue_owner_venues_path(venue_owner) %></td>
+        <td><%= link_to 'Show', venue_owner_path(:id => venue_owner.generate_slug) %></td>
       </tr>
     <% end %>
   </tbody>
