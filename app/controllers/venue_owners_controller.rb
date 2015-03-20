@@ -56,7 +56,7 @@ class VenueOwnersController < ApplicationController
   # GET /venue_owners
   # GET /venue_owners.json
   def index
-    @venue_owners = VenueOwner.all
+    @venue_owners = VenueOwner.all.order(:name)
   end
 
   # GET /venue_owners/1

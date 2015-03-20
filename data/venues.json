@@ -235,6 +235,17 @@
   "email": "westburntenniscentre@sportaberdeen.co.uk",
   "tel": "01224625342",
   "web": "http://www.sportaberdeen.co.uk/westburn-tennis-centre"
+  },
+  {
+  "name": "RGU Sport",
+  "owner": "RGU Sport",
+  "address": "Robert Gordon University, Garthdee Campus, Garthdee Road, Aberdeen",
+  "postcode": "AB10 7GE",
+  "lat": "57.118821",
+  "long": "-2.137687",
+  "email": "rgusportenquiries@rgu.ac.uk",
+  "tel": "01224 263666",
+  "web": "http://www.rgu.ac.uk/student-life/campus-life/rgu-sport/rgu-sport"
   }
 ]
 
