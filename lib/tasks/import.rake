@@ -252,8 +252,10 @@ namespace :import do
     data_path = File.expand_path("../../../data/venues.json", __FILE__)
     json = JSON.parse(IO.read(data_path))
 
+    features_json = json['features']
 
-    json.each do |venue_json|
+    features_json.each do |feature_json|
+      venue_json = feature_json['properties']
       venue_json['name']
       venue = Venue.where('lower(name) = ?', venue_json['name'].downcase).first
       if venue.nil?
