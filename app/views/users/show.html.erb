@@ -1,0 +1,34 @@
+<h1>My Account</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<%= link_to 'Edit Account Details', edit_user_registration_path(@user) %>
+
+
+<h2>My Organisations</h2>
+<%= link_to "Add organisation", new_organisation_path %>
+
+
+<table class='table-striped table'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Postcode</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Email</th>
+      <th>Telephone</th>
+      <th>Web</th>
+      <th>Region</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @user.organisations %>
+  </tbody>
+</table>

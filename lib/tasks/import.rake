@@ -17,6 +17,83 @@ namespace :import do
     Region.destroy_all
   end
 
+  desc "Transition Extreme classes JSON"
+  task :te_classes_json => :environment do
+    puts "Importing Transition Extreme classes from JSON"
+
+    data_path = File.expand_path("../../../data/transition_extreme.json", __FILE__)
+    json = JSON.parse(IO.read(data_path))
+    exercise_classes_json = json['classes']
+    puts exercise_classes_json.count
+    exercise_classes_json.each do |exercise_class_json|
+      activity = exercise_class_json['activity']
+      day_of_week = exercise_class_json['day_of_week']
+      start_time = exercise_class_json['start_time']
+      end_time = exercise_class_json['end_time']
+      title = exercise_class_json['name']
+      room = exercise_class_json['location']
+      description = exercise_class_json['description']
+      image_url = exercise_class_json['iconUrl']
+      source_reference = exercise_class_json['source_ref']
+
+      existing_activity = Activity.find_by_title(activity)
+      if existing_activity.nil?
+        existing_activity = Activity.new(:title => activity, :category => 'sport')
+        existing_activity.save
+      end
+
+      existing_sub_activity = existing_activity.sub_activities.find_by_title(title)
+      if existing_sub_activity.nil?
+        existing_sub_activity = SubActivity.new(:title => title, :activity => existing_activity)
+        existing_sub_activity.save
+      end
+
+      organisation = Organisation.find_by_name('Transition Extreme Sports')
+      if organisation.nil?
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        organisation = Organisation.new(:name => 'Transition Extreme Sports', :region => region)
+        organisation.save
+      end
+
+      venue = Venue.find_by_name('Transition Extreme')
+      if venue.nil?
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        venue = Venue.new(:name => 'Transition Extreme', :region => region)
+        venue.save
+      end
+
+      opportunity = Opportunity.find_by_source_reference("#{source_reference}")
+      if opportunity.nil?
+        opportunity = Opportunity.new(:source_reference => "#{source_reference}")
+      end
+      opportunity.name = title
+      opportunity.category = 'Event'
+      opportunity.activity = existing_activity
+      opportunity.sub_activity = existing_sub_activity
+      opportunity.venue = venue
+      opportunity.room = room
+      opportunity.description = "#{description}"
+      opportunity.day_of_week = day_of_week
+      opportunity.start_time = start_time
+      opportunity.end_time = end_time
+      opportunity.image_url = image_url
+      opportunity.organisation = organisation
+      opportunity.save
+
+      tags_json = exercise_class_json['tag_list']
+      tags_json.each do |tag|
+        opportunity.tag_list.add(tag)
+        opportunity.save
+      end
+    end
+  end
+
   desc "Aberdeen Sports Village classes JSON"
   task :asv_classes_json => :environment do
     puts "Importing Aberdeen Sports Villages classes from JSON"
@@ -56,6 +133,16 @@ namespace :import do
         existing_sub_activity.save
       end
 
+      organisation = Organisation.find_by_name('Aberdeen Sports Village')
+      if organisation.nil?
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        organisation = Organisation.new(:name => 'Aberdeen Sports Village', :region => region)
+        organisation.save
+      end
+
       venue = Venue.find_by_name('Aberdeen Sports Village')
       if venue.nil?
         region = Region.find_by_name('Aberdeen')
@@ -81,6 +168,7 @@ namespace :import do
       opportunity.start_time = start_time
       opportunity.end_time = end_time
       opportunity.image_url = image_url
+      opportunity.organisation = organisation
       opportunity.save
 
       # Tag it if we can
@@ -201,11 +289,13 @@ namespace :import do
       unless venue_notices_json.nil?
         venue_notices_json.each do |venue_notice_json|
           notice_start = venue_notice_json['start']
+          notice_expires = venue_notice_json['expires']
           notice_message = venue_notice_json['message']
           venue_notice = venue.venue_notices.where('starts = ?', notice_start.to_datetime).first
           if venue_notice.nil?
             venue_notice = VenueNotice.new(:venue => venue, :starts => notice_start.to_datetime)
           end
+          venue_notice.expires = notice_expires.to_datetime unless notice_expires.nil?
           venue_notice.message = notice_message
           venue_notice.save
         end

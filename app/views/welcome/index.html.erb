@@ -23,11 +23,25 @@
 
       <p><strong>Important note:</strong> Please be aware that some of this information has not been sourced recently as only some venues currently provide us with a live feed. Due to this please always check with the venue that the activity you wish to partake in is still current.</p>
     </div>
+    <div class="col-xs-8">
+      <h2>Want to include your organisation's events?</h2>
+      <p>
+        <%= link_to 'Sign up', new_user_registration_path %> for a MatchTheCity account now so you can add your organisation and any events you have coming up.
+      </p>
+    </div>
+
   </div>
   <div clas="row">
 
     <div class="col-xs-6">
       <h2>About the project</h2>
+
+      <h3>Content Creation: CodeTheCity 3 Aberdeen</h3>
+      <h4>7th/8th February 2015</h4>
+      <p>The third <a href="http://codethecity.org/hacks/uk/aberdeen/2015-03-codethecity-aberdeen-3/">CodeTheCity</a> event saw the first steps towards allowing people to add their own content into the MatchTheCity database.</p>
+      <p>People can now sign up for a MatchTheCity account and then create an organisation of their own. They can also invite other users to become members of their organisation.</p>
+      <p>The next phase will see users being able to add events run by their organisation into the database.</p>
+
 
       <h3>Added Effort: CodeTheCity 2 Aberdeen</h3>
       <h4>18th/19th October 2014</h4>
@@ -59,6 +73,8 @@
         <p>The source code for this project can be found on <a href="https://github.com/CodeTheCity/matchthecity">GitHub</a>.</p>
 
         <p>A draft set of <%= link_to 'API calls', welcome_api_path %> for accessing the MatchTheCity data have been put together.</p>
+
+        <p>A new Swagger based set of API calls <%= link_to 'documentation', apidocs_path %> is also under development.</p>
 
         <p>If you do use MatchTheCity to provide your data then please let us know and also please link to us and use our logo.</p>
       </div>

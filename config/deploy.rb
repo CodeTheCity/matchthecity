@@ -87,6 +87,10 @@ namespace :deploy do
     run_remote_rake "import:asv_swimming_classes_json"
   end
 
+  task :rebuild_te, roles: :app do
+    run_remote_rake "import:te_classes_json"
+  end
+
   task :rebuild_edinburgh, roles: :app do
     run_remote_rake "import_edinburgh:leisure_classes"
   end
@@ -99,3 +103,5 @@ namespace :deploy do
     set :rakefile, nil if exists?(:rakefile)
 end
 end
+        require './config/boot'
+        require 'airbrake/capistrano'

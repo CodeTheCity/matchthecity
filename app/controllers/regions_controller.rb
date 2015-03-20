@@ -1,5 +1,54 @@
 class RegionsController < ApplicationController
+  include Swagger::Blocks
+
+  
+
+  swagger_api_root :regions do
+    key :swaggerVersion, '1.2'
+    key :apiVersion, '1.0.0'
+    key :basePath, Rails.application.routes.url_helpers.regions_path
+    api do
+      key :path, '/'
+      operation do
+        key :method, 'GET'
+        key :summary, 'Returns all regions'
+        key :notes, 'Returns all regions'
+        key :type, :array
+        key :nickname, :findRegions
+        items do
+          key :'$ref', :Region
+        end
+      end
+    end
+    api do
+      key :path, '/{regionId}'
+      operation do
+        key :method, 'GET'
+        key :summary, 'Find region by ID'
+        key :notes, 'Returns a region based on ID'
+        key :type, :Region
+        key :nickname, :getRegionById
+        parameter do
+          key :paramType, :path
+          key :name, :regionId
+          key :description, 'ID of region that needs to be fetched'
+          key :required, true
+          key :type, :integer
+        end
+        response_message do
+          key :code, 400
+          key :message, 'Invalid ID supplied'
+        end
+        response_message do
+          key :code, 404
+          key :message, 'Region not found'
+        end
+      end
+    end
+  end
+
   before_action :set_region, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:new, :edit, :update, :destroy]
 
   # GET /regions
   # GET /regions.json

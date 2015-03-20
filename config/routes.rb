@@ -1,7 +1,25 @@
 Rails.application.routes.draw do
+  resources :apidocs, only: [:index, :show]
+
+  devise_for :admins
+  devise_for :users, :path_prefix => 'my'
+  resources :users
+
+
+  controller :opportunities do
+    get :update_sub_activities
+  end
+
+
   resources :venue_owners
 
-  resources :organisations
+  resources :organisations do
+    resources :opportunities
+    resources :users do
+      get :invite
+      get :uninvite
+    end
+  end
 
   resources :venue_notices
 
@@ -36,6 +54,8 @@ Rails.application.routes.draw do
     post :rate_effort
   end
 
+
+  resources :venues, path: "", except: [:index, :new, :create]
 
   root :to => "welcome#index"
 

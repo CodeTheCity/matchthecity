@@ -18,7 +18,7 @@
 #  image_url        :string(255)
 #  source_reference :string(255)
 #  effort_rating    :integer          default(0)
-#  orginsation_id   :integer
+#  organisation_id  :integer
 #
 
 class Opportunity < ActiveRecord::Base
@@ -30,6 +30,14 @@ class Opportunity < ActiveRecord::Base
     belongs_to :organisation
     has_many :effort_ratings, :dependent => :destroy
     accepts_nested_attributes_for :effort_ratings
+
+    after_validation :create_activity unless @new_activity.blank?
+
+    validates_presence_of :activity, :if => :should_validate_activity?
+    validates_presence_of :sub_activity, :if => :should_validate_sub_activity?
+
+    attr_accessor :new_activity
+    attr_accessor :new_sub_activity
 
     scope :for_venue, lambda { |venue|
       where("venue_id = ?", venue.id ) unless venue.blank?
@@ -43,4 +51,25 @@ class Opportunity < ActiveRecord::Base
     scope :with_effort_rating, lambda { |rating|
       where("effort_rating = ?", rating) unless rating.nil?
     }
+
+    def should_validate_activity?
+      new_activity.blank?
+    end
+
+    def should_validate_sub_activity?
+      new_sub_activity.blank?
+    end
+
+    private
+    def create_activity
+      puts 'create_activity'
+      created_activity = Activity.find_by_title(@new_activity)
+      if created_activity.nil?
+        created_activity = Activity.new(:title => @new_activity)
+        created_activity.save
+      end
+      self.activity = created_activity
+
+
+    end
 end

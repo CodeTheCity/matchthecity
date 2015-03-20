@@ -20,7 +20,7 @@
 
 <p>
   <strong>Venue:</strong>
-  <%= link_to @opportunity.venue.name, @opportunity.venue %>
+  <%= link_to @opportunity.venue.name, @opportunity.venue  unless @opportunity.venue.nil? %>
 </p>
 
 <p>
@@ -45,12 +45,18 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @opportunity.description.html_safe %>
+  <%= @opportunity.description.html_safe unless @opportunity.description.nil? %>
 </p>
 
 <% unless @opportunity.image_url.blank? %>
   <%= @opportunity.image_url.html_safe %>
 <% end %>
+
+
+<p>
+  <strong>Organiser</strong>
+  <%= link_to @opportunity.organisation.name, @opportunity.organisation unless @opportunity.organisation.nil? %>
+</p>
 
 <% unless @opportunity.skills.count == 0 %>
   <p><strong>Skills required:</strong>
@@ -86,6 +92,10 @@
     </fieldset>
   <% end %>
 
+
+<div>
+  <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_opportunity_path(@opportunity) %>
+</div>
 
 
 <%= link_to 'Back', opportunities_path %>

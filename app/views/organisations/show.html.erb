@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h1>Organisation</h1>
 
 <p>
   <strong>Name:</strong>
@@ -42,13 +42,73 @@
 
 <p>
   <strong>Region:</strong>
-  <%= @organisation.region %>
+  <%= @organisation.region.try :name %>
 </p>
 
-<p>
-  <strong>Logo url:</strong>
-  <%= @organisation.logo_url %>
-</p>
+<% unless @organisation.logo_url.blank? %>
+  <%= image_tag @organisation.logo_url %>
+<% end %>
 
-<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
+
+<div>
+  <%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_organisation_opportunity_path(@organisation) %>
+</div>
+
+
+<table class='table-striped table' style="border-collapse:collapse;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Activity</th>
+      <th>Sub Activity</th>
+      <% unless @venue %>
+        <th>Venue</th>
+      <% end %>
+      <th>Day</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+
+
+  <tbody id="opportunities">
+    <%= render partial: "opportunities/opportunity_short", collection: @opportunities, as: :opportunity %>
+  </tbody>
+</table>
+
+
+<h2>Owners</h2>
+<ul>
+  <% @organisation.users.each do |user| %>
+    <% if @organisation.users.include?(current_user) %>
+      <li><%= user.name %> <%= link_to '(Remove)', organisation_user_uninvite_path(@organisation, user) unless user == current_user %></li>
+    <% else %>
+      <li><%= user.name %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<% if @organisation.users.include?(current_user) %>
+ <p>Invite a new member to <%= @organisation.name %></p>
+ <p>
+      <%= form_tag users_path, :method => 'get', :id => "users_search", :remote => true  do |f| %>
+      <%= hidden_field_tag 'organisation_id', @organisation.id %>
+      <%= text_field_tag :search, params[:search], :placeholder => "Search by name", :size => 50 %>
+      <%= submit_tag "Search", :name => nil %>
+      <%= link_to 'Clear Search', url_for %>
+      <% end %>
+    </p>
+
+
+    <table>
+      <tr>
+        <th>Name</th>
+      </tr>
+    <tbody id="users">
+      <%= render @users %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to 'Edit', edit_organisation_path(@organisation) if @organisation.users.include?(current_user) %> |
 <%= link_to 'Back', organisations_path %>

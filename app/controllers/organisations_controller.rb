@@ -1,5 +1,7 @@
 class OrganisationsController < ApplicationController
   before_action :set_organisation, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_filter :has_permission, only: [:edit, :update, :destroy, :invite]
 
   # GET /organisations
   # GET /organisations.json
@@ -10,6 +12,8 @@ class OrganisationsController < ApplicationController
   # GET /organisations/1
   # GET /organisations/1.json
   def show
+    @users = []
+    @opportunities = @organisation.opportunities.all.page(params[:page]).per(50)
   end
 
   # GET /organisations/new
@@ -28,6 +32,7 @@ class OrganisationsController < ApplicationController
 
     respond_to do |format|
       if @organisation.save
+        @organisation.users << current_user
         format.html { redirect_to @organisation, notice: 'Organisation was successfully created.' }
         format.json { render :show, status: :created, location: @organisation }
       else
@@ -64,11 +69,19 @@ class OrganisationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_organisation
-      @organisation = Organisation.find(params[:id])
+      @organisation = Organisation.find(params[:id]) if params[:id]
+      @organisation = Organisation.find(params[:organisation_id]) if params[:organisation_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organisation_params
       params.require(:organisation).permit(:name, :address, :postcode, :latitude, :longitude, :email, :telephone, :web, :region_id, :logo_url)
     end
+
+    def has_permission
+      unless @organisation.users.include?(current_user) 
+        redirect_to(@organisation, :alert => t(:restricted_page))
+      end
+    end
+
 end

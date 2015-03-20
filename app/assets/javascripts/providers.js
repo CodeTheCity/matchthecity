@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
-
-	L.TileLayer.Provider = L.TileLayer.extend({
+if (typeof L !== 'undefined') {
+ 	L.TileLayer.Provider = L.TileLayer.extend({
 		initialize: function (arg, options) {
 			var providers = L.TileLayer.Provider.providers;
 
@@ -482,4 +482,5 @@
 	L.control.layers.provided = function (baseLayers, overlays, options) {
 		return new L.Control.Layers.Provided(baseLayers, overlays, options);
 	};
+}
 }());
