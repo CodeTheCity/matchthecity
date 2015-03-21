@@ -447,6 +447,7 @@ namespace :import do
       opportunity.day_of_week = day_of_week
       opportunity.start_time = start_time
       opportunity.end_time = end_time
+      opportunity.description = ""
       opportunity.save
 
       tags.split('/').each do |tag|
