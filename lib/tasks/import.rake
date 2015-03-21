@@ -384,6 +384,84 @@ namespace :import do
     puts "#{failed} out of #{total} failed to import"
   end
 
+  desc "Import RGU Sport classes"
+  task :rgu_sport_classes => :environment do
+    started_at = Time.now
+
+    puts "Importing RGU Sport classes starting at #{started_at}"
+    data_path = File.expand_path("../../../data/rgu_sport.csv", __FILE__)
+    rows_to_import = CSV.read(data_path, :col_sep => ",", :headers => true)
+    total = rows_to_import.count
+    puts "#{total} rows to import"
+
+    # Class,Day,Time,Studio,Type
+    count = 0
+    failed = 0
+
+    rows_to_import.each do |row|
+      count = count + 1
+
+      activity = 'Exercise Class'
+      title = row[0]
+      day_of_week = row[1]
+      time = row[2]
+      start_time = time.split(' - ').first.insert(2, ':')
+      end_time = time.split(' - ').last.insert(2, ':')
+      room = row[3]
+      tags = row[4]
+
+      source_reference = "#{title}:#{day_of_week}:#{time}"
+
+      existing_activity = Activity.find_by_title(activity)
+      if existing_activity.nil?
+        existing_activity = Activity.new(:title => activity, :category => 'sport')
+        existing_activity.save
+      end
+
+      existing_sub_activity = SubActivity.find_by_title(title)
+      if existing_sub_activity.nil?
+        existing_sub_activity = SubActivity.new(:title => title, :activity => existing_activity)
+        existing_sub_activity.save
+      end
+
+      venue = Venue.find_by_name('RGU Sport')
+      if venue.nil?
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        venue = Venue.new(:name => 'RGU Sport', :region => region)
+        venue.save
+      end
+
+      opportunity = Opportunity.find_by_source_reference("#{source_reference}")
+      if opportunity.nil?
+        opportunity = Opportunity.new(:source_reference => "#{source_reference}")
+      end
+      opportunity.name = title
+      opportunity.category = 'Event'
+      opportunity.activity = existing_activity
+      opportunity.sub_activity = existing_sub_activity
+      opportunity.venue = venue
+      opportunity.room = room
+      opportunity.day_of_week = day_of_week
+      opportunity.start_time = start_time
+      opportunity.end_time = end_time
+      opportunity.save
+
+      tags.split('/').each do |tag|
+        opportunity.tag_list.add(tag.downcase)
+        opportunity.save
+      end
+    end
+
+    completed_at = Time.now
+    puts "Import started #{started_at} completed at #{completed_at}"
+    puts "#{failed} out of #{total} failed to import"
+
+  end
+
+
   desc "Import Aberdeen Sports Village Activities"
   task :asv_sport_activities => :environment do
     started_at = Time.now
