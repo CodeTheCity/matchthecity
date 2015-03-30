@@ -389,8 +389,8 @@ namespace :import do
     started_at = Time.now
 
     puts "Importing RGU Sport classes starting at #{started_at}"
-    data_path = File.expand_path("../../../data/rgu_sport.csv", __FILE__)
-    rows_to_import = CSV.read(data_path, :col_sep => ",", :headers => true)
+    data_path = File.expand_path("../../../data/rgu_sport.txt", __FILE__)
+    rows_to_import = CSV.read(data_path, :col_sep => "\t", :headers => true, :encoding => 'windows-1251:utf-8')
     total = rows_to_import.count
     puts "#{total} rows to import"
 
@@ -409,6 +409,7 @@ namespace :import do
       end_time = time.split(' - ').last.insert(2, ':')
       room = row[3]
       tags = row[4]
+      description = row[5]
 
       source_reference = "#{title}:#{day_of_week}:#{time}"
 
@@ -422,6 +423,16 @@ namespace :import do
       if existing_sub_activity.nil?
         existing_sub_activity = SubActivity.new(:title => title, :activity => existing_activity)
         existing_sub_activity.save
+      end
+
+      organisation = Organisation.find_by_name('RGU Sport')
+      if organisation.nil?
+        region = Region.find_by_name('Aberdeen')
+        if region.nil?
+          region = Region.create(:name => 'Aberdeen')
+        end
+        organisation = Organisation.new(:name => 'RGU Sport', :region => region)
+        organisation.save
       end
 
       venue = Venue.find_by_name('RGU Sport')
@@ -447,7 +458,8 @@ namespace :import do
       opportunity.day_of_week = day_of_week
       opportunity.start_time = start_time
       opportunity.end_time = end_time
-      opportunity.description = ""
+      opportunity.description = description
+      opportunity.organisation = organisation
       opportunity.save
 
       tags.split('/').each do |tag|
