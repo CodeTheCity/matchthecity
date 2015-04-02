@@ -28,6 +28,11 @@ namespace :import do
       puts "removing #{venue.name}"
       venue.destroy
     end
+
+    Venue.where('venue_owner_id = ?', owner.id).each do |venue|
+      puts "removing opportunities from #{venue.name}"
+      Opportunity.where("venue_id = ? and source_reference is null", venue.id).destroy_all
+    end
   end
 
   desc "Official Sport Aberdeen venues XML"
@@ -86,6 +91,20 @@ namespace :import do
       venue.source_reference = source_reference
       venue.description = description
       venue.save
+
+      # Remove any existing notices
+      venue.venue_notices.destroy_all
+
+      # Add status as a Venue Notice
+      closed = venue_xml.at('Closed').text.to_i
+      status = venue_xml.at('Status').text
+
+      if closed == 1
+        VenueNotice.create(:venue => venue,
+          :starts => Time.now,
+          :message => "This venue is currently closed. Reason: #{status}")
+      end
+
 
       puts "#{venue_name} : Errors #{venue.errors.full_messages}"
     end
