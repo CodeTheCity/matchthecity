@@ -86,6 +86,10 @@ class Venue < ActiveRecord::Base
       key :type, :string
       key :description, 'original ID of the venue in its source data'
     end
+    property :description do
+      key :type, :text
+      key :description, 'description of the venue'
+    end
     property :created_at do
       key :type, :datetime
     end
@@ -98,10 +102,10 @@ class Venue < ActiveRecord::Base
     end
   end
 
-  has_many :opportunities
+  has_many :opportunities, :dependent => :destroy
   belongs_to :region
   belongs_to :venue_owner
-  has_many :venue_notices
+  has_many :venue_notices, :dependent => :destroy
   before_validation :generate_slug
 
   validates :slug, uniqueness: true, presence: true
@@ -119,6 +123,20 @@ class Venue < ActiveRecord::Base
   end
 
   def generate_slug
-    self.slug = name.parameterize unless name.nil?
+    # check to see if slug already used
+    slug_name = name.parameterize
+    exists = false
+    check = Venue.find_by_slug(slug_name)
+    if check and check != self
+      extra_index = 0
+      while check do
+        extra_index = extra_index + 1
+        try_slug_name = "#{slug_name}#{extra_index}"
+        check = Venue.find_by_slug(try_slug_name)
+        slug_name = try_slug_name if check.nil?
+      end
+    end
+
+    self.slug = slug_name
   end
 end

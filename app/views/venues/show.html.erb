@@ -40,6 +40,11 @@
 </p>
 
 <p>
+  <strong>Description:</strong>
+  <%= @venue.description.html_safe unless @venue.description.nil? %>
+</p>
+
+<p>
   <strong>Address:</strong>
   <%= @venue.address %>
 </p>
@@ -87,6 +92,11 @@
 <p>
   <strong>Opportunities</strong>
   <%= link_to "#{@venue.opportunities.count} opportunities at venue", venue_opportunities_path(@venue) %>
+</p>
+
+<p>
+  <strong>Last updated:</strong>
+  <%= l(@venue.updated_at) %>
 </p>
 
 <% if @venue.venue_notices.count > 0 %>

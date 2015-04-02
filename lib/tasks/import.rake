@@ -2,6 +2,8 @@
 namespace :import do
 
   require 'csv'
+  require 'open-uri'
+  require 'htmlentities'
 
   desc "Rebuild Data"
   task :rebuild_all => [:drop_data, :asv_classes_json, :asv_swimming_classes_json, :sport_events, :aquatics, :skills, :venues]
@@ -15,6 +17,69 @@ namespace :import do
     Activity.destroy_all
     Skill.destroy_all
     Region.destroy_all
+  end
+
+  desc "Official Sport Aberdeen venues XML"
+  task :sa_venues_xml => :environment do
+    puts "Importing Sport Aberdeen venues XML"
+
+    htmlEntities = HTMLEntities.new
+
+    # Get the Owner for all the venues
+    owner_name = 'Sport Aberdeen'
+    region_name = 'Aberdeen'
+    owner = VenueOwner.where('lower(name) = ?', owner_name.downcase).first
+    if owner.nil?
+      region = Region.find_by_name('Aberdeen')
+      if region.nil?
+        region = Region.create(:name => 'Aberdeen')
+      end
+      owner = VenueOwner.new(:name => owner_name, :region => region)
+    end
+    owner.save
+
+    doc = Nokogiri::XML(open("http://sportaberdeen.co.uk/venuefeed"))
+    root = doc.root
+    venues = root.xpath("Venue")
+    venues.each do |venue_xml|
+      # Extract the data from the XML for this venue
+      source_reference = venue_xml.at('ID').text
+      venue_name = htmlEntities.decode(venue_xml.at('Title').text)
+
+      # Check to see if a venue exists for the source reference
+      venue = Venue.where('source_reference = ? and venue_owner_id = ? ', source_reference, owner.id).first
+      if venue.nil?
+        venue = Venue.where('lower(name) = ?', venue_name.downcase).first
+        if venue.nil?
+          region = Region.find_by_name(region_name)
+          if region.nil?
+            region = Region.create(:name => region_name)
+          end
+          venue = Venue.new(:name => venue_name, :region => region)
+        end
+      end
+
+      # Correct the download links in the description as no longer referenced from http://www.sportaberdeen.co.uk
+
+      description = venue_xml.at('Content').text.gsub("assets/Uploads", "http://www.sportaberdeen.co.uk/assets/Uploads")
+
+      venue.name = venue_name
+      venue.venue_owner = owner
+      venue.address = "#{venue_xml.at('LocationAddress1').text}, #{venue_xml.at('LocationAddress2').text}, #{venue_xml.at('LocationTown').text}".gsub("<br />", ',')
+      venue.postcode = venue_xml.at('LocationPostcode').text
+      venue.latitude = venue_xml.at('LocationLatitude').text.to_f
+      venue.longitude = venue_xml.at('LocationLongitude').text.to_f
+      venue.telephone = venue_xml.at('PhoneNumber').text
+      venue.email = venue_xml.at('Email').text
+      venue.web = "http://www.sportaberdeen.co.uk/#{venue_xml.at('URLSegment').text}"
+      venue.source_reference = source_reference
+      venue.description = description
+      venue.save
+
+      puts "#{venue_name} : Errors #{venue.errors.full_messages}"
+    end
+
+
   end
 
   desc "Transition Extreme classes JSON"

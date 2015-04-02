@@ -45,6 +45,7 @@ gem 'swagger-ui_rails'
 gem 'nokogiri'
 gem 'json'
 gem 'bootstrap-sass'
+gem 'htmlentities'
 
 gem 'rails_12factor', group: :production
 
