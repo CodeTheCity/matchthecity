@@ -95,6 +95,10 @@ namespace :deploy do
     run_remote_rake "import:te_classes_json"
   end
 
+  task :remove_sa_scraped, roles: :app do
+    run_remote_rake "import:sa_remove_scraped"
+  end
+
   task :rebuild_edinburgh, roles: :app do
     run_remote_rake "import_edinburgh:leisure_classes"
   end

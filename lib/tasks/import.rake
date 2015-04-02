@@ -6,7 +6,7 @@ namespace :import do
   require 'htmlentities'
 
   desc "Rebuild Data"
-  task :rebuild_all => [:drop_data, :asv_classes_json, :asv_swimming_classes_json, :sport_events, :aquatics, :skills, :venues]
+  task :rebuild_all => [:drop_data, :asv_classes_json, :asv_swimming_classes_json, :sport_events, :aquatics, :skills, :venues, :sa_venues_xml]
 
   desc "Drop data"
   task :drop_data => :environment do
@@ -17,6 +17,17 @@ namespace :import do
     Activity.destroy_all
     Skill.destroy_all
     Region.destroy_all
+  end
+
+  desc "Removes scraped Sport Aberdeen data"
+  task :sa_remove_scraped => :environment do
+    puts "Removing scraped Sport Aberdeen data"
+    owner_name = 'Sport Aberdeen'
+    owner = VenueOwner.where('lower(name) = ?', owner_name.downcase).first
+    Venue.where('venue_owner_id = ? and source_reference is null', owner.id).each do |venue|
+      puts "removing #{venue.name}"
+      venue.destroy
+    end
   end
 
   desc "Official Sport Aberdeen venues XML"
