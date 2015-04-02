@@ -35,6 +35,74 @@ namespace :import do
     end
   end
 
+  desc "Offical Sport Aberdeen activities XML"
+  task :sa_activities_xml => :environment do
+    puts "Importing Sport Aberdeen activities XML"
+
+    # Get the Sport Aberdeen organisation
+    organisation = Organisation.find_by_name('Sport Aberdeen')
+    if organisation.nil?
+      region = Region.find_by_name('Aberdeen')
+      if region.nil?
+        region = Region.create(:name => 'Aberdeen')
+      end
+      organisation = Organisation.new(:name => 'Sport Aberdeen', :region => region)
+      organisation.save
+    end
+
+    # Get the Owner for all the venues
+    owner_name = 'Sport Aberdeen'
+    owner = VenueOwner.where('lower(name) = ?', owner_name.downcase).first
+
+    doc = Nokogiri::XML(open("http://sportaberdeen.co.uk/activityfeed"))
+    root = doc.root
+    activities = root.xpath("Activity")
+    activities.each do |activity_xml|
+      # Extract the data from the XML for this activity
+      source_reference = activity_xml.at('ID').text
+      source_venue_id = activity_xml.at('VenueID').text
+      title = activity_xml.at('Title').text
+      activity = activity_xml.at('Activity').text
+      description = activity_xml.at('Description').text
+      day_of_week = activity_xml.at('Day').text
+      start_time = activity_xml.at('StartTime').text
+      end_time = activity_xml.at('EndTime').text
+
+      venue = Venue.where('source_reference = ? and venue_owner_id = ? ', source_venue_id, owner.id).first
+
+      opportunity = Opportunity.find_by_source_reference_and_venue_id("#{source_reference}", venue.id)
+      if opportunity.nil?
+        opportunity = Opportunity.new(:source_reference => "#{source_reference}")
+      end
+
+      existing_activity = Activity.find_by_title(activity)
+      if existing_activity.nil?
+        existing_activity = Activity.new(:title => activity, :category => 'sport')
+        existing_activity.save
+      end
+
+      existing_sub_activity = SubActivity.find_by_title(title)
+      if existing_sub_activity.nil?
+        existing_sub_activity = SubActivity.new(:title => title, :activity => existing_activity)
+        existing_sub_activity.save
+      end
+
+      opportunity.name = title
+      opportunity.category = 'Event'
+      opportunity.activity = existing_activity
+      opportunity.sub_activity = existing_sub_activity
+      opportunity.venue = venue
+      #opportunity.room = room
+      opportunity.day_of_week = day_of_week
+      opportunity.start_time = start_time
+      opportunity.end_time = end_time
+      opportunity.description = description
+      opportunity.organisation = organisation
+      opportunity.save
+
+    end
+  end
+
   desc "Official Sport Aberdeen venues XML"
   task :sa_venues_xml => :environment do
     puts "Importing Sport Aberdeen venues XML"
