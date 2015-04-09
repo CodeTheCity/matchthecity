@@ -26,3 +26,4 @@ config/secrets.yml
 /data/.DS_Store
 
 /data/MatchTheCity_development22-06-2014stocktaketest.sql
+.DS_Store
