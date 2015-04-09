@@ -564,8 +564,13 @@ namespace :import do
     rows_to_import.each do |row|
       count = count + 1
 
-      activity = 'Exercise Class'
       title = row[0]
+      if title.downcase.include?('swim')
+        activity = 'Swimming'
+      else
+        activity = 'Exercise Class'
+      end
+
       day_of_week = row[1]
       time = row[2]
       start_time = time.split(' - ').first.insert(2, ':')
