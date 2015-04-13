@@ -65,8 +65,8 @@ namespace :import do
       activity = activity_xml.at('Activity').text
       description = activity_xml.at('Description').text
       day_of_week = activity_xml.at('Day').text
-      start_time = activity_xml.at('StartTime').text[0...-4]
-      end_time = activity_xml.at('EndTime').text[0...-4]
+      start_time = activity_xml.at('StartTime').text[0...-3]
+      end_time = activity_xml.at('EndTime').text[0...-3]
 
       venue = Venue.where('source_reference = ? and venue_owner_id = ? ', source_venue_id, owner.id).first
 
