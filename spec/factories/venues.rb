@@ -21,18 +21,10 @@
 #  description      :text
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  address: MyString
-  postcode: MyString
-  latitude: MyString
-  longitude: MyString
-
-two:
-  name: MyString
-  address: MyString
-  postcode: MyString
-  latitude: MyString
-  longitude: MyString
+FactoryGirl.define do
+  factory :venue do
+    name { Faker::Lorem.word }
+    association :region, :factory => :region
+    association :venue_owner, :factory => :venue_owner
+  end
+end

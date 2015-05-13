@@ -1,4 +1,164 @@
 class OpportunitiesController < ApplicationController
+  include Swagger::Blocks
+
+  swagger_api_root :opportunities do
+    key :swaggerVersion, '1.2'
+    key :apiVersion, '1.0.0'
+    key :basePath, Rails.application.routes.url_helpers.root_path
+    api do
+      key :path, '/opportunities'
+      operation do
+        key :method, 'GET'
+        key :summary, 'Returns all opportunities'
+        key :notes, 'Returns all opportunities'
+        key :type, :array
+        key :nickname, :findOpportunities
+        parameter do
+          key :paramType, :query
+          key :name, :since
+          key :description, "Returns opportunities updated since this date time. Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
+          key :type, :string
+          key :required, false
+        end
+        parameter do
+          key :paramType, :query
+          key :name, :effort_rating
+          key :description, "Returns opportunities with the requested effort rating"
+          key :type, :integer
+          key :required, false
+        end
+        items do
+          key :'$ref', :Opportunity
+        end
+      end
+    end
+    api do
+      key :path, '/regions/{regionId}/opportunities'
+      operation do
+        key :method, 'GET'
+        key :summary, 'Returns all opportunities for the given region'
+        key :notes, 'Returns all opportunities for the given region'
+        key :type, :array
+        key :nickname, :findOpportunitiesForRegion
+        parameter do
+          key :paramType, :path
+          key :name, :regionId
+          key :description, 'Id of the region that opportunities are to be fetched for'
+          key :required, true
+          key :type, :string
+        end
+        parameter do
+          key :paramType, :query
+          key :name, :since
+          key :description, "Returns opportunities updated since this date time. Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
+          key :type, :string
+          key :required, false
+        end
+        parameter do
+          key :paramType, :query
+          key :name, :effort_rating
+          key :description, "Returns opportunities with the requested effort rating"
+          key :type, :integer
+          key :required, false
+        end
+        items do
+          key :'$ref', :Opportunity
+        end
+      end
+    end
+    api do
+      key :path, '/venues/{venueId}/opportunities'
+      operation do
+        key :method, 'GET'
+        key :summary, 'Returns all opportunities for the given venue'
+        key :notes, 'Returns all opportunities for the given venue'
+        key :type, :array
+        key :nickname, :findOpportunitiesForVenue
+        parameter do
+          key :paramType, :path
+          key :name, :venueId
+          key :description, 'Id of the venue that opportunities are to be fetched for'
+          key :required, true
+          key :type, :string
+        end
+        parameter do
+          key :paramType, :query
+          key :name, :since
+          key :description, "Returns opportunities updated since this date time. Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
+          key :type, :string
+          key :required, false
+        end
+        parameter do
+          key :paramType, :query
+          key :name, :effort_rating
+          key :description, "Returns opportunities with the requested effort rating"
+          key :type, :integer
+          key :required, false
+        end
+        items do
+          key :'$ref', :Opportunity
+        end
+      end
+    end
+    api do
+      key :path, '/opportunities/{opportunityId}'
+      operation do
+        key :method, 'GET'
+        key :summary, 'Find opportunity by its Id'
+        key :notes, 'Returns a opportunity based on Id'
+        key :type, :Opportunity
+        key :nickname, :getOpportunityById
+        parameter do
+          key :paramType, :path
+          key :name, :opportunityId
+          key :description, 'Id of the opportunity that needs to be fetched'
+          key :required, true
+          key :type, :string
+        end
+        response_message do
+          key :code, 400
+          key :message, 'Invalid Id supplied'
+        end
+        response_message do
+          key :code, 404
+          key :message, 'Opportunity not found'
+        end
+      end
+    end
+    api do
+      key :path, '/opportunities/{opportunityId}/effort_ratings'
+      operation do
+        key :method, 'POST'
+        key :summary, 'Creates an Effort Rating for the opportunity'
+        key :notes, 'Returns the new Effort Rating'
+        key :type, :integer
+        key :nickname, :createEffortForOpportunity
+        parameter do
+          key :paramType, :path
+          key :name, :opportunityId
+          key :description, 'Id of the opportunity that is being rated'
+          key :required, true
+          key :type, :string
+        end
+        parameter do
+          key :paramType, :form
+          key :name, :rating
+          key :description, 'Effort rating 1 - 5'
+          key :required, true
+          key :type, :integer
+        end
+        response_message do
+          key :code, 400
+          key :message, 'Invalid Id supplied'
+        end
+        response_message do
+          key :code, 404
+          key :message, 'Opportunity not found'
+        end
+      end
+    end
+  end
+
   before_action :set_opportunity, only: [:show, :edit, :update, :destroy]
   before_action :set_organisation, only: [:new, :create]
   before_action :authenticate_user!, only: [:new, :create, :edit, :udpdate, :destroy]

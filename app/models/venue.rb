@@ -18,6 +18,7 @@
 #  logo_url         :string(255)
 #  venue_owner_id   :integer
 #  slug             :string(255)
+#  description      :text
 #
 
 class Venue < ActiveRecord::Base
@@ -109,6 +110,11 @@ class Venue < ActiveRecord::Base
   before_validation :generate_slug
 
   validates :slug, uniqueness: true, presence: true
+  validates :region, presence: true
+  validates :venue_owner, presence: true
+  validates :name, presence: true
+
+
 
   scope :for_region, lambda { |regionId|
       where("region_id = ?", regionId ) unless regionId.blank?
@@ -123,20 +129,22 @@ class Venue < ActiveRecord::Base
   end
 
   def generate_slug
-    # check to see if slug already used
-    slug_name = name.parameterize
-    exists = false
-    check = Venue.find_by_slug(slug_name)
-    if check and check != self
-      extra_index = 0
-      while check do
-        extra_index = extra_index + 1
-        try_slug_name = "#{slug_name}#{extra_index}"
-        check = Venue.find_by_slug(try_slug_name)
-        slug_name = try_slug_name if check.nil?
+    unless name.nil?
+      # check to see if slug already used
+      slug_name = name.parameterize
+      exists = false
+      check = Venue.find_by_slug(slug_name)
+      if check and check != self
+        extra_index = 0
+        while check do
+          extra_index = extra_index + 1
+          try_slug_name = "#{slug_name}#{extra_index}"
+          check = Venue.find_by_slug(try_slug_name)
+          slug_name = try_slug_name if check.nil?
+        end
       end
-    end
 
-    self.slug = slug_name
+      self.slug = slug_name
+    end
   end
 end

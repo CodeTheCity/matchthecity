@@ -40,4 +40,6 @@ class Region < ActiveRecord::Base
 
   has_many :venues
   has_many :opportunities, :through => :venues
+
+  validates :name, presence: true
 end

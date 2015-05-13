@@ -91,6 +91,7 @@ class VenueOwner < ActiveRecord::Base
   before_validation :generate_slug
 
   validates :slug, uniqueness: true, presence: true
+  validates :region, presence: true
 
   def to_param
     slug

@@ -81,10 +81,19 @@ end
 group :development, :test do
   # Use mysql as the database for Active Record
   gem 'mysql2'
+  gem 'growl'
 end
 
 group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'faker'
 end

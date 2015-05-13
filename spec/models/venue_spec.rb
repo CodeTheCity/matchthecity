@@ -21,18 +21,22 @@
 #  description      :text
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+require 'rails_helper'
 
-one:
-  name: MyString
-  address: MyString
-  postcode: MyString
-  latitude: MyString
-  longitude: MyString
+describe Venue do
+  it 'has a valid factory' do
+    expect(build(:venue)).to be_valid
+  end
 
-two:
-  name: MyString
-  address: MyString
-  postcode: MyString
-  latitude: MyString
-  longitude: MyString
+  it 'is invalid without a name' do
+    expect(build(:venue, name:nil)).to_not be_valid
+  end
+
+  it 'is invalid without a region' do
+    expect(build(:venue, region:nil)).to_not be_valid
+  end
+
+  it 'is invalid without a venue_owner' do
+    expect(build(:venue, venue_owner:nil)).to_not be_valid
+  end
+end

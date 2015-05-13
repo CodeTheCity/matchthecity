@@ -19,6 +19,7 @@
 #  source_reference :string(255)
 #  effort_rating    :integer          default(0)
 #  organisation_id  :integer
+#  week_day         :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

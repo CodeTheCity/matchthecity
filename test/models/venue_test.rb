@@ -18,6 +18,7 @@
 #  logo_url         :string(255)
 #  venue_owner_id   :integer
 #  slug             :string(255)
+#  description      :text
 #
 
 require 'test_helper'

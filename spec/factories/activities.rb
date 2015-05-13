@@ -9,9 +9,9 @@
 #  category   :string(255)
 #
 
-class Activity < ActiveRecord::Base
-  has_many :opportunities
-  has_many :sub_activities
-
-  validates :title, presence: true
+FactoryGirl.define do
+  factory :activity do
+    title { Faker::Lorem.word }
+    category { Faker::Lorem.word }
+  end
 end

@@ -22,10 +22,11 @@
 #  week_day         :integer
 #
 
-require 'test_helper'
-
-class OpportunityTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+FactoryGirl.define do
+  factory :opportunity do
+    name { Faker::Lorem.word }
+    association :venue, :factory => :venue
+    association :sub_activity, :factory => :sub_activity
+    activity { sub_activity.activity }
+  end
 end

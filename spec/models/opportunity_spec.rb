@@ -22,10 +22,13 @@
 #  week_day         :integer
 #
 
-require 'test_helper'
+describe Opportunity do
+  it 'has a valid factory' do
+    expect(build(:opportunity)).to be_valid
+  end
 
-class OpportunityTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  it 'is invalid without a name' do
+    expect(build(:opportunity, name:nil)).to_not be_valid
+  end
+
 end

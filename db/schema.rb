@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402141938) do
+ActiveRecord::Schema.define(version: 20150511073032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150402141938) do
     t.string   "source_reference"
     t.integer  "effort_rating",    default: 0
     t.integer  "organisation_id"
+    t.integer  "week_day"
   end
 
   add_index "opportunities", ["organisation_id"], name: "index_opportunities_on_organisation_id", using: :btree

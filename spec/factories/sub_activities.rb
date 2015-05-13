@@ -9,10 +9,9 @@
 #  updated_at  :datetime
 #
 
-class SubActivity < ActiveRecord::Base
-  belongs_to :activity
-  has_many :opportunities
-
-  validates :title, presence: true
-  validates :activity, presence: true
+FactoryGirl.define do
+  factory :sub_activity do
+    title { Faker::Lorem.word }
+    association :activity, :factory => :activity
+  end
 end

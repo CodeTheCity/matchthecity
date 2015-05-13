@@ -19,7 +19,11 @@ class ApidocsController < ApplicationController
     end
     api do
       key :path, '/venue_owners'
-      key :description, 'Operations abouve venue owners'
+      key :description, 'Operations about venue owners'
+    end
+    api do
+      key :path, '/opportunities'
+      key :description, 'Operations about opportunities'
     end
 =begin
     api do
@@ -37,6 +41,8 @@ class ApidocsController < ApplicationController
     Venue,
     VenueOwnersController,
     VenueOwner,
+    OpportunitiesController,
+    Opportunity,
     self,
   ].freeze
 
