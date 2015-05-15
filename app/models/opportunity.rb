@@ -25,15 +25,12 @@
 class Opportunity < ActiveRecord::Base
 include Swagger::Blocks
 
-  swagger_model :Opportunity do
-    key :id, :Opportunity
+  swagger_schema :Opportunity do
     key :required, [:id, :name]
     property :id do
       key :type, :integer
       key :format, :int64
       key :description, 'unique identifier for the opportunity'
-      key :minimum, '0.0'
-      key :maximum, '100.0'
     end
     property :name do
       key :type, :string

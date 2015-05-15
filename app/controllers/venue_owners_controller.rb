@@ -1,53 +1,59 @@
 class VenueOwnersController < ApplicationController
   include Swagger::Blocks
 
-  swagger_api_root :venue_owners do
-    key :swaggerVersion, '1.2'
-    key :apiVersion, '1.0.0'
-    key :basePath, Rails.application.routes.url_helpers.root_path
-    api do
-      key :path, '/venue_owners'
-      operation do
-        key :method, 'GET'
-        key :summary, 'Returns all venue owners'
-        key :notes, 'Returns all venue owners'
-        key :type, :array
-        key :nickname, :findVenueOwners
-        parameter do
-          key :paramType, :query
+  swagger_path '/venue_owners' do
+    operation :get do
+      key :description, 'Returns all venue owners'
+      key :operationId, 'findVenueOwners'
+      key :produces, [
+        'application/json'
+      ]
+      key :tags, [
+        'venue owner'
+      ]
+      parameter do
           key :name, :since
+          key :in, :query
           key :description, "Returns venue owners updated since this date time. Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
           key :type, :string
           key :required, false
         end
-        items do
-          key :'$ref', :VenueOwner
+      response 200 do
+        key :description, 'venue owner response'
+        schema do
+          key :type, :array
+          items do
+            key :'$ref', :VenueOwner
+          end
         end
       end
     end
-    api do
-      key :path, '/venue_owners/{venueOwnerSlug}'
-      operation do
-        key :method, 'GET'
-        key :summary, 'Find venue owner by its slug'
-        key :notes, 'Returns a venue owner based on slug'
-        key :type, :VenueOwner
-        key :nickname, :getVenueOwnerBySlug
-        parameter do
-          key :paramType, :path
-          key :name, :venueOwnerSlug
-          key :description, 'Slug of venue owner that needs to be fetched'
-          key :required, true
-          key :type, :string
+  end
+  swagger_path '/venue_owners/{venueOwnerSlug}' do
+    operation :get do
+      key :description, 'Returns a single venue owner'
+      key :operationId, 'findVenueOwnerBySlug'
+      key :tags, [
+        'venue owner'
+      ]
+      parameter do
+        key :in, :path
+        key :name, :venueOwnerSlug
+        key :description, 'Slug of venue owner that needs to be fetched'
+        key :required, true
+        key :type, :string
+      end
+      response 200 do
+        key :description, 'venue owner response'
+        schema do
+          key :'$ref', :VenueOwner
         end
-        response_message do
-          key :code, 400
-          key :message, 'Invalid slug supplied'
-        end
-        response_message do
-          key :code, 404
-          key :message, 'Venue owner not found'
-        end
+      end
+      response 400 do
+        key :description, 'Invalid slug supplied'
+      end
+      response 404 do
+        key :description, 'Venue owner not found'
       end
     end
   end

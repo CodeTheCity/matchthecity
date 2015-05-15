@@ -24,15 +24,12 @@
 class Venue < ActiveRecord::Base
   include Swagger::Blocks
 
-  swagger_model :Venue do
-    key :id, :Venue
+  swagger_schema :Venue do
     key :required, [:id, :name]
     property :id do
       key :type, :integer
       key :format, :int64
       key :description, 'unique identifier for the venue'
-      key :minimum, '0.0'
-      key :maximum, '100.0'
     end
     property :name do
       key :type, :string
@@ -81,6 +78,9 @@ class Venue < ActiveRecord::Base
     end
     property :venue_notices do
       key :type, :array
+      items do
+        key :type, :string
+      end
       key :description, 'array of notices, such as closures, for the venue'
     end
     property :source_reference do

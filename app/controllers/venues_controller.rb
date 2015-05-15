@@ -1,76 +1,99 @@
 class VenuesController < ApplicationController
   include Swagger::Blocks
 
-  swagger_api_root :venues do
-    key :swaggerVersion, '1.2'
-    key :apiVersion, '1.0.0'
-    key :basePath, Rails.application.routes.url_helpers.root_path
-    api do
-      key :path, '/venues'
-      operation do
-        key :method, 'GET'
-        key :summary, 'Returns all venues'
-        key :notes, 'Returns all venues'
-        key :type, :array
-        key :nickname, :findVenues
-        parameter do
-          key :paramType, :query
+  swagger_path '/venues' do
+    operation :get do
+      key :description, 'Returns all venue'
+      key :operationId, 'findVenues'
+      key :produces, [
+        'application/json'
+      ]
+      key :tags, [
+        'venue'
+      ]
+      parameter do
           key :name, :since
+          key :in, :query
           key :description, "Returns venues updated since this date time. Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
           key :type, :string
           key :required, false
         end
-        items do
-          key :'$ref', :Venue
-        end
-      end
-    end
-    api do
-      key :path, '/regions/{regionId}/venues'
-      operation do
-        key :method, 'GET'
-        key :summary, 'Returns all venues for region regionId'
-        key :notes, 'Returns all venues for a region'
-        key :type, :array
-        key :nickname, :findVenues
-        parameter do
-          key :paramType, :path
-          key :name, :regionId
-          key :description, 'Id of the region you wish to return venues for'
-          key :required, true
-          key :type, :integer
-        end
-        items do
-          key :'$ref', :Venue
-        end
-      end
-    end
-    api do
-      key :path, '/venues/{venueSlug}'
-      operation do
-        key :method, 'GET'
-        key :summary, 'Find venue by its slug'
-        key :notes, 'Returns a venue based on slug'
-        key :type, :Venue
-        key :nickname, :getVenueBySlug
-        parameter do
-          key :paramType, :path
-          key :name, :venueSlug
-          key :description, 'Slug of venue that needs to be fetched'
-          key :required, true
-          key :type, :string
-        end
-        response_message do
-          key :code, 400
-          key :message, 'Invalid slug supplied'
-        end
-        response_message do
-          key :code, 404
-          key :message, 'Venue not found'
+      response 200 do
+        key :description, 'venue response'
+        schema do
+          key :type, :array
+          items do
+            key :'$ref', :Venue
+          end
         end
       end
     end
   end
+
+  swagger_path '/regions/{regionId}/venues' do
+    operation :get do
+      key :description, 'Returns all venues for a region'
+      key :operationId, 'findVenuesForRegion'
+      key :produces, [
+        'application/json'
+      ]
+      key :tags, [
+        'venue'
+      ]
+      parameter do
+          key :name, :regionId
+          key :in, :path
+          key :description, 'Id of the region you wish to return venues for'
+          key :required, true
+          key :type, :integer
+        end
+      parameter do
+          key :name, :since
+          key :in, :query
+          key :description, "Returns venues updated since this date time. Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
+          key :type, :string
+          key :required, false
+        end
+      response 200 do
+        key :description, 'venue response'
+        schema do
+          key :type, :array
+          items do
+            key :'$ref', :Venue
+          end
+        end
+      end
+    end
+  end
+  swagger_path '/venues/{venueSlug}' do
+    operation :get do
+      key :description, 'Returns a single venue'
+      key :operationId, 'findVenueBySlug'
+      key :tags, [
+        'venue'
+      ]
+      parameter do
+        key :in, :path
+        key :name, :venueSlug
+        key :description, 'Slug of venue that needs to be fetched'
+        key :required, true
+        key :type, :string
+      end
+      response 200 do
+        key :description, 'venue response'
+        schema do
+          key :'$ref', :Venue
+        end
+      end
+      response 400 do
+        key :description, 'Invalid slug supplied'
+      end
+      response 404 do
+        key :description, 'Venue not found'
+      end
+    end
+  end
+
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:new, :create, :edit, :udpdate, :destroy]
   before_filter :find_region, :find_venue_owner

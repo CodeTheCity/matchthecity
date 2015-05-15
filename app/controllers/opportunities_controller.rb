@@ -1,37 +1,116 @@
 class OpportunitiesController < ApplicationController
   include Swagger::Blocks
 
-  swagger_api_root :opportunities do
-    key :swaggerVersion, '1.2'
-    key :apiVersion, '1.0.0'
-    key :basePath, Rails.application.routes.url_helpers.root_path
-    api do
-      key :path, '/opportunities'
-      operation do
-        key :method, 'GET'
-        key :summary, 'Returns all opportunities'
-        key :notes, 'Returns all opportunities'
-        key :type, :array
-        key :nickname, :findOpportunities
-        parameter do
-          key :paramType, :query
-          key :name, :since
-          key :description, "Returns opportunities updated since this date time. Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
-          key :type, :string
-          key :required, false
-        end
-        parameter do
-          key :paramType, :query
-          key :name, :effort_rating
-          key :description, "Returns opportunities with the requested effort rating"
-          key :type, :integer
-          key :required, false
-        end
-        items do
-          key :'$ref', :Opportunity
+  swagger_path '/opportunities' do
+    operation :get do
+      key :description, 'Returns all opportunities'
+      key :operationId, 'findOpportunities'
+      key :produces, [
+        'application/json'
+      ]
+      key :tags, [
+        'opportunity'
+      ]
+      parameter do
+        key :name, :since
+        key :in, :query
+        key :description, "Returns opportunities updated since this date time. Since date format: yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
+        key :type, :string
+        key :required, false
+      end
+      parameter do
+        key :name, :effort_rating
+        key :in, :query
+        key :description, "Returns opportunities with the requested effort rating"
+        key :type, :integer
+        key :required, false
+      end
+      response 200 do
+        key :description, 'opportunity response'
+        schema do
+          key :type, :array
+          items do
+            key :'$ref', :Opportunity
+          end
         end
       end
     end
+  end
+  swagger_path '/opportunities/{id}' do
+    operation :get do
+      key :description, 'Returns a single opportunity'
+      key :operationId, 'findOpportunityById'
+      key :tags, [
+        'opportunity'
+      ]
+      parameter do
+        key :name, :id
+        key :in, :path
+        key :description, "ID of opportunity to fetch"
+        key :required, true
+        key :type, :integer
+        key :format, :int64
+      end
+      response 200 do
+        key :description, 'opportunity response'
+        schema do
+          key :'$ref', :Opportunity
+        end
+      end
+      response 400 do
+        key :description, 'Invalid ID supplied'
+      end
+      response 404 do
+        key :description, 'Opportunity not found'
+      end
+    end
+  end
+  swagger_path '/opportunities/{id}/effort_ratings' do
+    operation :post do
+      key :description, 'Creates a new effort rating for an opportunity'
+      key :operationId, 'addEffortRatingToOpportunity'
+      key :tags, [
+        'opportunity'
+      ]
+      parameter do
+        key :name, :id
+        key :in, :path
+        key :description, "ID of opportunity to add effort rating to"
+        key :required, true
+        key :type, :integer
+        key :format, :int64
+      end
+      parameter do
+        key :name, :effort_rating
+        key :in, :body
+        key :description, "Effort rating between 1 and 5"
+        key :required, true
+        schema do
+          key :'$ref', :EffortRatingInput
+        end
+      end
+      response 200 do
+        key :description, 'effort rating response'
+        schema do
+          key :'$ref', :EffortRating
+        end
+      end
+      response 400 do
+        key :description, 'Invalid ID supplied'
+      end
+      response 404 do
+        key :description, 'Opportunity not found'
+      end
+    end
+  end
+
+
+=begin
+  swagger_api_root :opportunities do
+    key :swaggerVersion, '2.0'
+    key :apiVersion, '1.0.0'
+    key :basePath, Rails.application.routes.url_helpers.root_path
+
     api do
       key :path, '/regions/{regionId}/opportunities'
       operation do
@@ -91,37 +170,18 @@ class OpportunitiesController < ApplicationController
         parameter do
           key :paramType, :query
           key :name, :effort_rating
+          key :type, :array
+          key :required, false
+        end
+        parameter do
+          key :paramType, :query
+          key :name, :rating
           key :description, "Returns opportunities with the requested effort rating"
           key :type, :integer
           key :required, false
         end
         items do
           key :'$ref', :Opportunity
-        end
-      end
-    end
-    api do
-      key :path, '/opportunities/{opportunityId}'
-      operation do
-        key :method, 'GET'
-        key :summary, 'Find opportunity by its Id'
-        key :notes, 'Returns a opportunity based on Id'
-        key :type, :Opportunity
-        key :nickname, :getOpportunityById
-        parameter do
-          key :paramType, :path
-          key :name, :opportunityId
-          key :description, 'Id of the opportunity that needs to be fetched'
-          key :required, true
-          key :type, :string
-        end
-        response_message do
-          key :code, 400
-          key :message, 'Invalid Id supplied'
-        end
-        response_message do
-          key :code, 404
-          key :message, 'Opportunity not found'
         end
       end
     end
@@ -158,7 +218,7 @@ class OpportunitiesController < ApplicationController
       end
     end
   end
-
+=end
   before_action :set_opportunity, only: [:show, :edit, :update, :destroy]
   before_action :set_organisation, only: [:new, :create]
   before_action :authenticate_user!, only: [:new, :create, :edit, :udpdate, :destroy]

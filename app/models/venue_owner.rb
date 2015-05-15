@@ -21,8 +21,7 @@
 class VenueOwner < ActiveRecord::Base
   include Swagger::Blocks
 
-  swagger_model :VenueOwner do
-    key :id, :VenueOwner
+  swagger_schema :VenueOwner do
     key :required, [:id, :name]
     property :id do
       key :type, :integer

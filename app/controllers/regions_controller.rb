@@ -1,46 +1,54 @@
 class RegionsController < ApplicationController
   include Swagger::Blocks
 
-  swagger_api_root :regions do
-    key :swaggerVersion, '1.2'
-    key :apiVersion, '1.0.0'
-    key :basePath, Rails.application.routes.url_helpers.root_path
-    api do
-      key :path, '/regions'
-      operation do
-        key :method, 'GET'
-        key :summary, 'Returns all regions'
-        key :notes, 'Returns all regions'
-        key :type, :array
-        key :nickname, :findRegions
-        items do
-          key :'$ref', :Region
+  swagger_path '/regions' do
+    operation :get do
+      key :description, 'Returns all regions from the system'
+      key :operationId, 'findRegions'
+      key :produces, [
+        'application/json',
+        'text/html'
+      ]
+      key :tags, [
+        'region'
+      ]
+      response 200 do
+        key :description, 'region response'
+        schema do
+          key :type, :array
+          items do
+            key :'$ref', :Region
+          end
         end
       end
     end
-    api do
-      key :path, 'regions/{regionId}'
-      operation do
-        key :method, 'GET'
-        key :summary, 'Find region by ID'
-        key :notes, 'Returns a region based on ID'
-        key :type, :Region
-        key :nickname, :getRegionById
-        parameter do
-          key :paramType, :path
-          key :name, :regionId
-          key :description, 'ID of region that needs to be fetched'
-          key :required, true
-          key :type, :integer
+  end
+  swagger_path '/regions/{id}' do
+    operation :get do
+      key :description, 'Returns a single region'
+      key :operationId, 'findRegionById'
+      key :tags, [
+        'region'
+      ]
+      parameter do
+        key :name, :id
+        key :in, :path
+        key :description, "ID of region to fetch"
+        key :required, true
+        key :type, :integer
+        key :format, :int64
+      end
+      response 200 do
+        key :description, 'region response'
+        schema do
+          key :'$ref', :Region
         end
-        response_message do
-          key :code, 400
-          key :message, 'Invalid ID supplied'
-        end
-        response_message do
-          key :code, 404
-          key :message, 'Region not found'
-        end
+      end
+      response 400 do
+        key :description, 'Invalid ID supplied'
+      end
+      response 404 do
+        key :description, 'Region not found'
       end
     end
   end

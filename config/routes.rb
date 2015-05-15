@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :apidocs, only: [:index, :show]
+  resources :apidocs, only: [:index]
+  get '/api' => redirect('/swagger/dist/index.html?url=/apidocs.json')
 
   devise_for :admins
   devise_for :users, :path_prefix => 'my'
