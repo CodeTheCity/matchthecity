@@ -3,7 +3,7 @@ class EffortRatingsController < ApplicationController
 
   before_action :set_effort_rating, only: [:show, :edit, :update, :destroy]
 
-  before_filter :find_opportunity,
+  before_filter :find_opportunity
 
   # GET /effort_ratings
   # GET /effort_ratings.json
@@ -28,9 +28,6 @@ class EffortRatingsController < ApplicationController
   # POST /effort_ratings
   # POST /effort_ratings.json
   def create
-
-    puts params
-    puts @opportunity
     @effort_rating = @opportunity.effort_ratings.new(effort_rating_params)
 
     respond_to do |format|
@@ -96,6 +93,6 @@ class EffortRatingsController < ApplicationController
 
 
   def find_opportunity
-    @opportunity = Opportunity.find_by_id(params[:opportunity_id])
+    @opportunity = Opportunity.find(params[:opportunity_id])
   end
 end
