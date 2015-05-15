@@ -28,7 +28,9 @@ class EffortRatingsController < ApplicationController
   # POST /effort_ratings
   # POST /effort_ratings.json
   def create
-    exit
+
+    puts params
+    puts @opportunity
     @effort_rating = @opportunity.effort_ratings.new(effort_rating_params)
 
     respond_to do |format|

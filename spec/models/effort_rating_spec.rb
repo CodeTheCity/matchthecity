@@ -19,4 +19,10 @@ describe EffortRating do
   it 'is invalid without an opportunity' do
     expect(build(:effort_rating, opportunity:nil)).to_not be_valid
   end
+
+  it 'has correct opportunity' do
+    opportunity = create(:opportunity)
+    effort_rating = build(:effort_rating, opportunity:opportunity)
+    expect(effort_rating.opportunity).to eq(opportunity)
+  end
 end
