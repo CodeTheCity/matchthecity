@@ -1,9 +1,49 @@
 class EffortRatingsController < ApplicationController
+  include Swagger::Blocks
+
   skip_before_filter :verify_authenticity_token, :only => :create
 
   before_action :set_effort_rating, only: [:show, :edit, :update, :destroy]
 
   before_filter :find_opportunity
+
+  swagger_path '/opportunities/{opportunity_id}/effort_ratings' do
+    operation :post do
+      key :description, 'Creates a new effort rating for an opportunity'
+      key :operationId, 'addEffortRatingToOpportunity'
+      key :tags, [
+        'opportunity'
+      ]
+      parameter do
+        key :name, :opportunity_id
+        key :in, :path
+        key :description, "ID of opportunity to add effort rating to"
+        key :required, true
+        key :type, :integer
+        key :format, :int64
+      end
+      parameter do
+        key :name, :rating
+        key :in, :body
+        key :description, "Effort rating between 1 and 5"
+        key :required, true
+        key :type, :integer
+        key :format, :int64
+      end
+      response 200 do
+        key :description, 'effort rating response'
+        schema do
+          key :'$ref', :EffortRating
+        end
+      end
+      response 400 do
+        key :description, 'Invalid ID supplied'
+      end
+      response 404 do
+        key :description, 'Opportunity not found'
+      end
+    end
+  end
 
   # GET /effort_ratings
   # GET /effort_ratings.json

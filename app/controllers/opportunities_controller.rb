@@ -65,44 +65,7 @@ class OpportunitiesController < ApplicationController
       end
     end
   end
-  swagger_path '/opportunities/{id}/effort_ratings' do
-    operation :post do
-      key :description, 'Creates a new effort rating for an opportunity'
-      key :operationId, 'addEffortRatingToOpportunity'
-      key :tags, [
-        'opportunity'
-      ]
-      parameter do
-        key :name, :id
-        key :in, :path
-        key :description, "ID of opportunity to add effort rating to"
-        key :required, true
-        key :type, :integer
-        key :format, :int64
-      end
-      parameter do
-        key :name, :effort_rating
-        key :in, :body
-        key :description, "Effort rating between 1 and 5"
-        key :required, true
-        schema do
-          key :'$ref', :EffortRatingInput
-        end
-      end
-      response 200 do
-        key :description, 'effort rating response'
-        schema do
-          key :'$ref', :EffortRating
-        end
-      end
-      response 400 do
-        key :description, 'Invalid ID supplied'
-      end
-      response 404 do
-        key :description, 'Opportunity not found'
-      end
-    end
-  end
+  
 
 
 =begin

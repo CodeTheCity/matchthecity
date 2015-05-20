@@ -26,6 +26,7 @@ class ApidocsController < ApplicationController
     OpportunitiesController,
     Opportunity,
     EffortRating,
+    EffortRatingsController,
     self,
   ].freeze
 
